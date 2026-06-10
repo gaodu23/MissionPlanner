@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+    <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+</Project>
