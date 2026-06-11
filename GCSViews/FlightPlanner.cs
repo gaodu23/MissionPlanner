@@ -1809,10 +1809,6 @@ namespace MissionPlanner.GCSViews
             writeKML();
         }
 
-        private void BUT_grid_Click(object sender, EventArgs e)
-        {
-        }
-
         public void BUT_loadwpfile_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog fd = new OpenFileDialog())
@@ -3426,7 +3422,6 @@ namespace MissionPlanner.GCSViews
         public void FlightPlanner_FormClosing(object sender, FormClosingEventArgs e)
         {
             timer1.Stop();
-            stopInjectCustomMap = true;
         }
 
         public void FlightPlanner_Load(object sender, EventArgs e)
@@ -3458,10 +3453,6 @@ namespace MissionPlanner.GCSViews
                 });
             }
 
-            TRK_zoom.Minimum = MainMap.MapProvider.MinZoom;
-            TRK_zoom.Maximum = 24;
-            TRK_zoom.Value = (float)MainMap.Zoom;
-
             Zoomlevel.Minimum = MainMap.MapProvider.MinZoom;
             Zoomlevel.Maximum = 24;
             Zoomlevel.Value = Convert.ToDecimal(MainMap.Zoom);
@@ -3473,7 +3464,6 @@ namespace MissionPlanner.GCSViews
             // mono
             panelMap.Dock = DockStyle.None;
             panelMap.Dock = DockStyle.Fill;
-            panelMap_Resize(null, null);
 
             //set home
             try
@@ -4971,19 +4961,8 @@ namespace MissionPlanner.GCSViews
             }
         }
 
-        public void panelMap_Resize(object sender, EventArgs e)
-        {
-            // this is a mono fix for the zoom bar
-            //Console.WriteLine("panelmap "+panelMap.Size.ToString());
-            MainMap.Size = new Size(panelMap.Size.Width - 50, panelMap.Size.Height);
-            TRK_zoom.Location = new Point(panelMap.Size.Width - 50, TRK_zoom.Location.Y);
-            TRK_zoom.Size = new Size(TRK_zoom.Size.Width, panelMap.Size.Height - TRK_zoom.Location.Y);
-            label11.Location = new Point(panelMap.Size.Width - 50, label11.Location.Y);
-        }
-
         public void Planner_Resize(object sender, EventArgs e)
         {
-            MainMap.Zoom = TRK_zoom.Value;
             Zoomlevel.Value = Convert.ToDecimal(MainMap.Zoom);
         }
 
@@ -6704,22 +6683,6 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             }
         }
 
-        public void TRK_zoom_Scroll(object sender, EventArgs e)
-        {
-            try
-            {
-                lock (thisLock)
-                {
-                    MainMap.Zoom = TRK_zoom.Value;
-                    Zoomlevel.Value = Convert.ToDecimal(TRK_zoom.Value);
-                }
-            }
-            catch (Exception ex)
-            {
-                log.Error(ex);
-            }
-        }
-
         private void Zoomlevel_ValueChanged(object sender, EventArgs e)
         {
             try
@@ -6727,7 +6690,6 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                 lock (thisLock)
                 {
                     MainMap.Zoom = (double)Zoomlevel.Value;
-                    TRK_zoom.Value = (float)Zoomlevel.Value;
                 }
             }
             catch (Exception ex)
@@ -7765,7 +7727,6 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             {
                 try
                 {
-                    TRK_zoom.Value = (float)(MainMap.Zoom);
                     Zoomlevel.Value = Convert.ToDecimal(MainMap.Zoom);
                 }
                 catch (Exception ex)
@@ -8160,120 +8121,6 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             var ans = GDAL.GDALProvider.Instance.opacity;
             if (InputBox.Show("Opacity 0.0-1.0", "Enter opacity (0.0-1.0)", ref ans) == DialogResult.OK)
                 GDAL.GDALProvider.Instance.opacity = double.Parse(InputBox.value);
-        }
-
-        private static bool stopInjectCustomMap = false;
-        private void BUT_InjectCustomMap_Click(object sender, EventArgs e)
-        {
-            var map = new GMapControl();
-            var tilesCount = new Dictionary<int, int>();
-            try
-            {
-                if (BUT_InjectCustomMap.Text == Strings.Cancel)
-                {
-                    stopInjectCustomMap = true;
-                    return;
-                }
-                stopInjectCustomMap = false;
-
-                map.MapProvider = GoogleSatelliteMapProvider.Instance;
-
-                map.CacheLocation = Settings.GetDataDirectory() +
-                                        "gmapcache" + Path.DirectorySeparatorChar;
-
-                var fbd = new FolderBrowserDialog();
-                fbd.SelectedPath = @"C:\";
-
-                if (fbd.ShowDialog() != DialogResult.OK)
-                {
-                    map.Dispose();
-                    return;
-                }
-
-                if (fbd.SelectedPath != "")
-                {
-                    BUT_InjectCustomMap.Text = Strings.Cancel;
-                    progressBarInjectCustomMap.Value = 0;
-                    progressBarInjectCustomMap.Visible = true;
-
-                    var files_jpg = Directory.GetFiles(fbd.SelectedPath, "*.jpg", SearchOption.AllDirectories);
-                    var files_jpeg = Directory.GetFiles(fbd.SelectedPath, "*.jpeg", SearchOption.AllDirectories);
-                    var files_png = Directory.GetFiles(fbd.SelectedPath, "*.png", SearchOption.AllDirectories);
-                    string[] files = new string[files_jpg.Length + files_jpeg.Length + files_png.Length];
-                    Array.Copy(files_jpg, 0, files, 0, files_jpg.Length);
-                    Array.Copy(files_jpeg, 0, files, files_jpg.Length, files_jpeg.Length);
-                    Array.Copy(files_png, 0, files, files_jpg.Length + files_jpeg.Length, files_png.Length);
-
-                    progressBarInjectCustomMap.Maximum = files.Length + 1;
-
-                    foreach (var file in files)
-                    {
-                        if(stopInjectCustomMap)
-                        {
-                            log.Info("Stop inject Custom Map");
-                            break;
-                        }
-                        log.Info(DateTime.Now.Millisecond + " Doing " + file);
-                        var reg = new Regex(@"\\Z*([0-9]+)\\([0-9]+)\\([0-9]+)\.");
-
-                        var mat = reg.Match(file);
-
-                        if (mat.Success == false)
-                            continue;
-
-                        var zoom = int.Parse(mat.Groups[1].Value);
-                        var pnt = new GPoint(int.Parse(mat.Groups[3].Value), int.Parse(mat.Groups[2].Value));
-                        var tile = new MemoryStream();
-                        var Img = Image.FromFile(file);
-                        Img.Save(tile, ImageFormat.Jpeg);
-
-                        tile.Seek(0, SeekOrigin.Begin);
-                        log.Info(pnt.X + " " + pnt.Y);
-
-                        Application.DoEvents();
-
-                        GMaps.Instance.PrimaryCache.PutImageToCache(tile.ToArray(), Custom.Instance.DbId, pnt, zoom);
-
-                        Application.DoEvents();
-                        if (progressBarInjectCustomMap.Value < progressBarInjectCustomMap.Maximum)
-                            progressBarInjectCustomMap.Value++;
-                        if (tilesCount.ContainsKey(zoom))
-                            tilesCount[zoom]++;
-                        else
-                            tilesCount.Add(zoom, 1);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-            BUT_InjectCustomMap.Text = rm.GetString("BUT_InjectCustomMap.Text");
-            progressBarInjectCustomMap.Visible = false;
-            progressBarInjectCustomMap.Value = 0;
-            int index = comboBoxMapType.FindString("Custom");
-            if (index != -1)
-            {
-                comboBoxMapType.SelectedIndex = index;
-
-                //Clear memory cache and force map reload
-                GMaps.Instance.MemoryCache.Clear();
-                MainMap.Core.ReloadMap();
-                FlightData.mymap.Core.ReloadMap();
-                MainMap.Refresh();
-                FlightData.mymap.Refresh();
-            }
-            string results = "";
-            int count = 0;
-            var tilesCountOrdered = tilesCount.OrderBy(x => x.Key);
-            foreach (var item in tilesCountOrdered)
-            {
-                results += Environment.NewLine + "Zoom " + item.Key + " : " + item.Value;
-                count += item.Value;
-            }
-            results += Environment.NewLine + Environment.NewLine + count + " tile" + (count > 1 ? "s" : "") + " loaded !";
-            CustomMessageBox.Show("Number of tiles loaded per zoom : " + Environment.NewLine + results, "Injecting Custom Map Results");
-            map.Dispose();
         }
 
         //Put here since it used in multiple places
