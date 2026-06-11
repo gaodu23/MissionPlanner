@@ -405,7 +405,7 @@
 
    <Compile Include="ExtLibs\Comms\System.IO.Ports\WinSerialStream.cs" />
 
-   <Compile Include="plugins\example-watchbutton.cs" />
+   <!-- <Compile Include="plugins\example-watchbutton.cs" />
 
    <Compile Include="plugins\example.cs" />
 
@@ -463,7 +463,7 @@
 
    <Compile Include="plugins\example8.cs" />
 
-   <Compile Include="plugins\example9-hudonoff.cs" />
+   <Compile Include="plugins\example9-hudonoff.cs" /> -->
 
    <Compile Include="plugins\generator.cs" />
 
@@ -471,7 +471,7 @@
 
    <Compile Include="Properties\AssemblyInfo.cs" />
 
-   <Compile Include="SikRadio\ISikRadioForm.cs" />
+   <!-- <Compile Include="SikRadio\ISikRadioForm.cs" />
    <Compile Include="SikRadio\RFD900.cs" />
    <Compile Include="SikRadio\RFDLib\Array.cs" />
    <Compile Include="SikRadio\RFDLib\Collections.cs" />
@@ -479,7 +479,7 @@
    <Compile Include="SikRadio\RFDLib\IO\ATCommand.cs" />
    <Compile Include="SikRadio\RFDLib\IO\SerialPort\SerialPort.cs" />
    <Compile Include="SikRadio\RFDLib\RFDLib.cs" />
-   <Compile Include="SikRadio\RFDLib\Text.cs" />
+   <Compile Include="SikRadio\RFDLib\Text.cs" /> -->
  </ItemGroup>
 
  <ItemGroup>

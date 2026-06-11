@@ -45,14 +45,14 @@ namespace MissionPlanner.GCSViews
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FlightPlanner));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.CHK_verifyheight = new System.Windows.Forms.CheckBox();
             this.TXT_WPRad = new System.Windows.Forms.TextBox();
             this.TXT_DefaultAlt = new System.Windows.Forms.TextBox();
@@ -84,6 +84,27 @@ namespace MissionPlanner.GCSViews
             this.label17 = new System.Windows.Forms.Label();
             this.TXT_altwarn = new System.Windows.Forms.TextBox();
             this.Commands = new MissionPlanner.Controls.MyDataGridView();
+            this.Command = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Param1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Param2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Param3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Param4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Alt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Frame = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.coordZone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coordEasting = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coordNorthing = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MGRS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Up = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Down = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Grad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Angle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dist = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AZ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TagData = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BUT_Add = new MissionPlanner.Controls.MyButton();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.panelAction = new System.Windows.Forms.Panel();
@@ -117,68 +138,15 @@ namespace MissionPlanner.GCSViews
             this.landToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearMissionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.polygonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addPolygonPointToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearPolygonToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.savePolygonToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadPolygonToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.fromSHPToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.fromCurrentWaypointsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.offsetPolygonToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.areaToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.mapToolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ContextMeasure = new System.Windows.Forms.ToolStripMenuItem();
-            this.rotateMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zoomToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.prefetchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.prefetchWPPathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kMLOverlayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.elevationGraphToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reverseWPsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gDALOpacityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setHomeHereToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addPolygonPointToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearPolygonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.savePolygonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadPolygonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fromSHPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.areaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fenceInclusionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fenceExclusionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelBASE = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.contextMenuStripPoly = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.convertWPToPolygonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.offsetPolygonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drawAPolygonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStripZoom = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.zoomToVehicleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zoomToMissionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zoomToHomeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Command = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Param1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Param2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Param3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Param4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Lat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Lon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Alt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Frame = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.coordZone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coordEasting = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coordNorthing = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MGRS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Up = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Down = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Grad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Angle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dist = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AZ = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TagData = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelWaypoints.SuspendLayout();
@@ -192,8 +160,6 @@ namespace MissionPlanner.GCSViews
             ((System.ComponentModel.ISupportInitialize)(this.Zoomlevel)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.panelBASE.SuspendLayout();
-            this.contextMenuStripPoly.SuspendLayout();
-            this.contextMenuStripZoom.SuspendLayout();
             this.SuspendLayout();
             // 
             // CHK_verifyheight
@@ -317,8 +283,8 @@ namespace MissionPlanner.GCSViews
             // 
             // dataGridViewImageColumn1
             // 
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             resources.ApplyResources(this.dataGridViewImageColumn1, "dataGridViewImageColumn1");
             this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
@@ -326,8 +292,8 @@ namespace MissionPlanner.GCSViews
             // 
             // dataGridViewImageColumn2
             // 
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle2;
             resources.ApplyResources(this.dataGridViewImageColumn2, "dataGridViewImageColumn2");
             this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
             this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
@@ -419,14 +385,14 @@ namespace MissionPlanner.GCSViews
             // 
             this.Commands.AllowUserToAddRows = false;
             resources.ApplyResources(this.Commands, "Commands");
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Commands.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Commands.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.Commands.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Command,
             this.Param1,
@@ -450,16 +416,16 @@ namespace MissionPlanner.GCSViews
             this.AZ,
             this.TagData});
             this.Commands.Name = "Commands";
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle23.Format = "N0";
-            dataGridViewCellStyle23.NullValue = "0";
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.Commands.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black;
-            this.Commands.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.Format = "N0";
+            dataGridViewCellStyle7.NullValue = "0";
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.Commands.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            this.Commands.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.Commands.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Commands_CellContentClick);
             this.Commands.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.Commands_CellEndEdit);
             this.Commands.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Commands_DataError);
@@ -469,6 +435,138 @@ namespace MissionPlanner.GCSViews
             this.Commands.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.Commands_RowsAdded);
             this.Commands.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.Commands_RowsRemoved);
             this.Commands.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.Commands_RowValidating);
+            // 
+            // Command
+            // 
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(68)))), ((int)(((byte)(69)))));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            this.Command.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Command.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            resources.ApplyResources(this.Command, "Command");
+            this.Command.Name = "Command";
+            // 
+            // Param1
+            // 
+            resources.ApplyResources(this.Param1, "Param1");
+            this.Param1.Name = "Param1";
+            this.Param1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Param2
+            // 
+            resources.ApplyResources(this.Param2, "Param2");
+            this.Param2.Name = "Param2";
+            this.Param2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Param3
+            // 
+            resources.ApplyResources(this.Param3, "Param3");
+            this.Param3.Name = "Param3";
+            this.Param3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Param4
+            // 
+            resources.ApplyResources(this.Param4, "Param4");
+            this.Param4.Name = "Param4";
+            this.Param4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Lat
+            // 
+            resources.ApplyResources(this.Lat, "Lat");
+            this.Lat.Name = "Lat";
+            this.Lat.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Lon
+            // 
+            resources.ApplyResources(this.Lon, "Lon");
+            this.Lon.Name = "Lon";
+            this.Lon.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Alt
+            // 
+            resources.ApplyResources(this.Alt, "Alt");
+            this.Alt.Name = "Alt";
+            this.Alt.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Frame
+            // 
+            resources.ApplyResources(this.Frame, "Frame");
+            this.Frame.Name = "Frame";
+            // 
+            // coordZone
+            // 
+            resources.ApplyResources(this.coordZone, "coordZone");
+            this.coordZone.Name = "coordZone";
+            // 
+            // coordEasting
+            // 
+            resources.ApplyResources(this.coordEasting, "coordEasting");
+            this.coordEasting.Name = "coordEasting";
+            // 
+            // coordNorthing
+            // 
+            resources.ApplyResources(this.coordNorthing, "coordNorthing");
+            this.coordNorthing.Name = "coordNorthing";
+            // 
+            // MGRS
+            // 
+            resources.ApplyResources(this.MGRS, "MGRS");
+            this.MGRS.Name = "MGRS";
+            // 
+            // Delete
+            // 
+            resources.ApplyResources(this.Delete, "Delete");
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "X";
+            // 
+            // Up
+            // 
+            this.Up.DefaultCellStyle = dataGridViewCellStyle5;
+            resources.ApplyResources(this.Up, "Up");
+            this.Up.Image = ((System.Drawing.Image)(resources.GetObject("Up.Image")));
+            this.Up.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.Up.Name = "Up";
+            // 
+            // Down
+            // 
+            this.Down.DefaultCellStyle = dataGridViewCellStyle6;
+            resources.ApplyResources(this.Down, "Down");
+            this.Down.Image = ((System.Drawing.Image)(resources.GetObject("Down.Image")));
+            this.Down.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.Down.Name = "Down";
+            // 
+            // Grad
+            // 
+            resources.ApplyResources(this.Grad, "Grad");
+            this.Grad.Name = "Grad";
+            this.Grad.ReadOnly = true;
+            this.Grad.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Angle
+            // 
+            resources.ApplyResources(this.Angle, "Angle");
+            this.Angle.Name = "Angle";
+            this.Angle.ReadOnly = true;
+            this.Angle.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Dist
+            // 
+            resources.ApplyResources(this.Dist, "Dist");
+            this.Dist.Name = "Dist";
+            this.Dist.ReadOnly = true;
+            this.Dist.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // AZ
+            // 
+            resources.ApplyResources(this.AZ, "AZ");
+            this.AZ.Name = "AZ";
+            this.AZ.ReadOnly = true;
+            this.AZ.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // TagData
+            // 
+            resources.ApplyResources(this.TagData, "TagData");
+            this.TagData.Name = "TagData";
+            this.TagData.ReadOnly = true;
             // 
             // BUT_Add
             // 
@@ -726,8 +824,8 @@ namespace MissionPlanner.GCSViews
             this.landToolStripMenuItem,
             this.clearMissionToolStripMenuItem,
             this.toolStripSeparator1,
-            this.polygonToolStripMenuItem,
-            this.mapToolToolStripMenuItem,
+            this.ContextMeasure,
+            this.reverseWPsToolStripMenuItem,
             this.setHomeHereToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.ShowImageMargin = false;
@@ -772,124 +870,11 @@ namespace MissionPlanner.GCSViews
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
-            // polygonToolStripMenuItem
-            // 
-            this.polygonToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addPolygonPointToolStripMenuItem2,
-            this.clearPolygonToolStripMenuItem2,
-            this.savePolygonToolStripMenuItem2,
-            this.loadPolygonToolStripMenuItem2,
-            this.fromSHPToolStripMenuItem2,
-            this.fromCurrentWaypointsToolStripMenuItem,
-            this.offsetPolygonToolStripMenuItem2,
-            this.areaToolStripMenuItem2});
-            this.polygonToolStripMenuItem.Name = "polygonToolStripMenuItem";
-            resources.ApplyResources(this.polygonToolStripMenuItem, "polygonToolStripMenuItem");
-            // 
-            // addPolygonPointToolStripMenuItem2
-            // 
-            this.addPolygonPointToolStripMenuItem2.Name = "addPolygonPointToolStripMenuItem2";
-            resources.ApplyResources(this.addPolygonPointToolStripMenuItem2, "addPolygonPointToolStripMenuItem2");
-            this.addPolygonPointToolStripMenuItem2.Click += new System.EventHandler(this.addPolygonPointToolStripMenuItem_Click);
-            // 
-            // clearPolygonToolStripMenuItem2
-            // 
-            this.clearPolygonToolStripMenuItem2.Name = "clearPolygonToolStripMenuItem2";
-            resources.ApplyResources(this.clearPolygonToolStripMenuItem2, "clearPolygonToolStripMenuItem2");
-            this.clearPolygonToolStripMenuItem2.Click += new System.EventHandler(this.clearPolygonToolStripMenuItem_Click);
-            // 
-            // savePolygonToolStripMenuItem2
-            // 
-            this.savePolygonToolStripMenuItem2.Name = "savePolygonToolStripMenuItem2";
-            resources.ApplyResources(this.savePolygonToolStripMenuItem2, "savePolygonToolStripMenuItem2");
-            this.savePolygonToolStripMenuItem2.Click += new System.EventHandler(this.savePolygonToolStripMenuItem_Click);
-            // 
-            // loadPolygonToolStripMenuItem2
-            // 
-            this.loadPolygonToolStripMenuItem2.Name = "loadPolygonToolStripMenuItem2";
-            resources.ApplyResources(this.loadPolygonToolStripMenuItem2, "loadPolygonToolStripMenuItem2");
-            this.loadPolygonToolStripMenuItem2.Click += new System.EventHandler(this.loadPolygonToolStripMenuItem_Click);
-            // 
-            // fromSHPToolStripMenuItem2
-            // 
-            this.fromSHPToolStripMenuItem2.Name = "fromSHPToolStripMenuItem2";
-            resources.ApplyResources(this.fromSHPToolStripMenuItem2, "fromSHPToolStripMenuItem2");
-            this.fromSHPToolStripMenuItem2.Click += new System.EventHandler(this.fromSHPToolStripMenuItem_Click);
-            // 
-            // fromCurrentWaypointsToolStripMenuItem
-            // 
-            this.fromCurrentWaypointsToolStripMenuItem.Name = "fromCurrentWaypointsToolStripMenuItem";
-            resources.ApplyResources(this.fromCurrentWaypointsToolStripMenuItem, "fromCurrentWaypointsToolStripMenuItem");
-            this.fromCurrentWaypointsToolStripMenuItem.Click += new System.EventHandler(this.fromCurrentWaypointsMenuItem_Click);
-            // 
-            // offsetPolygonToolStripMenuItem2
-            // 
-            this.offsetPolygonToolStripMenuItem2.Name = "offsetPolygonToolStripMenuItem2";
-            resources.ApplyResources(this.offsetPolygonToolStripMenuItem2, "offsetPolygonToolStripMenuItem2");
-            this.offsetPolygonToolStripMenuItem2.Click += new System.EventHandler(this.offsetPolygonToolStripMenuItem_Click);
-            // 
-            // areaToolStripMenuItem2
-            // 
-            this.areaToolStripMenuItem2.Name = "areaToolStripMenuItem2";
-            resources.ApplyResources(this.areaToolStripMenuItem2, "areaToolStripMenuItem2");
-            this.areaToolStripMenuItem2.Click += new System.EventHandler(this.areaToolStripMenuItem_Click);
-            // 
-            // mapToolToolStripMenuItem
-            // 
-            this.mapToolToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ContextMeasure,
-            this.rotateMapToolStripMenuItem,
-            this.zoomToToolStripMenuItem,
-            this.prefetchToolStripMenuItem,
-            this.prefetchWPPathToolStripMenuItem,
-            this.kMLOverlayToolStripMenuItem,
-            this.elevationGraphToolStripMenuItem,
-            this.reverseWPsToolStripMenuItem,
-            this.gDALOpacityToolStripMenuItem});
-            this.mapToolToolStripMenuItem.Name = "mapToolToolStripMenuItem";
-            resources.ApplyResources(this.mapToolToolStripMenuItem, "mapToolToolStripMenuItem");
-            // 
             // ContextMeasure
             // 
             this.ContextMeasure.Name = "ContextMeasure";
             resources.ApplyResources(this.ContextMeasure, "ContextMeasure");
             this.ContextMeasure.Click += new System.EventHandler(this.ContextMeasure_Click);
-            // 
-            // rotateMapToolStripMenuItem
-            // 
-            this.rotateMapToolStripMenuItem.Name = "rotateMapToolStripMenuItem";
-            resources.ApplyResources(this.rotateMapToolStripMenuItem, "rotateMapToolStripMenuItem");
-            this.rotateMapToolStripMenuItem.Click += new System.EventHandler(this.rotateMapToolStripMenuItem_Click);
-            // 
-            // zoomToToolStripMenuItem
-            // 
-            this.zoomToToolStripMenuItem.Name = "zoomToToolStripMenuItem";
-            resources.ApplyResources(this.zoomToToolStripMenuItem, "zoomToToolStripMenuItem");
-            this.zoomToToolStripMenuItem.Click += new System.EventHandler(this.zoomToToolStripMenuItem_Click);
-            // 
-            // prefetchToolStripMenuItem
-            // 
-            this.prefetchToolStripMenuItem.Name = "prefetchToolStripMenuItem";
-            resources.ApplyResources(this.prefetchToolStripMenuItem, "prefetchToolStripMenuItem");
-            this.prefetchToolStripMenuItem.Click += new System.EventHandler(this.prefetchToolStripMenuItem_Click);
-            // 
-            // prefetchWPPathToolStripMenuItem
-            // 
-            this.prefetchWPPathToolStripMenuItem.Name = "prefetchWPPathToolStripMenuItem";
-            resources.ApplyResources(this.prefetchWPPathToolStripMenuItem, "prefetchWPPathToolStripMenuItem");
-            this.prefetchWPPathToolStripMenuItem.Click += new System.EventHandler(this.prefetchWPPathToolStripMenuItem_Click);
-            // 
-            // kMLOverlayToolStripMenuItem
-            // 
-            this.kMLOverlayToolStripMenuItem.Name = "kMLOverlayToolStripMenuItem";
-            resources.ApplyResources(this.kMLOverlayToolStripMenuItem, "kMLOverlayToolStripMenuItem");
-            this.kMLOverlayToolStripMenuItem.Click += new System.EventHandler(this.kMLOverlayToolStripMenuItem_Click);
-            // 
-            // elevationGraphToolStripMenuItem
-            // 
-            this.elevationGraphToolStripMenuItem.Name = "elevationGraphToolStripMenuItem";
-            resources.ApplyResources(this.elevationGraphToolStripMenuItem, "elevationGraphToolStripMenuItem");
-            this.elevationGraphToolStripMenuItem.Click += new System.EventHandler(this.elevationGraphToolStripMenuItem_Click);
             // 
             // reverseWPsToolStripMenuItem
             // 
@@ -897,65 +882,11 @@ namespace MissionPlanner.GCSViews
             resources.ApplyResources(this.reverseWPsToolStripMenuItem, "reverseWPsToolStripMenuItem");
             this.reverseWPsToolStripMenuItem.Click += new System.EventHandler(this.reverseWPsToolStripMenuItem_Click);
             // 
-            // gDALOpacityToolStripMenuItem
-            // 
-            this.gDALOpacityToolStripMenuItem.Name = "gDALOpacityToolStripMenuItem";
-            resources.ApplyResources(this.gDALOpacityToolStripMenuItem, "gDALOpacityToolStripMenuItem");
-            this.gDALOpacityToolStripMenuItem.Click += new System.EventHandler(this.gDALOpacityToolStripMenuItem_Click);
-            // 
             // setHomeHereToolStripMenuItem
             // 
             this.setHomeHereToolStripMenuItem.Name = "setHomeHereToolStripMenuItem";
             resources.ApplyResources(this.setHomeHereToolStripMenuItem, "setHomeHereToolStripMenuItem");
             this.setHomeHereToolStripMenuItem.Click += new System.EventHandler(this.setHomeHereToolStripMenuItem_Click);
-            // 
-            // addPolygonPointToolStripMenuItem
-            // 
-            this.addPolygonPointToolStripMenuItem.Name = "addPolygonPointToolStripMenuItem";
-            resources.ApplyResources(this.addPolygonPointToolStripMenuItem, "addPolygonPointToolStripMenuItem");
-            this.addPolygonPointToolStripMenuItem.Click += new System.EventHandler(this.addPolygonPointToolStripMenuItem_Click);
-            // 
-            // clearPolygonToolStripMenuItem
-            // 
-            this.clearPolygonToolStripMenuItem.Name = "clearPolygonToolStripMenuItem";
-            resources.ApplyResources(this.clearPolygonToolStripMenuItem, "clearPolygonToolStripMenuItem");
-            this.clearPolygonToolStripMenuItem.Click += new System.EventHandler(this.clearPolygonToolStripMenuItem_Click);
-            // 
-            // savePolygonToolStripMenuItem
-            // 
-            this.savePolygonToolStripMenuItem.Name = "savePolygonToolStripMenuItem";
-            resources.ApplyResources(this.savePolygonToolStripMenuItem, "savePolygonToolStripMenuItem");
-            this.savePolygonToolStripMenuItem.Click += new System.EventHandler(this.savePolygonToolStripMenuItem_Click);
-            // 
-            // loadPolygonToolStripMenuItem
-            // 
-            this.loadPolygonToolStripMenuItem.Name = "loadPolygonToolStripMenuItem";
-            resources.ApplyResources(this.loadPolygonToolStripMenuItem, "loadPolygonToolStripMenuItem");
-            this.loadPolygonToolStripMenuItem.Click += new System.EventHandler(this.loadPolygonToolStripMenuItem_Click);
-            // 
-            // fromSHPToolStripMenuItem
-            // 
-            this.fromSHPToolStripMenuItem.Name = "fromSHPToolStripMenuItem";
-            resources.ApplyResources(this.fromSHPToolStripMenuItem, "fromSHPToolStripMenuItem");
-            this.fromSHPToolStripMenuItem.Click += new System.EventHandler(this.fromSHPToolStripMenuItem_Click);
-            // 
-            // areaToolStripMenuItem
-            // 
-            this.areaToolStripMenuItem.Name = "areaToolStripMenuItem";
-            resources.ApplyResources(this.areaToolStripMenuItem, "areaToolStripMenuItem");
-            this.areaToolStripMenuItem.Click += new System.EventHandler(this.areaToolStripMenuItem_Click);
-            // 
-            // fenceInclusionToolStripMenuItem
-            // 
-            this.fenceInclusionToolStripMenuItem.Name = "fenceInclusionToolStripMenuItem";
-            resources.ApplyResources(this.fenceInclusionToolStripMenuItem, "fenceInclusionToolStripMenuItem");
-            this.fenceInclusionToolStripMenuItem.Click += new System.EventHandler(this.FenceInclusionToolStripMenuItem_Click);
-            // 
-            // fenceExclusionToolStripMenuItem
-            // 
-            this.fenceExclusionToolStripMenuItem.Name = "fenceExclusionToolStripMenuItem";
-            resources.ApplyResources(this.fenceExclusionToolStripMenuItem, "fenceExclusionToolStripMenuItem");
-            this.fenceExclusionToolStripMenuItem.Click += new System.EventHandler(this.FenceExclusionToolStripMenuItem_Click);
             // 
             // panelBASE
             // 
@@ -971,36 +902,6 @@ namespace MissionPlanner.GCSViews
             this.timer1.Interval = 1200;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // contextMenuStripPoly
-            // 
-            this.contextMenuStripPoly.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addPolygonPointToolStripMenuItem,
-            this.clearPolygonToolStripMenuItem,
-            this.savePolygonToolStripMenuItem,
-            this.loadPolygonToolStripMenuItem,
-            this.fromSHPToolStripMenuItem,
-            this.convertWPToPolygonToolStripMenuItem,
-            this.offsetPolygonToolStripMenuItem,
-            this.areaToolStripMenuItem,
-            this.fenceInclusionToolStripMenuItem,
-            this.fenceExclusionToolStripMenuItem});
-            this.contextMenuStripPoly.Name = "contextMenuStripPoly";
-            this.contextMenuStripPoly.ShowImageMargin = false;
-            resources.ApplyResources(this.contextMenuStripPoly, "contextMenuStripPoly");
-            this.contextMenuStripPoly.Opening += new System.ComponentModel.CancelEventHandler(this.ContextMenuStripPoly_Opening);
-            // 
-            // convertWPToPolygonToolStripMenuItem
-            // 
-            this.convertWPToPolygonToolStripMenuItem.Name = "convertWPToPolygonToolStripMenuItem";
-            resources.ApplyResources(this.convertWPToPolygonToolStripMenuItem, "convertWPToPolygonToolStripMenuItem");
-            this.convertWPToPolygonToolStripMenuItem.Click += new System.EventHandler(this.fromCurrentWaypointsMenuItem_Click);
-            // 
-            // offsetPolygonToolStripMenuItem
-            // 
-            this.offsetPolygonToolStripMenuItem.Name = "offsetPolygonToolStripMenuItem";
-            resources.ApplyResources(this.offsetPolygonToolStripMenuItem, "offsetPolygonToolStripMenuItem");
-            this.offsetPolygonToolStripMenuItem.Click += new System.EventHandler(this.offsetPolygonToolStripMenuItem_Click);
-            // 
             // drawAPolygonToolStripMenuItem
             // 
             this.drawAPolygonToolStripMenuItem.Name = "drawAPolygonToolStripMenuItem";
@@ -1015,165 +916,6 @@ namespace MissionPlanner.GCSViews
             // 
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
             resources.ApplyResources(this.testToolStripMenuItem, "testToolStripMenuItem");
-            // 
-            // contextMenuStripZoom
-            // 
-            this.contextMenuStripZoom.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.zoomToVehicleToolStripMenuItem,
-            this.zoomToMissionToolStripMenuItem,
-            this.zoomToHomeToolStripMenuItem});
-            this.contextMenuStripZoom.Name = "contextMenuStripZoom";
-            resources.ApplyResources(this.contextMenuStripZoom, "contextMenuStripZoom");
-            // 
-            // zoomToVehicleToolStripMenuItem
-            // 
-            this.zoomToVehicleToolStripMenuItem.Name = "zoomToVehicleToolStripMenuItem";
-            resources.ApplyResources(this.zoomToVehicleToolStripMenuItem, "zoomToVehicleToolStripMenuItem");
-            this.zoomToVehicleToolStripMenuItem.Click += new System.EventHandler(this.zoomToVehicleToolStripMenuItem_Click);
-            // 
-            // zoomToMissionToolStripMenuItem
-            // 
-            this.zoomToMissionToolStripMenuItem.Name = "zoomToMissionToolStripMenuItem";
-            resources.ApplyResources(this.zoomToMissionToolStripMenuItem, "zoomToMissionToolStripMenuItem");
-            this.zoomToMissionToolStripMenuItem.Click += new System.EventHandler(this.zoomToMissionToolStripMenuItem_Click);
-            // 
-            // zoomToHomeToolStripMenuItem
-            // 
-            this.zoomToHomeToolStripMenuItem.Name = "zoomToHomeToolStripMenuItem";
-            resources.ApplyResources(this.zoomToHomeToolStripMenuItem, "zoomToHomeToolStripMenuItem");
-            this.zoomToHomeToolStripMenuItem.Click += new System.EventHandler(this.zoomToHomeToolStripMenuItem_Click);
-            // 
-            // Command
-            // 
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(68)))), ((int)(((byte)(69)))));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
-            this.Command.DefaultCellStyle = dataGridViewCellStyle20;
-            this.Command.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            resources.ApplyResources(this.Command, "Command");
-            this.Command.Name = "Command";
-            // 
-            // Param1
-            // 
-            resources.ApplyResources(this.Param1, "Param1");
-            this.Param1.Name = "Param1";
-            this.Param1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Param2
-            // 
-            resources.ApplyResources(this.Param2, "Param2");
-            this.Param2.Name = "Param2";
-            this.Param2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Param3
-            // 
-            resources.ApplyResources(this.Param3, "Param3");
-            this.Param3.Name = "Param3";
-            this.Param3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Param4
-            // 
-            resources.ApplyResources(this.Param4, "Param4");
-            this.Param4.Name = "Param4";
-            this.Param4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Lat
-            // 
-            resources.ApplyResources(this.Lat, "Lat");
-            this.Lat.Name = "Lat";
-            this.Lat.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Lon
-            // 
-            resources.ApplyResources(this.Lon, "Lon");
-            this.Lon.Name = "Lon";
-            this.Lon.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Alt
-            // 
-            resources.ApplyResources(this.Alt, "Alt");
-            this.Alt.Name = "Alt";
-            this.Alt.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Frame
-            // 
-            resources.ApplyResources(this.Frame, "Frame");
-            this.Frame.Name = "Frame";
-            // 
-            // coordZone
-            // 
-            resources.ApplyResources(this.coordZone, "coordZone");
-            this.coordZone.Name = "coordZone";
-            // 
-            // coordEasting
-            // 
-            resources.ApplyResources(this.coordEasting, "coordEasting");
-            this.coordEasting.Name = "coordEasting";
-            // 
-            // coordNorthing
-            // 
-            resources.ApplyResources(this.coordNorthing, "coordNorthing");
-            this.coordNorthing.Name = "coordNorthing";
-            // 
-            // MGRS
-            // 
-            resources.ApplyResources(this.MGRS, "MGRS");
-            this.MGRS.Name = "MGRS";
-            // 
-            // Delete
-            // 
-            resources.ApplyResources(this.Delete, "Delete");
-            this.Delete.Name = "Delete";
-            this.Delete.Text = "X";
-            // 
-            // Up
-            // 
-            this.Up.DefaultCellStyle = dataGridViewCellStyle21;
-            resources.ApplyResources(this.Up, "Up");
-            this.Up.Image = ((System.Drawing.Image)(resources.GetObject("Up.Image")));
-            this.Up.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.Up.Name = "Up";
-            // 
-            // Down
-            // 
-            this.Down.DefaultCellStyle = dataGridViewCellStyle22;
-            resources.ApplyResources(this.Down, "Down");
-            this.Down.Image = ((System.Drawing.Image)(resources.GetObject("Down.Image")));
-            this.Down.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.Down.Name = "Down";
-            // 
-            // Grad
-            // 
-            resources.ApplyResources(this.Grad, "Grad");
-            this.Grad.Name = "Grad";
-            this.Grad.ReadOnly = true;
-            this.Grad.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Angle
-            // 
-            resources.ApplyResources(this.Angle, "Angle");
-            this.Angle.Name = "Angle";
-            this.Angle.ReadOnly = true;
-            this.Angle.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Dist
-            // 
-            resources.ApplyResources(this.Dist, "Dist");
-            this.Dist.Name = "Dist";
-            this.Dist.ReadOnly = true;
-            this.Dist.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // AZ
-            // 
-            resources.ApplyResources(this.AZ, "AZ");
-            this.AZ.Name = "AZ";
-            this.AZ.ReadOnly = true;
-            this.AZ.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // TagData
-            // 
-            resources.ApplyResources(this.TagData, "TagData");
-            this.TagData.Name = "TagData";
-            this.TagData.ReadOnly = true;
             // 
             // FlightPlanner
             // 
@@ -1203,8 +945,6 @@ namespace MissionPlanner.GCSViews
             ((System.ComponentModel.ISupportInitialize)(this.Zoomlevel)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.panelBASE.ResumeLayout(false);
-            this.contextMenuStripPoly.ResumeLayout(false);
-            this.contextMenuStripZoom.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1249,27 +989,16 @@ namespace MissionPlanner.GCSViews
         public Label lbl_homedist;
         public ToolTip toolTip1;
         public ToolStripMenuItem clearMissionToolStripMenuItem;
-        public ToolStripMenuItem addPolygonPointToolStripMenuItem;
-        public ToolStripMenuItem clearPolygonToolStripMenuItem;
         public ToolStripSeparator toolStripSeparator1;
         public ToolStripMenuItem deleteWPToolStripMenuItem;
         public Timer timer1;
-        public ToolStripMenuItem mapToolToolStripMenuItem;
         public ToolStripMenuItem ContextMeasure;
-        public ToolStripMenuItem rotateMapToolStripMenuItem;
-        public ToolStripMenuItem zoomToToolStripMenuItem;
-        public ToolStripMenuItem prefetchToolStripMenuItem;
-        public ToolStripMenuItem kMLOverlayToolStripMenuItem;
-        public ToolStripMenuItem elevationGraphToolStripMenuItem;
         public ToolStripMenuItem landToolStripMenuItem;
         public ComboBox comboBoxMapType;
         public ToolStripMenuItem reverseWPsToolStripMenuItem;
-        public ToolStripMenuItem savePolygonToolStripMenuItem;
-        public ToolStripMenuItem loadPolygonToolStripMenuItem;
         public CheckBox chk_grid;
         public ToolStripMenuItem insertWpToolStripMenuItem;
         public LinkLabel lnk_kml;
-        public ToolStripMenuItem prefetchWPPathToolStripMenuItem;
         public Label label17;
         public TextBox TXT_altwarn;
         public Coords coords1;
@@ -1279,36 +1008,15 @@ namespace MissionPlanner.GCSViews
         public Panel panel4;
         public Panel panel3;
         public FlowLayoutPanel flowLayoutPanel1;
-        public ToolStripMenuItem fromSHPToolStripMenuItem;
         public Label lbl_wpfile;
-        public ToolStripMenuItem areaToolStripMenuItem;
         public ToolStripMenuItem setHomeHereToolStripMenuItem;
         public ToolStripMenuItem currentPositionToolStripMenuItem;
         public ComboBox cmb_missiontype;
-        public ContextMenuStrip contextMenuStripPoly;
         public ToolStripMenuItem drawAPolygonToolStripMenuItem;
-        public ToolStripMenuItem fenceInclusionToolStripMenuItem;
-        public ToolStripMenuItem fenceExclusionToolStripMenuItem;
         public MyButton but_mincommands;
-        private ToolStripMenuItem polygonToolStripMenuItem;
         private ToolStripMenuItem toolStripMenuItem3;
         private ToolStripMenuItem testToolStripMenuItem;
-        public ToolStripMenuItem addPolygonPointToolStripMenuItem2;
-        public ToolStripMenuItem clearPolygonToolStripMenuItem2;
-        public ToolStripMenuItem savePolygonToolStripMenuItem2;
-        public ToolStripMenuItem loadPolygonToolStripMenuItem2;
-        public ToolStripMenuItem fromSHPToolStripMenuItem2;
-        public ToolStripMenuItem areaToolStripMenuItem2;
-        private ContextMenuStrip contextMenuStripZoom;
-        private ToolStripMenuItem zoomToVehicleToolStripMenuItem;
-        private ToolStripMenuItem zoomToMissionToolStripMenuItem;
-        private ToolStripMenuItem zoomToHomeToolStripMenuItem;
-        private ToolStripMenuItem convertWPToPolygonToolStripMenuItem;
-        private ToolStripMenuItem fromCurrentWaypointsToolStripMenuItem;
-        private ToolStripMenuItem offsetPolygonToolStripMenuItem;
-        private ToolStripMenuItem offsetPolygonToolStripMenuItem2;
         public CheckBox chk_usemavftp;
-        private ToolStripMenuItem gDALOpacityToolStripMenuItem;
         private NumericUpDown Zoomlevel;
         private MyButton BUT_clearPolygonPoint;
         private MyButton BUT_clearWPFile;

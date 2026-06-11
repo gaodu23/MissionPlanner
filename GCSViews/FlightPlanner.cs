@@ -2674,25 +2674,6 @@ namespace MissionPlanner.GCSViews
             isMouseClickOffMenu = false; // Just incase
         }
 
-        public void ContextMenuStripPoly_Opening(object sender, CancelEventArgs e)
-        {
-            // update the displayed items
-            if ((MAVLink.MAV_MISSION_TYPE) cmb_missiontype.SelectedValue == MAVLink.MAV_MISSION_TYPE.RALLY)
-            {
-                fenceInclusionToolStripMenuItem.Visible = false;
-                fenceExclusionToolStripMenuItem.Visible = false;
-            }
-            else if ((MAVLink.MAV_MISSION_TYPE) cmb_missiontype.SelectedValue == MAVLink.MAV_MISSION_TYPE.FENCE)
-            {
-                fenceInclusionToolStripMenuItem.Visible = true;
-                fenceExclusionToolStripMenuItem.Visible = true;
-            }
-            else
-            {
-                fenceInclusionToolStripMenuItem.Visible = false;
-                fenceExclusionToolStripMenuItem.Visible = false;
-            }
-        }
 
         private void convertFromGeographic(double lat, double lng)
         {
@@ -7303,13 +7284,11 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                     return;
                 }
 
-                contextMenuStripPoly.Show(MainMap, e.Location);
                 return;
             }
 
             if (zoomicon.Rectangle.Contains(e.Location))
             {
-                contextMenuStripZoom.Show(MainMap, e.Location);
                 return;
             }
 
