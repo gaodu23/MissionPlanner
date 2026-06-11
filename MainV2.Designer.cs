@@ -48,6 +48,13 @@ namespace MissionPlanner
             this.MenuInitConfig = new System.Windows.Forms.ToolStripButton();
             this.MenuConfigTune = new System.Windows.Forms.ToolStripButton();
             this.MenuSimulation = new System.Windows.Forms.ToolStripButton();
+            this.btnAirspeedCalib = new System.Windows.Forms.ToolStripButton();
+            this.btnTakePhoto = new System.Windows.Forms.ToolStripButton();
+            this.btnAutoMode = new System.Windows.Forms.ToolStripButton();
+            this.btnRTL = new System.Windows.Forms.ToolStripButton();
+            this.btnArmDisarm = new System.Windows.Forms.ToolStripButton();
+            this.cmbWPJump = new System.Windows.Forms.ToolStripComboBox();
+            this.btnWPJump = new System.Windows.Forms.ToolStripButton();
             this.MenuConnect = new System.Windows.Forms.ToolStripButton();
             this.toolStripConnectionControl = new MissionPlanner.Controls.ToolStripConnectionControl();
             this.menu = new MissionPlanner.Controls.MyButton();
@@ -70,6 +77,13 @@ namespace MissionPlanner
             this.MenuInitConfig,
             this.MenuConfigTune,
             this.MenuSimulation,
+            this.btnAirspeedCalib,
+            this.btnTakePhoto,
+            this.btnAutoMode,
+            this.btnRTL,
+            this.btnArmDisarm,
+            this.cmbWPJump,
+            this.btnWPJump,
             this.MenuConnect,
             this.toolStripConnectionControl});
             this.MainMenu.Name = "MainMenu";
@@ -161,6 +175,89 @@ namespace MissionPlanner
             this.MenuSimulation.Name = "MenuSimulation";
             this.MenuSimulation.Click += new System.EventHandler(this.MenuSimulation_Click);
             // 
+            // btnAirspeedCalib
+            // 
+            this.btnAirspeedCalib.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnAirspeedCalib.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnAirspeedCalib.Margin = new System.Windows.Forms.Padding(0);
+            this.btnAirspeedCalib.Name = "btnAirspeedCalib";
+            this.btnAirspeedCalib.Size = new System.Drawing.Size(60, 43);
+            this.btnAirspeedCalib.Text = "ASPD CAL";
+            this.btnAirspeedCalib.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnAirspeedCalib.ToolTipText = "Calibrate Airspeed Sensor";
+            this.btnAirspeedCalib.Click += new System.EventHandler(this.btnAirspeedCalib_Click);
+            // 
+            // btnTakePhoto
+            // 
+            this.btnTakePhoto.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnTakePhoto.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnTakePhoto.Margin = new System.Windows.Forms.Padding(0);
+            this.btnTakePhoto.Name = "btnTakePhoto";
+            this.btnTakePhoto.Size = new System.Drawing.Size(45, 43);
+            this.btnTakePhoto.Text = "PHOTO";
+            this.btnTakePhoto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnTakePhoto.ToolTipText = "Trigger Camera Shutter";
+            this.btnTakePhoto.Click += new System.EventHandler(this.btnTakePhoto_Click);
+            // 
+            // btnAutoMode
+            // 
+            this.btnAutoMode.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnAutoMode.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnAutoMode.Margin = new System.Windows.Forms.Padding(0);
+            this.btnAutoMode.Name = "btnAutoMode";
+            this.btnAutoMode.Size = new System.Drawing.Size(60, 43);
+            this.btnAutoMode.Text = "AUTO";
+            this.btnAutoMode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnAutoMode.ToolTipText = "Switch to Auto Flight Mode";
+            this.btnAutoMode.Click += new System.EventHandler(this.btnAutoMode_Click);
+            // 
+            // btnRTL
+            // 
+            this.btnRTL.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnRTL.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnRTL.Margin = new System.Windows.Forms.Padding(0);
+            this.btnRTL.Name = "btnRTL";
+            this.btnRTL.Size = new System.Drawing.Size(60, 43);
+            this.btnRTL.Text = "RTL";
+            this.btnRTL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnRTL.ToolTipText = "Switch to Return to Launch Mode";
+            this.btnRTL.Click += new System.EventHandler(this.btnRTL_Click);
+            // 
+            // btnArmDisarm
+            // 
+            this.btnArmDisarm.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnArmDisarm.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnArmDisarm.Margin = new System.Windows.Forms.Padding(0);
+            this.btnArmDisarm.Name = "btnArmDisarm";
+            this.btnArmDisarm.Size = new System.Drawing.Size(60, 43);
+            this.btnArmDisarm.Text = "ARM/DISARM";
+            this.btnArmDisarm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnArmDisarm.ToolTipText = "Toggle Arm / Disarm";
+            this.btnArmDisarm.Click += new System.EventHandler(this.btnArmDisarm_Click);
+            // 
+            // cmbWPJump
+            // 
+            this.cmbWPJump.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbWPJump.DropDownWidth = 100;
+            this.cmbWPJump.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cmbWPJump.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            this.cmbWPJump.Name = "cmbWPJump";
+            this.cmbWPJump.Size = new System.Drawing.Size(75, 23);
+            this.cmbWPJump.ToolTipText = "Select waypoint to jump to";
+            this.cmbWPJump.DropDown += new System.EventHandler(this.cmbWPJump_DropDown);
+            // 
+            // btnWPJump
+            // 
+            this.btnWPJump.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnWPJump.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnWPJump.Margin = new System.Windows.Forms.Padding(0);
+            this.btnWPJump.Name = "btnWPJump";
+            this.btnWPJump.Size = new System.Drawing.Size(50, 43);
+            this.btnWPJump.Text = "JUMP";
+            this.btnWPJump.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnWPJump.ToolTipText = "Jump to selected waypoint";
+            this.btnWPJump.Click += new System.EventHandler(this.btnWPJump_Click);
+            // 
             // MenuConnect
             // 
             this.MenuConnect.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -228,6 +325,13 @@ namespace MissionPlanner
         public System.Windows.Forms.ToolStripButton MenuSimulation;
         public System.Windows.Forms.ToolStripButton MenuConfigTune;
         public System.Windows.Forms.ToolStripButton MenuConnect;
+        public System.Windows.Forms.ToolStripButton btnAirspeedCalib;
+        public System.Windows.Forms.ToolStripButton btnTakePhoto;
+        public System.Windows.Forms.ToolStripButton btnAutoMode;
+        public System.Windows.Forms.ToolStripButton btnRTL;
+        public System.Windows.Forms.ToolStripButton btnArmDisarm;
+        public System.Windows.Forms.ToolStripComboBox cmbWPJump;
+        public System.Windows.Forms.ToolStripButton btnWPJump;
         private Controls.ToolStripConnectionControl toolStripConnectionControl;
         private Controls.MyButton menu;
         public System.Windows.Forms.Panel panel1;

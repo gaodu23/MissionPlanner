@@ -1329,6 +1329,166 @@ namespace MissionPlanner
             MyView.ShowScreen("Simulation");
         }
 
+        private void btnAirspeedCalib_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!comPort.BaseStream.IsOpen)
+                {
+                    CustomMessageBox.Show(Strings.ErrorNotConnected, Strings.ERROR);
+                    return;
+                }
+                // PREFLIGHT_CALIBRATION: param3=1 calibrate baro and airspeed sensor
+                comPort.doCommand((byte)comPort.sysidcurrent, (byte)comPort.compidcurrent,
+                    MAVLink.MAV_CMD.PREFLIGHT_CALIBRATION, 0, 0, 1, 0, 0, 0, 0, true);
+                CustomMessageBox.Show("Airspeed calibration command sent", "Airspeed Calibration");
+            }
+            catch (Exception ex)
+            {
+                CustomMessageBox.Show(ex.Message, Strings.ERROR);
+            }
+        }
+
+        private void btnTakePhoto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!comPort.BaseStream.IsOpen)
+                {
+                    CustomMessageBox.Show(Strings.ErrorNotConnected, Strings.ERROR);
+                    return;
+                }
+                // DO_DIGICAM_CONTROL: trigger camera shutter
+                comPort.doCommand((byte)comPort.sysidcurrent, (byte)comPort.compidcurrent,
+                    MAVLink.MAV_CMD.DO_DIGICAM_CONTROL, 0, 0, 0, 0, 1, 0, 0);
+            }
+            catch (Exception ex)
+            {
+                CustomMessageBox.Show(ex.Message, Strings.ERROR);
+            }
+        }
+
+        private void btnAutoMode_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!comPort.BaseStream.IsOpen)
+                {
+                    CustomMessageBox.Show(Strings.ErrorNotConnected, Strings.ERROR);
+                    return;
+                }
+                comPort.setMode("Auto");
+            }
+            catch (Exception ex)
+            {
+                CustomMessageBox.Show(ex.Message, Strings.ERROR);
+            }
+        }
+
+        private void btnRTL_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!comPort.BaseStream.IsOpen)
+                {
+                    CustomMessageBox.Show(Strings.ErrorNotConnected, Strings.ERROR);
+                    return;
+                }
+                comPort.setMode("RTL");
+            }
+            catch (Exception ex)
+            {
+                CustomMessageBox.Show(ex.Message, Strings.ERROR);
+            }
+        }
+
+        private void btnArmDisarm_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!comPort.BaseStream.IsOpen)
+                {
+                    CustomMessageBox.Show(Strings.ErrorNotConnected, Strings.ERROR);
+                    return;
+                }
+                bool isArmed = comPort.MAV.cs.armed;
+                string action = isArmed ? "Disarm" : "Arm";
+                if (isArmed)
+                {
+                    if (CustomMessageBox.Show("Are you sure you want to " + action + "?", action,
+                            CustomMessageBox.MessageBoxButtons.YesNo) !=
+                        CustomMessageBox.DialogResult.Yes)
+                        return;
+                }
+                bool ans = comPort.doARM(!isArmed);
+                if (!ans)
+                {
+                    if (CustomMessageBox.Show(
+                            action + " failed.\nForce " + action + " can bypass safety checks,\nwhich can lead to the vehicle crashing.\n\nDo you wish to Force " + action + "?",
+                            Strings.ERROR, CustomMessageBox.MessageBoxButtons.YesNo,
+                            CustomMessageBox.MessageBoxIcon.Exclamation) ==
+                        CustomMessageBox.DialogResult.Yes)
+                    {
+                        ans = comPort.doARM(!isArmed, true);
+                        if (!ans)
+                            CustomMessageBox.Show(Strings.ErrorRejectedByMAV, Strings.ERROR);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                CustomMessageBox.Show(ex.Message, Strings.ERROR);
+            }
+        }
+
+        private void cmbWPJump_DropDown(object sender, EventArgs e)
+        {
+            cmbWPJump.Items.Clear();
+            cmbWPJump.Items.Add("0 (Home)");
+
+            int max = 0;
+
+            if (comPort.MAV.param["CMD_TOTAL"] != null)
+                max = Math.Max(max, int.Parse(comPort.MAV.param["CMD_TOTAL"].ToString()));
+            if (comPort.MAV.param["WP_TOTAL"] != null)
+                max = Math.Max(max, int.Parse(comPort.MAV.param["WP_TOTAL"].ToString()));
+            if (comPort.MAV.param["MIS_TOTAL"] != null)
+                max = Math.Max(max, int.Parse(comPort.MAV.param["MIS_TOTAL"].ToString()));
+            if (comPort.MAV.wps.Count > 0)
+                max = Math.Max(max, comPort.MAV.wps.Count);
+
+            for (int z = 1; z <= max; z++)
+                cmbWPJump.Items.Add(z.ToString());
+        }
+
+        private void btnWPJump_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!comPort.BaseStream.IsOpen)
+                {
+                    CustomMessageBox.Show(Strings.ErrorNotConnected, Strings.ERROR);
+                    return;
+                }
+                if (cmbWPJump.SelectedIndex < 0)
+                {
+                    CustomMessageBox.Show("Please select a waypoint first.", Strings.ERROR);
+                    return;
+                }
+                btnWPJump.Enabled = false;
+                comPort.setWPCurrent(comPort.MAV.sysid, comPort.MAV.compid,
+                    (ushort)cmbWPJump.SelectedIndex);
+            }
+            catch
+            {
+                CustomMessageBox.Show(Strings.CommandFailed, Strings.ERROR);
+            }
+            finally
+            {
+                btnWPJump.Enabled = true;
+            }
+        }
+
         private void MenuTuning_Click(object sender, EventArgs e)
         {
             if (Settings.Instance.GetBoolean("password_protect") == false)
