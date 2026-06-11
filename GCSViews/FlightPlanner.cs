@@ -32,7 +32,6 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Reflection;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
@@ -51,7 +50,6 @@ using Point = System.Drawing.Point;
 using Resources = MissionPlanner.Properties.Resources;
 using Newtonsoft.Json;
 using MissionPlanner.ArduPilot.Mavlink;
-using System.Drawing.Imaging;
 using SharpKml.Engine;
 using MissionPlanner.Controls.Waypoints;
 
@@ -94,7 +92,6 @@ namespace MissionPlanner.GCSViews
         private static Propagation prop;
         private static GMapOverlay rallypointoverlay;
         private static string zone = "50s";
-        private readonly Random rnd = new Random();
         public GMapMarker center = new GMarkerGoogle(new PointLatLng(0.0, 0.0), GMarkerGoogleType.none);
         private Dictionary<string, string[]> cmdParamNames = new Dictionary<string, string[]>();
         private Dictionary<string, double[]> cmdParamMultipliers = new Dictionary<string, double[]>();
@@ -122,8 +119,6 @@ namespace MissionPlanner.GCSViews
         /// </summary>
         private DateTime lastmapposchange = DateTime.MinValue;
 
-        private DateTime mapupdate = DateTime.MinValue;
-        private string mobileGpsLog = string.Empty;
         private PointLatLng MouseDownStart;
         private PointLatLngAlt mouseposdisplay = new PointLatLngAlt(0, 0);
         private WPOverlay wpOverlay;
@@ -779,51 +774,6 @@ namespace MissionPlanner.GCSViews
             }
             updateUndoBuffer(true);
             setfromMap(lat, lng, alt);
-        }
-
-        public T DeepClone<T>(T obj)
-        {
-            using (var ms = new MemoryStream())
-            {
-                var formatter = new BinaryFormatter();
-
-                formatter.Serialize(ms, obj);
-
-                ms.Position = 0;
-
-                return (T) formatter.Deserialize(ms);
-            }
-        }
-
-        /// <summary>
-        /// from http://stackoverflow.com/questions/1119451/how-to-tell-if-a-line-intersects-a-polygon-in-c
-        /// </summary>
-        /// <param name="start1"></param>
-        /// <param name="end1"></param>
-        /// <param name="start2"></param>
-        /// <param name="end2"></param>
-        /// <returns></returns>
-        public PointLatLng FindLineIntersection(PointLatLng start1, PointLatLng end1, PointLatLng start2,
-            PointLatLng end2)
-        {
-            double denom = ((end1.Lng - start1.Lng) * (end2.Lat - start2.Lat)) -
-                           ((end1.Lat - start1.Lat) * (end2.Lng - start2.Lng));
-            //  AB & CD are parallel
-            if (denom == 0)
-                return PointLatLng.Empty;
-            double numer = ((start1.Lat - start2.Lat) * (end2.Lng - start2.Lng)) -
-                           ((start1.Lng - start2.Lng) * (end2.Lat - start2.Lat));
-            double r = numer / denom;
-            double numer2 = ((start1.Lat - start2.Lat) * (end1.Lng - start1.Lng)) -
-                            ((start1.Lng - start2.Lng) * (end1.Lat - start1.Lat));
-            double s = numer2 / denom;
-            if ((r < 0 || r > 1) || (s < 0 || s > 1))
-                return PointLatLng.Empty;
-            // Find intersection point
-            PointLatLng result = new PointLatLng();
-            result.Lng = start1.Lng + (r * (end1.Lng - start1.Lng));
-            result.Lat = start1.Lat + (r * (end1.Lat - start1.Lat));
-            return result;
         }
 
         public void GeoFencedownloadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1864,10 +1814,6 @@ namespace MissionPlanner.GCSViews
                     lbl_wpfile.Text = "Loaded " + Path.GetFileName(file);
                 }
             }
-        }
-
-        private void BUT_Prefetch_Click(object sender, EventArgs e)
-        {
         }
 
         public void BUT_saveWPFile_Click(object sender, EventArgs e)
@@ -4866,11 +4812,6 @@ namespace MissionPlanner.GCSViews
             zoomicon.Paint(e.Graphics);
 
             e.Graphics.ResetTransform();
-        }
-
-        private void MainMap_Resize(object sender, EventArgs e)
-        {
-            MainMap.Zoom = MainMap.Zoom + 0.01;
         }
 
         public void modifyAltToolStripMenuItem_Click(object sender, EventArgs e)
