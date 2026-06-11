@@ -197,6 +197,12 @@ namespace MissionPlanner.GCSViews
             this.zoomToVehicleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zoomToMissionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zoomToHomeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BUT_clearPolygonPoint = new MissionPlanner.Controls.MyButton();
+            this.BUT_clearWPFile = new MissionPlanner.Controls.MyButton();
+            this.BUT_elevationGraph = new MissionPlanner.Controls.MyButton();
+            this.BUT_addPolygonPoint = new MissionPlanner.Controls.MyButton();
+            this.BUT_KMLover = new MissionPlanner.Controls.MyButton();
+            this.BUT_Survey = new MissionPlanner.Controls.MyButton();
             this.Commands = new MissionPlanner.Controls.MyDataGridView();
             this.Command = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Param1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -219,6 +225,7 @@ namespace MissionPlanner.GCSViews
             this.Dist = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AZ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TagData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BUT_MeaDis = new MissionPlanner.Controls.MyButton();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelWaypoints.SuspendLayout();
@@ -529,9 +536,16 @@ namespace MissionPlanner.GCSViews
             // 
             resources.ApplyResources(this.panel2, "panel2");
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.BUT_MeaDis);
+            this.panel2.Controls.Add(this.BUT_clearPolygonPoint);
             this.panel2.Controls.Add(this.lbl_wpfile);
+            this.panel2.Controls.Add(this.BUT_clearWPFile);
             this.panel2.Controls.Add(this.BUT_loadwpfile);
+            this.panel2.Controls.Add(this.BUT_elevationGraph);
             this.panel2.Controls.Add(this.BUT_saveWPFile);
+            this.panel2.Controls.Add(this.BUT_addPolygonPoint);
+            this.panel2.Controls.Add(this.BUT_KMLover);
+            this.panel2.Controls.Add(this.BUT_Survey);
             this.panel2.Name = "panel2";
             // 
             // lbl_wpfile
@@ -1296,6 +1310,54 @@ namespace MissionPlanner.GCSViews
             resources.ApplyResources(this.zoomToHomeToolStripMenuItem, "zoomToHomeToolStripMenuItem");
             this.zoomToHomeToolStripMenuItem.Click += new System.EventHandler(this.zoomToHomeToolStripMenuItem_Click);
             // 
+            // BUT_clearPolygonPoint
+            // 
+            resources.ApplyResources(this.BUT_clearPolygonPoint, "BUT_clearPolygonPoint");
+            this.BUT_clearPolygonPoint.Name = "BUT_clearPolygonPoint";
+            this.BUT_clearPolygonPoint.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.BUT_clearPolygonPoint.UseVisualStyleBackColor = true;
+            this.BUT_clearPolygonPoint.Click += new System.EventHandler(this.clearPolygonToolStripMenuItem_Click);
+            // 
+            // BUT_clearWPFile
+            // 
+            resources.ApplyResources(this.BUT_clearWPFile, "BUT_clearWPFile");
+            this.BUT_clearWPFile.Name = "BUT_clearWPFile";
+            this.BUT_clearWPFile.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.BUT_clearWPFile.UseVisualStyleBackColor = true;
+            this.BUT_clearWPFile.Click += new System.EventHandler(this.clearMissionToolStripMenuItem_Click);
+            // 
+            // BUT_elevationGraph
+            // 
+            resources.ApplyResources(this.BUT_elevationGraph, "BUT_elevationGraph");
+            this.BUT_elevationGraph.Name = "BUT_elevationGraph";
+            this.BUT_elevationGraph.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.BUT_elevationGraph.UseVisualStyleBackColor = true;
+            this.BUT_elevationGraph.Click += new System.EventHandler(this.elevationGraphToolStripMenuItem_Click);
+            // 
+            // BUT_addPolygonPoint
+            // 
+            resources.ApplyResources(this.BUT_addPolygonPoint, "BUT_addPolygonPoint");
+            this.BUT_addPolygonPoint.Name = "BUT_addPolygonPoint";
+            this.BUT_addPolygonPoint.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.BUT_addPolygonPoint.UseVisualStyleBackColor = true;
+            this.BUT_KMLover.Click += new System.EventHandler(this.kMLOverlayToolStripMenuItem_Click);
+            // 
+            // BUT_KMLover
+            // 
+            resources.ApplyResources(this.BUT_KMLover, "BUT_KMLover");
+            this.BUT_KMLover.Name = "BUT_KMLover";
+            this.BUT_KMLover.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.BUT_KMLover.UseVisualStyleBackColor = true;
+            this.BUT_KMLover.Click += new System.EventHandler(this.kMLOverlayToolStripMenuItem_Click);
+            // 
+            // BUT_Survey
+            // 
+            resources.ApplyResources(this.BUT_Survey, "BUT_Survey");
+            this.BUT_Survey.Name = "BUT_Survey";
+            this.BUT_Survey.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.BUT_Survey.UseVisualStyleBackColor = true;
+            this.BUT_Survey.Click += new System.EventHandler(this.surveyGridToolStripMenuItem_Click);
+            // 
             // Commands
             // 
             this.Commands.AllowUserToAddRows = false;
@@ -1482,6 +1544,13 @@ namespace MissionPlanner.GCSViews
             resources.ApplyResources(this.TagData, "TagData");
             this.TagData.Name = "TagData";
             this.TagData.ReadOnly = true;
+            // 
+            // BUT_MeaDis
+            // 
+            resources.ApplyResources(this.BUT_MeaDis, "BUT_MeaDis");
+            this.BUT_MeaDis.Name = "BUT_MeaDis";
+            this.BUT_MeaDis.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.BUT_MeaDis.UseVisualStyleBackColor = true;
             // 
             // FlightPlanner
             // 
@@ -1685,5 +1754,12 @@ namespace MissionPlanner.GCSViews
         private DataGridViewTextBoxColumn TagData;
         private ToolStripMenuItem gDALOpacityToolStripMenuItem;
         private NumericUpDown Zoomlevel;
+        private MyButton BUT_clearPolygonPoint;
+        private MyButton BUT_clearWPFile;
+        private MyButton BUT_elevationGraph;
+        private MyButton BUT_addPolygonPoint;
+        private MyButton BUT_KMLover;
+        private MyButton BUT_Survey;
+        private MyButton BUT_MeaDis;
     }
 }
