@@ -525,7 +525,6 @@ namespace MissionPlanner.GCSViews
                     {
                         // no zoom in
                         Zoomlevel.Value = 3;
-                        TRK_zoom.Value = 3;
                     }
                     else
                     {
@@ -533,7 +532,6 @@ namespace MissionPlanner.GCSViews
                         if (Zoomlevel.Maximum < (decimal) zoom)
                             zoom = (float) Zoomlevel.Maximum;
                         Zoomlevel.Value = (decimal) zoom;
-                        TRK_zoom.Value = (float) Zoomlevel.Value;
                     }
                 }
                 catch
@@ -2693,10 +2691,6 @@ namespace MissionPlanner.GCSViews
             if (!Settings.Instance.ContainsKey("ShowNoFly") || Settings.Instance.GetBoolean("ShowNoFly"))
                 NoFly.NoFly.NoFlyEvent += NoFly_NoFlyEvent;
 
-            TRK_zoom.Minimum = gMapControl1.MapProvider.MinZoom;
-            TRK_zoom.Maximum = 24;
-            TRK_zoom.Value = (float) gMapControl1.Zoom;
-
             gMapControl1.EmptyTileColor = Color.Gray;
 
             Zoomlevel.Minimum = gMapControl1.MapProvider.MinZoom;
@@ -3024,7 +3018,6 @@ namespace MissionPlanner.GCSViews
             try
             {
                 // Exception System.Runtime.InteropServices.SEHException: External component has thrown an exception.
-                TRK_zoom.Value = (float) gMapControl1.Zoom;
                 Zoomlevel.Value = Convert.ToDecimal(gMapControl1.Zoom);
             }
             catch
@@ -3325,15 +3318,26 @@ namespace MissionPlanner.GCSViews
             };
 
             bool controlsEmpty = controlsToCheck.Sum(x => x.Controls.Count) == 0;
-            bool panelVisible = !MainH.Panel1Collapsed;
+            bool swapped = MainH.Panel2.Controls.Contains(SubMainLeft);
+            bool panelVisible = swapped ? !MainH.Panel2Collapsed : !MainH.Panel1Collapsed;
 
             // if controls are empty, but panel is visible -> hide
             if (controlsEmpty && panelVisible)
-                MainH.Panel1Collapsed = true;
+            {
+                if (swapped)
+                    MainH.Panel2Collapsed = true;
+                else
+                    MainH.Panel1Collapsed = true;
+            }
 
             // if controls have content, but panel is hidden -> show
             if (!controlsEmpty && !panelVisible)
-                MainH.Panel1Collapsed = false;
+            {
+                if (swapped)
+                    MainH.Panel2Collapsed = false;
+                else
+                    MainH.Panel1Collapsed = false;
+            }
         }
 
         private void loadFileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -5124,22 +5128,32 @@ namespace MissionPlanner.GCSViews
             if (this.huddropout)
                 return;
 
+            MainH.Panel1.SuspendLayout();
             MainH.Panel2.SuspendLayout();
 
-            if (this.SubMainLeft.Panel1.Controls.Contains(hud1))
+            if (MainH.Panel1.Controls.Contains(SubMainLeft))
             {
+                // Normal → Swapped: 左半部分移到右边, 地图移到左边
                 Settings.Instance["HudSwap"] = "true";
-                MainH.Panel2.Controls.Add(hud1);
-                SubMainLeft.Panel1.Controls.Add(tableMap);
+                MainH.Panel1.Controls.Clear();
+                MainH.Panel2.Controls.Clear();
+                MainH.Panel2.Controls.Add(SubMainLeft);
+                MainH.Panel1.Controls.Add(tableMap);
             }
             else
             {
+                // Swapped → Normal: 恢复默认布局
                 Settings.Instance["HudSwap"] = "false";
+                MainH.Panel1.Controls.Clear();
+                MainH.Panel2.Controls.Clear();
+                MainH.Panel1.Controls.Add(SubMainLeft);
                 MainH.Panel2.Controls.Add(tableMap);
-                SubMainLeft.Panel1.Controls.Add(hud1);
             }
 
+            MainH.Panel1.ResumeLayout();
             MainH.Panel2.ResumeLayout();
+
+            ManageLeftPanelVisibility();
         }
 
         private void swapWithMapToolStripMenuItem_Click(object sender, EventArgs e)
@@ -5374,27 +5388,7 @@ namespace MissionPlanner.GCSViews
             }
         }
 
-        private void TRK_zoom_Scroll(object sender, EventArgs e)
-        {
-            try
-            {
-                if (gMapControl1.MaxZoom + 1 == (double) TRK_zoom.Value)
-                {
-                    gMapControl1.Zoom = TRK_zoom.Value - .1;
-                    Zoomlevel.Value = Convert.ToDecimal(TRK_zoom.Value - .1);
-                }
-                else
-                {
-                    gMapControl1.Zoom = TRK_zoom.Value;
-                    Zoomlevel.Value = Convert.ToDecimal(TRK_zoom.Value);
-                }
 
-                UpdateOverlayVisibility();
-            }
-            catch
-            {
-            }
-        }
 
         private void txt_messagebox_TextChanged(object sender, EventArgs e)
         {
@@ -5901,12 +5895,10 @@ namespace MissionPlanner.GCSViews
                 if (gMapControl1.MaxZoom + 1 == (double) Zoomlevel.Value)
                 {
                     gMapControl1.Zoom = (double) Zoomlevel.Value - .1;
-                    TRK_zoom.Value = (float)Zoomlevel.Value - (float).1;
                 }
                 else
                 {
                     gMapControl1.Zoom = (double) Zoomlevel.Value;
-                    TRK_zoom.Value = (float)Zoomlevel.Value;
                 }
             }
             catch
@@ -6587,7 +6579,7 @@ namespace MissionPlanner.GCSViews
                     Math.Min(width, (int)(height * aspectRatio)),
                     Math.Min(height, (int)(width / aspectRatio))
                 );
-                var x = splitContainer1.Panel2.Width - width - TRK_zoom.Width;
+                var x = splitContainer1.Panel2.Width - width;
                 var y = splitContainer1.Panel2.Height - height;
                 _gimbalVideoControl.Location = new Point(x, y);
                 _gimbalVideoControl.Size = new Size(width, height);
