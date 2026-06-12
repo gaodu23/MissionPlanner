@@ -1837,7 +1837,7 @@ namespace MissionPlanner.GCSViews
                     {
                         cmd = (MAVLink.MAV_CMD) Enum.Parse(typeof(MAVLink.MAV_CMD), CMB_action.Text.ToUpper(CultureInfo.InvariantCulture));
                     }
-                    catch (ArgumentException ex)
+                    catch (ArgumentException)
                     {
                         cmd = (MAVLink.MAV_CMD) Enum.Parse(typeof(MAVLink.MAV_CMD),
                             "DO_START_" + CMB_action.Text.ToUpper(CultureInfo.InvariantCulture));

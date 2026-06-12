@@ -25,6 +25,7 @@ using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
 using System.Net.Sockets;
+using System.Net.Security;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -1274,6 +1275,7 @@ namespace MissionPlanner
             _connectionControl.CMB_serialport.Items.Add("UDP");
             _connectionControl.CMB_serialport.Items.Add("UDPCl");
             _connectionControl.CMB_serialport.Items.Add("WS");
+            _connectionControl.CMB_serialport.Items.Add("4G");
 
             foreach (var item in ExtraConnectionList)
             {
@@ -1631,6 +1633,152 @@ namespace MissionPlanner
             }
         }
 
+        /// <summary>
+        /// Minimal ICommsSerial wrapper for an already-connected TCP stream (TLS + AUTH'd)
+        /// </summary>
+        private class StreamSerial : Comms.CommsBase, Comms.ICommsSerial
+        {
+            private Stream _stream;
+            private TcpClient _client;
+            public int ReadTimeout { get; set; } = 500;
+            public int ReadBufferSize { get; set; } = 4096;
+            public int WriteBufferSize { get; set; }
+            public int WriteTimeout { get; set; }
+            public bool RtsEnable { get; set; }
+            public int BaudRate { get; set; }
+            public int DataBits { get; set; }
+            public bool DtrEnable { get; set; }
+            public string PortName { get; set; }
+            public Stream BaseStream => _stream;
+
+            public StreamSerial(TcpClient client, Stream stream, string host)
+            {
+                _client = client;
+                _stream = stream;
+                PortName = host;
+            }
+
+            public void Open() { }
+            public void Close() { try { _stream?.Close(); _client?.Close(); } catch { } }
+            public void toggleDTR() { }
+            public int BytesToRead { get { try { return _client?.Available ?? 0; } catch { return 0; } } }
+            public int BytesToWrite => 0;
+            public bool IsOpen
+            {
+                get { try { return _client?.Connected == true && _stream != null; } catch { return false; } }
+            }
+            public void Dispose() { Close(); }
+
+            private void VerifyConnected()
+            {
+                if (!IsOpen) throw new Exception("StreamSerial: not connected");
+            }
+
+            public int Read(byte[] readto, int offset, int length)
+            {
+                VerifyConnected();
+                try
+                {
+                    if (length < 1) return 0;
+                    var total = 0;
+                    var deadline = DateTime.Now.AddMilliseconds(ReadTimeout);
+                    while (total < length && DateTime.Now < deadline)
+                    {
+                        if (_client.Available > 0 || total > 0)
+                        {
+                            var n = _stream.Read(readto, offset + total, length - total);
+                            if (n == 0) break;
+                            total += n;
+                            if (_client.Available == 0) break;
+                        }
+                        else
+                        {
+                            Thread.Sleep(10);
+                        }
+                    }
+                    return total;
+                }
+                catch { throw new Exception("StreamSerial Socket Closed"); }
+            }
+
+            public int ReadByte()
+            {
+                VerifyConnected();
+                var count = 0;
+                while (BytesToRead == 0)
+                {
+                    Thread.Sleep(1);
+                    if (count > ReadTimeout)
+                        throw new Exception("StreamSerial Timeout on read");
+                    count++;
+                }
+                var buffer = new byte[1];
+                Read(buffer, 0, 1);
+                return buffer[0];
+            }
+
+            public int ReadChar() => ReadByte();
+
+            public string ReadExisting()
+            {
+                VerifyConnected();
+                var data = new byte[BytesToRead];
+                if (data.Length > 0)
+                    Read(data, 0, data.Length);
+                return Encoding.ASCII.GetString(data, 0, data.Length);
+            }
+
+            public string ReadLine()
+            {
+                var temp = new byte[4000];
+                var count = 0;
+                var timeout = 0;
+                while (timeout <= 100)
+                {
+                    if (!IsOpen) break;
+                    if (BytesToRead > 0)
+                    {
+                        var letter = (byte)ReadByte();
+                        temp[count] = letter;
+                        if (letter == '\n') break;
+                        count++;
+                        if (count == temp.Length) break;
+                        timeout = 0;
+                    }
+                    else { timeout++; Thread.Sleep(5); }
+                }
+                Array.Resize(ref temp, count + 1);
+                return Encoding.ASCII.GetString(temp, 0, temp.Length);
+            }
+
+            public void Write(string line)
+            {
+                VerifyConnected();
+                var data = Encoding.ASCII.GetBytes(line);
+                Write(data, 0, data.Length);
+            }
+
+            public void WriteLine(string line)
+            {
+                Write(line + "\n");
+            }
+
+            public void Write(byte[] write, int offset, int length)
+            {
+                VerifyConnected();
+                try { _stream.Write(write, offset, length); }
+                catch { }
+            }
+
+            public void DiscardInBuffer()
+            {
+                VerifyConnected();
+                var size = BytesToRead;
+                var crap = new byte[size];
+                if (size > 0) Read(crap, 0, size);
+            }
+        }
+
         private void MenuTuning_Click(object sender, EventArgs e)
         {
             if (Settings.Instance.GetBoolean("password_protect") == false)
@@ -1758,6 +1906,140 @@ namespace MissionPlanner
                 case "WS":
                     comPort.BaseStream = new WebSocket();
                     _connectionControl.CMB_serialport.Text = "WS";
+                    break;
+                case "4G":
+                    // Load saved values
+                    string user4G = Settings.Instance["4G_user"] ?? "";
+                    string pass4G = Settings.Instance["4G_pass"] ?? "";
+                    string host4G = Settings.Instance["4G_host"] ?? "mapuav.top";
+                    string port4G = Settings.Instance["4G_port"] ?? "5761";
+
+                    // Build login form
+                    using (var frm = new Form { Text = "4G Server Login", Width = 320, Height = 220,
+                        StartPosition = FormStartPosition.CenterParent, FormBorderStyle = FormBorderStyle.FixedDialog,
+                        MaximizeBox = false, MinimizeBox = false })
+                    {
+                        var lblUser = new Label { Text = "Username:", Location = new Point(15, 15), AutoSize = true };
+                        var txtUser = new TextBox { Text = user4G, Location = new Point(100, 12), Width = 180 };
+                        var lblPass = new Label { Text = "Password:", Location = new Point(15, 45), AutoSize = true };
+                        var txtPass = new TextBox { Text = pass4G, Location = new Point(100, 42), Width = 180 };
+                        var lblHost = new Label { Text = "Host:", Location = new Point(15, 75), AutoSize = true };
+                        var cmbHost = new ComboBox { Location = new Point(100, 72), Width = 180 };
+                        cmbHost.Items.AddRange(new[] { "mapuav.top" });
+                        cmbHost.Text = host4G;
+                        var lblPort = new Label { Text = "Port:", Location = new Point(15, 105), AutoSize = true };
+                        var cmbPort = new ComboBox { Location = new Point(100, 102), Width = 80 };
+                        cmbPort.Items.AddRange(new[] { "5761" });
+                        cmbPort.Text = port4G;
+                        var btnOK = new Button { Text = "Connect", Location = new Point(100, 140), Width = 80 };
+                        var btnCancel = new Button { Text = "Cancel", Location = new Point(190, 140), Width = 80 };
+                        btnOK.Click += (s, ev) => { frm.DialogResult = DialogResult.OK; frm.Close(); };
+                        btnCancel.Click += (s, ev) => { frm.DialogResult = DialogResult.Cancel; frm.Close(); };
+                        frm.Controls.AddRange(new Control[] { lblUser, txtUser, lblPass, txtPass, lblHost, cmbHost, lblPort, cmbPort, btnOK, btnCancel });
+                        frm.AcceptButton = btnOK;
+                        frm.CancelButton = btnCancel;
+                        ThemeManager.ApplyThemeTo(frm);
+
+                        if (frm.ShowDialog() != DialogResult.OK)
+                            return;
+
+                        user4G = txtUser.Text.Trim();
+                        pass4G = txtPass.Text;
+                        host4G = cmbHost.Text.Trim();
+                        port4G = cmbPort.Text.Trim();
+
+                        if (string.IsNullOrEmpty(user4G) || string.IsNullOrEmpty(host4G) || string.IsNullOrEmpty(port4G))
+                        {
+                            CustomMessageBox.Show("Username, Host and Port are required.", Strings.ERROR);
+                            return;
+                        }
+                    }
+
+                    // Save to settings
+                    Settings.Instance["4G_user"] = user4G;
+                    Settings.Instance["4G_pass"] = pass4G;
+                    Settings.Instance["4G_host"] = host4G;
+                    Settings.Instance["4G_port"] = port4G;
+                    _connectionControl.CMB_serialport.Text = "4G";
+
+                    var user = user4G;
+                    var pass = pass4G;
+                    var host = host4G;
+                    var port = int.Parse(port4G);
+
+                    TcpClient client = null;
+                    Stream stream;
+                    try
+                    {
+
+                    // Step 1: TCP connect with timeout
+                    client = new TcpClient();
+                    var connectTask = client.ConnectAsync(host, port);
+                    if (!connectTask.Wait(3000))
+                        throw new Exception("Connection timed out. Check host and port.");
+                    client.NoDelay = true;
+
+                    // Step 2: Try TLS — if it fails, reconnect and go plain
+                    try
+                    {
+                        var rawStream = client.GetStream();
+                        var ssl = new System.Net.Security.SslStream(rawStream, true, (s, c, ch, e) => true);
+                        ssl.AuthenticateAsClient(host);
+                        stream = ssl;
+                    }
+                    catch
+                    {
+                        // TLS failed (server in NO_TLS mode): reconnect fresh and use plain
+                        try { client.Close(); } catch { }
+                        client = new TcpClient();
+                        var rcTask = client.ConnectAsync(host, port);
+                        if (!rcTask.Wait(3000))
+                            throw new Exception("Reconnect timed out. Check host and port.");
+                        client.NoDelay = true;
+                        stream = client.GetStream();
+                    }
+
+                    var authCmd = $"AUTH {user} {pass}\n";
+                    var authBytes = System.Text.Encoding.UTF8.GetBytes(authCmd);
+                    stream.Write(authBytes, 0, authBytes.Length);
+                    stream.Flush();
+
+                    var readBuf = new byte[256];
+                    int total = 0;
+                    var dl = DateTime.Now.AddSeconds(10);
+                    while (total < 256 && DateTime.Now < dl)
+                    {
+                        if (client.Available > 0 || total > 0)
+                        {
+                            int n = stream.Read(readBuf, total, 1);
+                            if (n == 0) break;
+                            total += n;
+                            if (readBuf[total - 1] == (byte)'\n') break;
+                        }
+                        else Thread.Sleep(100);
+                    }
+                    var response = System.Text.Encoding.UTF8.GetString(readBuf, 0, total).Trim();
+                    if (!response.StartsWith("OK"))
+                    {
+                        stream.Close(); client.Close();
+                        var msg = response.Contains("INVALID_CREDENTIALS")
+                            ? "Invalid username or password."
+                            : "4G auth failed: " + response;
+                        CustomMessageBox.Show(msg, Strings.ERROR);
+                        return;
+                    }
+                    log.Info($"4G connected: {host}:{port}, user={user}");
+
+                    comPort.BaseStream = new StreamSerial(client, stream, host + ":" + port);
+                    _connectionControl.IsConnected(true);
+                    skipconnectcheck = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        if (client != null) { try { client.Close(); } catch { } }
+                        CustomMessageBox.Show("4G connection failed: " + ex.Message, Strings.ERROR);
+                        return;
+                    }
                     break;
                 case "UDPCl":
                     comPort.BaseStream = new UdpSerialConnect();
@@ -2242,7 +2524,7 @@ namespace MissionPlanner
                 return;
 
             comPortName = _connectionControl.CMB_serialport.Text;
-            if (comPortName == "UDP" || comPortName == "UDPCl" || comPortName == "TCP" || comPortName == "AUTO")
+            if (comPortName == "UDP" || comPortName == "UDPCl" || comPortName == "TCP" || comPortName == "AUTO" || comPortName == "4G")
             {
                 _connectionControl.CMB_baudrate.Enabled = false;
             }
