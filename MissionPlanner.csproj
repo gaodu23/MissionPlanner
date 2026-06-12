@@ -1,9 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
-    <ApplicationIcon>mpdesktop.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\mpdesktop1.ico</ApplicationIcon>
     <OutputType>Exe</OutputType>
     <StartupObject>MissionPlanner.Program</StartupObject>
+    <AssemblyName>JWUAV</AssemblyName>
     <Authors>Michael Oborne</Authors>
     <Version>1.3.83</Version>
     <Company>Michael Oborne</Company>

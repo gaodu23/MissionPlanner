@@ -500,8 +500,8 @@ Control-S - save grid file\par
   <data name="selectvehicle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\selectvehicle.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="splashdark" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\splashdark.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="select" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\select.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="rover_10" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\rover-10.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

@@ -154,7 +154,7 @@ namespace MissionPlanner
 
         public UInt64 timestamp { get; set; }
 
-        internal byte[] signingKey;
+        public byte[] signingKey;
 
         /// <summary>
         /// are we signing outgoing packets, and checking incomming packet signatures
