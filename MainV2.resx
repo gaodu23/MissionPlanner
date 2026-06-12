@@ -630,6 +630,221 @@
   <data name="MenuSimulation.ToolTipText" xml:space="preserve">
     <value>Simulation</value>
   </data>
+  <data name="btnAirspeedCalib.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARqSURBVFhHxZhJKLVRHMZvysK0QizZiMxTyqxECRmSJLIR
+        ypTYsLDFSimRYSEWogyJUmQlM5GNQiIsjJkL/89znOPe9/rf6/N+fTz1K9d9znmf7jnvGf6GN5HC3t6e
+        KioqaHFxke7u7uinhGctLS1RVVUVOTg4fOSRvP8RHBwsTL+tlZUVCgsL0wYMDAyk8/NzYXh8fKTu7m7K
+        ycmh+Ph4iouL+6/gGXhWV1cXPTw8iAyXl5cUEhLyHhDDurGxIb7Y39+n8PBw0/Q/SmhoKO3u7oosW1tb
+        5OjoSAbMOej+/t6Y+hfBaKr5jzlpWF1dFR96enrYBt/BxsaGbG1t2e++Q0dHh8i0trZGhqenJ/EhKyuL
+        NX9FZGQkNTc30+zsLG1vb9POzo7oeGhoiEpKSsjV1ZVtZ4309HSRCe+DQfz1ptjYWNZsCU9PTxodHZWt
+        Levo6IiKiorYPiwRFRUlW5MxIN4ozsyBJQkP/o4aGhrYvjiio6NlKx0B3d3d6eDgQLb6njB0XJ/m/FPA
+        /v5+2UIrzOXJyUkaHx8XKwInLCHMTvEJ3QGxDHE6OzsTL4vyRUREfCz85iosLNT0yaE7YGdnp3RrVVxc
+        /MlbWVkpv9Vqenr6k9ccXQGx4xweHkq3UScnJ+ywubi40NXVlXQZdX19/eXSoysgho3T4OAg6wdYGzlh
+        /+X8Cl0BS0tLpVOruro61g9aW1ulSyv0xfkVugJaepi1HQh7KaempibWr9AVcHh4WDq1wqrP+UFeXp50
+        adXb28v6FboCWppPAQEBrB+kpqZKl1bYpzm/QlfAhYUF6TTq5eWFvL29WT9ITk6WTq3GxsZYv0JXwOXl
+        Zek06vn5mby8vFg/SEpKkk6tcMjg/ApdAXGRMtfr6yv5+PiwfpCSkiKdWllbmoCugHNzc9KpFU42nB/g
+        rsEJOxLnV+gKODIyIp1aJSQksH5QVlYmXVo1NjayfoWugG1tbdKpVUFBAesHWO845efns36FroDl5eXS
+        qVVLSwvrBxMTE9KlVVBQEOtX6AqI4xQnLD+cH1fG09NT6TIKh107Ozu2jUJXQJxYjo+PpdsoLDXci5Kb
+        mysdWuGCbu41R1dAoK6D5sIbbvqruLm5idsdJ9ODrSV0B/T39xe7ByfUVGpra6m+vt5iuKmpKbZfc3QH
+        BJZONV/p5ubG6rZoyj8FxFDOzMzIVn8nzNPs7Gy2Pw424Hcu7k5OTtTX1ydbWhcKUtjyuH4sobm4q9JH
+        ZmYma7ZGYmIiDQwM0N7eniidYW/Gr3VxcUHz8/NiTjo7O7NtrZGWliYyidIH6ijQ37z+lsCwe3h4kK+v
+        r5hneuoxprS3t4tM6+vrZFDHcpS8vlrhfwI/Pz+6vb0VmWpqasiABXhzc1P8Azf/36wR4gdSSxQqZZjr
+        b/9/rxig7AqhbIEFGXMyJiZGvFH/EzwjIyNDDKsqXOLubFLpfU+PwrWaj78plKNxB1e5PgICDHd1dbWo
+        9qt58BPCs3ClwJyTwyox0B8eSMyxjyDpxwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="btnAirspeedCalib.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="btnAirspeedCalib.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 43</value>
+  </data>
+  <data name="btnAirspeedCalib.Text" xml:space="preserve">
+    <value>ASPD CAL</value>
+  </data>
+  <data name="btnAirspeedCalib.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="btnAirspeedCalib.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="btnAirspeedCalib.ToolTipText" xml:space="preserve">
+    <value>Calibrate Airspeed Sensor</value>
+  </data>
+  <data name="btnTakePhoto.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 43</value>
+  </data>
+  <data name="btnTakePhoto.Text" xml:space="preserve">
+    <value>PHOTO</value>
+  </data>
+  <data name="btnTakePhoto.ToolTipText" xml:space="preserve">
+    <value>Trigger Camera Shutter</value>
+  </data>
+  <data name="btnAutoMode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 43</value>
+  </data>
+  <data name="btnAutoMode.Text" xml:space="preserve">
+    <value>AUTO</value>
+  </data>
+  <data name="btnAutoMode.ToolTipText" xml:space="preserve">
+    <value>Switch to Auto Flight Mode</value>
+  </data>
+  <data name="btnRTL.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAIAAAADnC86AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAEyElEQVRYR7WYSSx0SxTHWxBz
+        8MWc4HkPL4ixzYSNWJiJRGLYGGJhTiQSKwkbsZGYElZEgmAh8nZieIJuU4cgJIYFMT3zPPf7u6f0161b
+        u935vt+iU/fUGe6tOlV1qgUyjIyMiouLRSLRzc2N9JcCh2KxuLS01NjYmAWT4efnhz6m+NuYn58XCoUs
+        JPDx8Tk9PUXH/f19R0dHenp6dHR0VFQUfnkSGRkZFBSEtweBgYEhISGhciQmJjY2Nt7d3SHE2dmZv7//
+        e1R8vkQigWh7exs23Jtog4eHR05OTn19fXd399DQ0D9yDA8PNzU14Vs3NjYQaHl52cTERFBUVIQHvA57
+        EQ1xcnKqqalZXV2FEzVcXV1B2dPTkxII8y3AuKOFESZH/NHT06uursbQcZ6/4eDgwMzMDFZtbW14XFhY
+        EDw8PKCVmppK7nhia2s7MjLC+eTF0dERBU5ISMAjkklAHUgl8sgHS0tLGif+HB4empqawjY8PJwkLDAy
+        k5zyoauri6w+8fj42N/fX1BQEBMTgy+RAee+vr46OjqwjYiIIGWNA2PZkMknFhcX+aSn9oEbGhrIRJ7d
+        3V0rKyumoRZegTErSKIfioyPj5OJPK2trcgdpsFhYWHBvCjCK3B2djbS7z9FXl5eyEQeLFPWzXF5ednT
+        08O8KMIrsKGhYWdnJyloxM7OjqurK/OiCN851tXV7evrIx2eYL7d3NyYvRIaJJeBgQH2W1L7luPjY6wc
+        ZqkKDQIDZNnExARpquHi4iIsLIzZfIFmgQESdW5ujpRVgmMG+wbT/hqNAwN7e/uVlRXS/8Tz83NycjLT
+        U4s2gYGLiwuObTKRJysri2l8h5aBAQ78/f19siIKCwtZHw+0Dwy8vb2RvWRYWVnJpPzQPrCDg4OdnR3O
+        b+xQdXV1TMqBRY8t1sbGRl9fn4mU0DJwRkYGtsOnp6fa2lq8AZN+kJ+fjxV1fn6upqzQJjBGGHsylE9O
+        TpydnZlUjt7eXvIWHx/PREpoHNjc3JzW0tvbW1paGpMqsra2Rt4CAgKYSAmNA8t2bByLWFR/cqDxBwcG
+        ADUNKhAooIhTOR6EZoGrqqpIDWCCsV0QaAPEA2iQAuo6DA+zVEKDwLGxsa+vr6RGAXAkyyTKrK+vI72Z
+        sRJ8A2MYUSCSzuDg4F8f4Lj9Ww53d/eZmRlSm5ycZMaq4BUYB+L09DQpYMfAXs06lEBxv7e3R5p4PyZV
+        Ba/AVPUTmZmZTKoK1JdMTyptbm5mUlV8Dozql/V8gPKYusDAwACTfkFeXh5TlUpxr2FSVfws6OkKk5KS
+        wno4goODUeaRBgZZeZP6RHt7OymD3NxcJlXFzysM7k9owZL1CATW1tZbW1uck3e+PfJwRZC/0cTFxbEO
+        VbS0tEAH1b+gpKQErdvbW1zP0YEqZ2xsjPPwjvpMIRwdHeVXF64arEMJLy+v6+tr6JSXlwtwR15aWsLD
+        5uYmdmMsjKmpqX85UON9VZfLgyWHtSQSicRi8ejoKN0KlUERSBdzXKbpAveekzhSIMJ3YyiSkpJQs4WG
+        hmKmAfJQPcgX/EZyoA1bkstAVQS3dCXH8aXwv4NQKKTJ/q1IJBJ8CQspA2NeVlaG4aJp+IXgW2dnZysq
+        KtgIA4Hgf6bAqpQcUz+yAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="btnRTL.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="btnRTL.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 43</value>
+  </data>
+  <data name="btnRTL.Text" xml:space="preserve">
+    <value>RTL</value>
+  </data>
+  <data name="btnRTL.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="btnRTL.ToolTipText" xml:space="preserve">
+    <value>Switch to Return to Launch Mode</value>
+  </data>
+  <data name="btnArmDisarm.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAIAAAADnC86AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAADnUlEQVRYR+2YOUgrYRDH92kh
+        XmAKbW0EL0SjEfF+Wil4oEYjWAd8hSiChSCI9iqkiHdjYS3YiZ2CGE0MCYIEVDCWSjDe9/snM6t5fskm
+        2STd+1W7M7Pz//LdE+mLtLS0oaGh/f39+/v7z7iChBaLZXh4OD09ncW+0Gq18HFgwjg8PNTpdCwJSktL
+        r6+v4Xh6elpZWenr62tqavodJ5Cqt7d3eXn58fEREh6Pp7y83KeKHrbb7TCdn59XVlb6W5IQKioqTk9P
+        IeR0OjMyMiSMK14eHh64IeFISUlpbW2dmJgwmUwzMzNjY2PNzc1JSUnsVgRdSxMI4y1ZrVY8ra6uslOR
+        np4etBfxP9jb20OXcpAii4uLiLfZbNLz8zOeuru72ROaqakpv0pwXl9fjUYjh4amo6MDwZhMEn3W2NjI
+        nhCMjo5SJOH1eg8ODtDwH2sPo8AfhKC2tpYiWRjTjz3BKCwspI4hZmdnc3NzyZWXl7e0tMSOz8+zszPf
+        xAlNXV0dRUYkvLCwQGEA04qtAQSOgnKHRyGM7eby8pLCMInYKoCep5jt7W02BSMK4ZKSEooBCr9mcHCQ
+        Yu7u7jIzM9kqEIVwS0sLxQCFOZiTk/PHDxoXZE+WiUIYGx7FAOWpEAkqhSPcJRT4L6wg3NnZSTGgpqaG
+        rWoJL5ycnDw+Pr65uUmnCIF1DEskbGxs6PV6zhVAeOGGhgZyqeb29jY7O5vTyYQXRnvJpZqPj4/8/HxO
+        JxNeGAcluVTz9vamRhhnPrlC8fLyEnhkiby/v8dfGEdCcXEx8u7s7LBJAMIFBQWcTiZW4f7+fgpra2tj
+        k4BKYeXJhavTLz9zc3NsElApHLhhiWCpaDSa1NTUq6srNgkkRPji4gL3XNxqT05O2CSA5YQ7E6eTiVV4
+        d3eXwra2ttgkoFIYhQy5grK2tkZhZrOZTQIJEV5fX8dyAqgE2CSQEGGAvIBfggFvUVERp5P5KSxepgwG
+        A7liAV3C6WS+L/S07XV1dbFHZmBggCJiQRRub2+H3VfCoAzBE+pX9shUV1f7v1WP2+3OysridDLz8/Nw
+        HR0dSagY8YQytaysjJ0yuHtMT0+jSlDB5OSkmBBXdNy6IYdKzFcoOBwOvKBqjrBEVgfa4XK5IHR8fMw3
+        fuh5PB763SiTMN719fWYfnEBqZAQPUx15c3NzT//O+h0OhrshGK326uqqljyC/T5yMiIxWKhYYgjSIjz
+        G+P6XVNJ0l8gUfsJluKbCwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="btnArmDisarm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 43</value>
+  </data>
+  <data name="btnArmDisarm.Text" xml:space="preserve">
+    <value>ARM/DISARM</value>
+  </data>
+  <data name="btnArmDisarm.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="btnArmDisarm.ToolTipText" xml:space="preserve">
+    <value>Toggle Arm / Disarm</value>
+  </data>
+  <data name="cmbWPJump.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 43</value>
+  </data>
+  <data name="cmbWPJump.ToolTipText" xml:space="preserve">
+    <value>Select waypoint to jump to</value>
+  </data>
+  <data name="btnWPJump.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 43</value>
+  </data>
+  <data name="btnWPJump.Text" xml:space="preserve">
+    <value>JUMP</value>
+  </data>
+  <data name="btnWPJump.ToolTipText" xml:space="preserve">
+    <value>Jump to selected waypoint</value>
+  </data>
+  <data name="btnClearTrack.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 43</value>
+  </data>
+  <data name="btnClearTrack.Text" xml:space="preserve">
+    <value>CLR TRK</value>
+  </data>
+  <data name="btnClearTrack.ToolTipText" xml:space="preserve">
+    <value>Clear the recorded camera track on the map</value>
+  </data>
+  <data name="hostSpeedInput.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 43</value>
+  </data>
+  <data name="hostSpeedInput.Text" xml:space="preserve">
+    <value>22.0</value>
+  </data>
+  <data name="hostSpeedInput.ToolTipText" xml:space="preserve">
+    <value>Target speed in m/s (DO_CHANGE_SPEED)</value>
+  </data>
+  <data name="btnChangeSpeed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 43</value>
+  </data>
+  <data name="btnChangeSpeed.Text" xml:space="preserve">
+    <value>SET SPD</value>
+  </data>
+  <data name="btnChangeSpeed.ToolTipText" xml:space="preserve">
+    <value>Send DO_CHANGE_SPEED command</value>
+  </data>
+  <data name="btnReadWPs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 43</value>
+  </data>
+  <data name="btnReadWPs.Text" xml:space="preserve">
+    <value>READ</value>
+  </data>
+  <data name="btnReadWPs.ToolTipText" xml:space="preserve">
+    <value>Read waypoints from flight controller</value>
+  </data>
+  <data name="btnResumeMission.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 43</value>
+  </data>
+  <data name="btnResumeMission.Text" xml:space="preserve">
+    <value>RESUME</value>
+  </data>
+  <data name="btnResumeMission.ToolTipText" xml:space="preserve">
+    <value>Resume mission from last waypoint</value>
+  </data>
+  <data name="btnRTKInject.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 43</value>
+  </data>
+  <data name="btnRTKInject.Text" xml:space="preserve">
+    <value>RTK INJ</value>
+  </data>
+  <data name="btnRTKInject.ToolTipText" xml:space="preserve">
+    <value>Open RTK/GPS Inject tool</value>
+  </data>
+  <data name="btnBinToPos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 43</value>
+  </data>
+  <data name="btnBinToPos.Text" xml:space="preserve">
+    <value>BIN2POS</value>
+  </data>
+  <data name="btnBinToPos.ToolTipText" xml:space="preserve">
+    <value>Extract POS data from .BIN log</value>
+  </data>
   <data name="MenuConnect.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAD4AAAAtCAYAAAD2g9hxAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -867,6 +1082,33 @@
   <data name="&gt;&gt;MainMenu.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="hostSpeedInput.AccessibleName" xml:space="preserve">
+    <value>hostSpeedInput</value>
+  </data>
+  <data name="hostSpeedInput.Location" type="System.Drawing.Point, System.Drawing">
+    <value>735, 11</value>
+  </data>
+  <data name="hostSpeedInput.Size1" type="System.Drawing.Size, System.Drawing">
+    <value>50, 20</value>
+  </data>
+  <data name="hostSpeedInput.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="hostSpeedInput.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="&gt;&gt;hostSpeedInput.Name" xml:space="preserve">
+    <value>hostSpeedInput</value>
+  </data>
+  <data name="&gt;&gt;hostSpeedInput.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;hostSpeedInput.Parent" xml:space="preserve">
+    <value>MainMenu</value>
+  </data>
+  <data name="&gt;&gt;hostSpeedInput.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="menu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
@@ -877,7 +1119,7 @@
     <value>4, 4, 4, 4</value>
   </data>
   <data name="menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>944, 26</value>
+    <value>1061, 26</value>
   </data>
   <data name="menu.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -916,7 +1158,7 @@
     <value>status1</value>
   </data>
   <data name="&gt;&gt;status1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.Status, MissionPlanner, Version=1.3.9658.36372, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.Status, JWUAV, Version=1.3.9659.37315, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;status1.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -964,7 +1206,7 @@
     <value>6, 12</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>944, 495</value>
+    <value>1061, 495</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2685,6 +2927,90 @@
   <data name="&gt;&gt;MenuSimulation.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;btnAirspeedCalib.Name" xml:space="preserve">
+    <value>btnAirspeedCalib</value>
+  </data>
+  <data name="&gt;&gt;btnAirspeedCalib.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnTakePhoto.Name" xml:space="preserve">
+    <value>btnTakePhoto</value>
+  </data>
+  <data name="&gt;&gt;btnTakePhoto.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnAutoMode.Name" xml:space="preserve">
+    <value>btnAutoMode</value>
+  </data>
+  <data name="&gt;&gt;btnAutoMode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnRTL.Name" xml:space="preserve">
+    <value>btnRTL</value>
+  </data>
+  <data name="&gt;&gt;btnRTL.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnArmDisarm.Name" xml:space="preserve">
+    <value>btnArmDisarm</value>
+  </data>
+  <data name="&gt;&gt;btnArmDisarm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmbWPJump.Name" xml:space="preserve">
+    <value>cmbWPJump</value>
+  </data>
+  <data name="&gt;&gt;cmbWPJump.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnWPJump.Name" xml:space="preserve">
+    <value>btnWPJump</value>
+  </data>
+  <data name="&gt;&gt;btnWPJump.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnClearTrack.Name" xml:space="preserve">
+    <value>btnClearTrack</value>
+  </data>
+  <data name="&gt;&gt;btnClearTrack.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;hostSpeedInput.Name" xml:space="preserve">
+    <value>hostSpeedInput</value>
+  </data>
+  <data name="&gt;&gt;hostSpeedInput.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripControlHost, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnChangeSpeed.Name" xml:space="preserve">
+    <value>btnChangeSpeed</value>
+  </data>
+  <data name="&gt;&gt;btnChangeSpeed.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnReadWPs.Name" xml:space="preserve">
+    <value>btnReadWPs</value>
+  </data>
+  <data name="&gt;&gt;btnReadWPs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnResumeMission.Name" xml:space="preserve">
+    <value>btnResumeMission</value>
+  </data>
+  <data name="&gt;&gt;btnResumeMission.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnRTKInject.Name" xml:space="preserve">
+    <value>btnRTKInject</value>
+  </data>
+  <data name="&gt;&gt;btnRTKInject.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnBinToPos.Name" xml:space="preserve">
+    <value>btnBinToPos</value>
+  </data>
+  <data name="&gt;&gt;btnBinToPos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;MenuConnect.Name" xml:space="preserve">
     <value>MenuConnect</value>
   </data>
@@ -2695,7 +3021,7 @@
     <value>toolStripConnectionControl</value>
   </data>
   <data name="&gt;&gt;toolStripConnectionControl.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ToolStripConnectionControl, MissionPlanner, Version=1.3.9658.36372, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ToolStripConnectionControl, JWUAV, Version=1.3.9659.37315, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainV2</value>

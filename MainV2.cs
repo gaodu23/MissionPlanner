@@ -719,6 +719,19 @@ namespace MissionPlanner
 
             Utilities.ThemeManager.ApplyThemeTo(this);
 
+            // 设置工具栏按钮图标（图上文下）
+            SetupToolbarButtonIcons();
+
+            // 恢复速度输入框（用ToolStripControlHost包装NumericUpDown）
+            hostSpeedInput.DecimalPlaces = 1;
+            hostSpeedInput.Maximum = 1000;
+            hostSpeedInput.Minimum = 0;
+            hostSpeedInput.Value = 22;
+            var speedHost = new ToolStripControlHost(hostSpeedInput);
+            speedHost.Margin = new Padding(2, 0, 2, 0);
+            // 插入到btnClearTrack和btnChangeSpeed之间
+            var insertIndex = MainMenu.Items.IndexOf(btnClearTrack) + 1;
+            MainMenu.Items.Insert(insertIndex, speedHost);
 
             // define default basestream
             comPort.BaseStream = new SerialPort();
@@ -1141,6 +1154,35 @@ namespace MissionPlanner
             }
         }
 
+        private void SetupToolbarButtonIcons()
+        {
+            string resPath = Path.Combine(running_directory, "Resources");
+            string img(string name) => Path.Combine(resPath, name);
+
+            void SetBtn(ToolStripButton btn, string imgFile)
+            {
+                var path = img(imgFile);
+                if (File.Exists(path))
+                {
+                    btn.Image = Image.FromFile(path);
+                    btn.DisplayStyle = ToolStripItemDisplayStyle.ImageAndText;
+                    btn.TextImageRelation = TextImageRelation.ImageAboveText;
+                }
+            }
+
+            SetBtn(btnAirspeedCalib, "Z空速置零_亮.png");
+            SetBtn(btnTakePhoto,    "Z点击拍照_亮.png");
+            SetBtn(btnAutoMode,     "Z自动飞行_亮.png");
+            SetBtn(btnRTL,          "Z立即返航_亮.png");
+            SetBtn(btnArmDisarm,    "Z解锁_亮.png");
+            SetBtn(btnWPJump,       "Z跳转航点_亮.png");
+            SetBtn(btnResumeMission,"Z重启任务_亮.png");
+            SetBtn(btnRTKInject,    "ZRTK配置_亮.png");
+            SetBtn(btnBinToPos,     "Z提取POS_亮.png");
+            SetBtn(btnReadWPs,      "Z读取航线_亮.png");
+            SetBtn(btnClearTrack,   "清除航线.jpg");
+        }
+
         public void switchicons(menuicons icons)
         {
             //Check if we starting
@@ -1532,7 +1574,7 @@ namespace MissionPlanner
                 }
                 btnChangeSpeed.Enabled = false;
                 _ = comPort.doCommandAsync(comPort.MAV.sysid, comPort.MAV.compid,
-                    MAVLink.MAV_CMD.DO_CHANGE_SPEED, 0, (float)numericUpDownSpeed.Value, 0, 0, 0, 0, 0);
+                    MAVLink.MAV_CMD.DO_CHANGE_SPEED, 0, (float)hostSpeedInput.Value, 0, 0, 0, 0, 0);
             }
             catch
             {

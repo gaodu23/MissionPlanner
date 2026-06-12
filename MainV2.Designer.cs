@@ -56,8 +56,7 @@ namespace MissionPlanner
             this.cmbWPJump = new System.Windows.Forms.ToolStripComboBox();
             this.btnWPJump = new System.Windows.Forms.ToolStripButton();
             this.btnClearTrack = new System.Windows.Forms.ToolStripButton();
-            this.numericUpDownSpeed = new System.Windows.Forms.NumericUpDown();
-            this.hostSpeedInput = new System.Windows.Forms.ToolStripControlHost(this.numericUpDownSpeed);
+            this.hostSpeedInput = new System.Windows.Forms.NumericUpDown();
             this.btnChangeSpeed = new System.Windows.Forms.ToolStripButton();
             this.btnReadWPs = new System.Windows.Forms.ToolStripButton();
             this.btnResumeMission = new System.Windows.Forms.ToolStripButton();
@@ -70,6 +69,7 @@ namespace MissionPlanner
             this.status1 = new MissionPlanner.Controls.Status();
             this.MainMenu.SuspendLayout();
             this.CTX_mainmenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hostSpeedInput)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,7 +93,6 @@ namespace MissionPlanner
             this.cmbWPJump,
             this.btnWPJump,
             this.btnClearTrack,
-            this.hostSpeedInput,
             this.btnChangeSpeed,
             this.btnReadWPs,
             this.btnResumeMission,
@@ -192,14 +191,10 @@ namespace MissionPlanner
             // 
             // btnAirspeedCalib
             // 
-            this.btnAirspeedCalib.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btnAirspeedCalib.ForeColor = System.Drawing.SystemColors.ControlLight;
+            resources.ApplyResources(this.btnAirspeedCalib, "btnAirspeedCalib");
             this.btnAirspeedCalib.Margin = new System.Windows.Forms.Padding(0);
             this.btnAirspeedCalib.Name = "btnAirspeedCalib";
-            this.btnAirspeedCalib.Size = new System.Drawing.Size(60, 43);
-            this.btnAirspeedCalib.Text = "ASPD CAL";
-            this.btnAirspeedCalib.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnAirspeedCalib.ToolTipText = "Calibrate Airspeed Sensor";
             this.btnAirspeedCalib.Click += new System.EventHandler(this.btnAirspeedCalib_Click);
             // 
             // btnTakePhoto
@@ -208,10 +203,7 @@ namespace MissionPlanner
             this.btnTakePhoto.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnTakePhoto.Margin = new System.Windows.Forms.Padding(0);
             this.btnTakePhoto.Name = "btnTakePhoto";
-            this.btnTakePhoto.Size = new System.Drawing.Size(45, 43);
-            this.btnTakePhoto.Text = "PHOTO";
-            this.btnTakePhoto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnTakePhoto.ToolTipText = "Trigger Camera Shutter";
+            resources.ApplyResources(this.btnTakePhoto, "btnTakePhoto");
             this.btnTakePhoto.Click += new System.EventHandler(this.btnTakePhoto_Click);
             // 
             // btnAutoMode
@@ -220,34 +212,23 @@ namespace MissionPlanner
             this.btnAutoMode.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnAutoMode.Margin = new System.Windows.Forms.Padding(0);
             this.btnAutoMode.Name = "btnAutoMode";
-            this.btnAutoMode.Size = new System.Drawing.Size(60, 43);
-            this.btnAutoMode.Text = "AUTO";
-            this.btnAutoMode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnAutoMode.ToolTipText = "Switch to Auto Flight Mode";
+            resources.ApplyResources(this.btnAutoMode, "btnAutoMode");
             this.btnAutoMode.Click += new System.EventHandler(this.btnAutoMode_Click);
             // 
             // btnRTL
             // 
-            this.btnRTL.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btnRTL.ForeColor = System.Drawing.SystemColors.ControlLight;
+            resources.ApplyResources(this.btnRTL, "btnRTL");
             this.btnRTL.Margin = new System.Windows.Forms.Padding(0);
             this.btnRTL.Name = "btnRTL";
-            this.btnRTL.Size = new System.Drawing.Size(60, 43);
-            this.btnRTL.Text = "RTL";
-            this.btnRTL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnRTL.ToolTipText = "Switch to Return to Launch Mode";
             this.btnRTL.Click += new System.EventHandler(this.btnRTL_Click);
             // 
             // btnArmDisarm
             // 
-            this.btnArmDisarm.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btnArmDisarm.ForeColor = System.Drawing.SystemColors.ControlLight;
+            resources.ApplyResources(this.btnArmDisarm, "btnArmDisarm");
             this.btnArmDisarm.Margin = new System.Windows.Forms.Padding(0);
             this.btnArmDisarm.Name = "btnArmDisarm";
-            this.btnArmDisarm.Size = new System.Drawing.Size(60, 43);
-            this.btnArmDisarm.Text = "ARM/DISARM";
-            this.btnArmDisarm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnArmDisarm.ToolTipText = "Toggle Arm / Disarm";
             this.btnArmDisarm.Click += new System.EventHandler(this.btnArmDisarm_Click);
             // 
             // cmbWPJump
@@ -257,8 +238,7 @@ namespace MissionPlanner
             this.cmbWPJump.ForeColor = System.Drawing.SystemColors.WindowText;
             this.cmbWPJump.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.cmbWPJump.Name = "cmbWPJump";
-            this.cmbWPJump.Size = new System.Drawing.Size(75, 23);
-            this.cmbWPJump.ToolTipText = "Select waypoint to jump to";
+            resources.ApplyResources(this.cmbWPJump, "cmbWPJump");
             this.cmbWPJump.DropDown += new System.EventHandler(this.cmbWPJump_DropDown);
             // 
             // btnWPJump
@@ -267,10 +247,7 @@ namespace MissionPlanner
             this.btnWPJump.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnWPJump.Margin = new System.Windows.Forms.Padding(0);
             this.btnWPJump.Name = "btnWPJump";
-            this.btnWPJump.Size = new System.Drawing.Size(50, 43);
-            this.btnWPJump.Text = "JUMP";
-            this.btnWPJump.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnWPJump.ToolTipText = "Jump to selected waypoint";
+            resources.ApplyResources(this.btnWPJump, "btnWPJump");
             this.btnWPJump.Click += new System.EventHandler(this.btnWPJump_Click);
             // 
             // btnClearTrack
@@ -279,29 +256,8 @@ namespace MissionPlanner
             this.btnClearTrack.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnClearTrack.Margin = new System.Windows.Forms.Padding(0);
             this.btnClearTrack.Name = "btnClearTrack";
-            this.btnClearTrack.Size = new System.Drawing.Size(50, 43);
-            this.btnClearTrack.Text = "CLR TRK";
-            this.btnClearTrack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnClearTrack.ToolTipText = "Clear the recorded camera track on the map";
+            resources.ApplyResources(this.btnClearTrack, "btnClearTrack");
             this.btnClearTrack.Click += new System.EventHandler(this.btnClearTrack_Click);
-            // 
-            // numericUpDownSpeed
-            // 
-            this.numericUpDownSpeed.DecimalPlaces = 1;
-            this.numericUpDownSpeed.Increment = new decimal(new int[] { 1, 0, 0, 0 });
-            this.numericUpDownSpeed.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
-            this.numericUpDownSpeed.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
-            this.numericUpDownSpeed.Name = "numericUpDownSpeed";
-            this.numericUpDownSpeed.Size = new System.Drawing.Size(65, 20);
-            this.numericUpDownSpeed.Value = new decimal(new int[] { 22, 0, 0, 0 });
-            this.numericUpDownSpeed.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // hostSpeedInput
-            // 
-            this.hostSpeedInput.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.hostSpeedInput.Name = "hostSpeedInput";
-            this.hostSpeedInput.Size = new System.Drawing.Size(65, 20);
-            this.hostSpeedInput.ToolTipText = "Target speed in m/s (DO_CHANGE_SPEED)";
             // 
             // btnChangeSpeed
             // 
@@ -309,10 +265,7 @@ namespace MissionPlanner
             this.btnChangeSpeed.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnChangeSpeed.Margin = new System.Windows.Forms.Padding(0);
             this.btnChangeSpeed.Name = "btnChangeSpeed";
-            this.btnChangeSpeed.Size = new System.Drawing.Size(50, 43);
-            this.btnChangeSpeed.Text = "SET SPD";
-            this.btnChangeSpeed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnChangeSpeed.ToolTipText = "Send DO_CHANGE_SPEED command";
+            resources.ApplyResources(this.btnChangeSpeed, "btnChangeSpeed");
             this.btnChangeSpeed.Click += new System.EventHandler(this.btnChangeSpeed_Click);
             // 
             // btnReadWPs
@@ -321,10 +274,7 @@ namespace MissionPlanner
             this.btnReadWPs.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnReadWPs.Margin = new System.Windows.Forms.Padding(0);
             this.btnReadWPs.Name = "btnReadWPs";
-            this.btnReadWPs.Size = new System.Drawing.Size(45, 43);
-            this.btnReadWPs.Text = "READ";
-            this.btnReadWPs.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnReadWPs.ToolTipText = "Read waypoints from flight controller";
+            resources.ApplyResources(this.btnReadWPs, "btnReadWPs");
             this.btnReadWPs.Click += new System.EventHandler(this.btnReadWPs_Click);
             // 
             // btnResumeMission
@@ -333,10 +283,7 @@ namespace MissionPlanner
             this.btnResumeMission.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnResumeMission.Margin = new System.Windows.Forms.Padding(0);
             this.btnResumeMission.Name = "btnResumeMission";
-            this.btnResumeMission.Size = new System.Drawing.Size(55, 43);
-            this.btnResumeMission.Text = "RESUME";
-            this.btnResumeMission.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnResumeMission.ToolTipText = "Resume mission from last waypoint";
+            resources.ApplyResources(this.btnResumeMission, "btnResumeMission");
             this.btnResumeMission.Click += new System.EventHandler(this.btnResumeMission_Click);
             // 
             // btnRTKInject
@@ -345,10 +292,7 @@ namespace MissionPlanner
             this.btnRTKInject.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnRTKInject.Margin = new System.Windows.Forms.Padding(0);
             this.btnRTKInject.Name = "btnRTKInject";
-            this.btnRTKInject.Size = new System.Drawing.Size(55, 43);
-            this.btnRTKInject.Text = "RTK INJ";
-            this.btnRTKInject.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnRTKInject.ToolTipText = "Open RTK/GPS Inject tool";
+            resources.ApplyResources(this.btnRTKInject, "btnRTKInject");
             this.btnRTKInject.Click += new System.EventHandler(this.btnRTKInject_Click);
             // 
             // btnBinToPos
@@ -357,10 +301,7 @@ namespace MissionPlanner
             this.btnBinToPos.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnBinToPos.Margin = new System.Windows.Forms.Padding(0);
             this.btnBinToPos.Name = "btnBinToPos";
-            this.btnBinToPos.Size = new System.Drawing.Size(50, 43);
-            this.btnBinToPos.Text = "BIN2POS";
-            this.btnBinToPos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnBinToPos.ToolTipText = "Extract POS data from .BIN log";
+            resources.ApplyResources(this.btnBinToPos, "btnBinToPos");
             this.btnBinToPos.Click += new System.EventHandler(this.btnBinToPos_Click);
             // 
             // MenuConnect
@@ -417,6 +358,7 @@ namespace MissionPlanner
             this.MainMenu.ResumeLayout(false);
             this.MainMenu.PerformLayout();
             this.CTX_mainmenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.hostSpeedInput)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -439,7 +381,6 @@ namespace MissionPlanner
         public System.Windows.Forms.ToolStripButton btnWPJump;
         public System.Windows.Forms.ToolStripButton btnClearTrack;
         public System.Windows.Forms.NumericUpDown numericUpDownSpeed;
-        public System.Windows.Forms.ToolStripControlHost hostSpeedInput;
         public System.Windows.Forms.ToolStripButton btnChangeSpeed;
         public System.Windows.Forms.ToolStripButton btnReadWPs;
         public System.Windows.Forms.ToolStripButton btnResumeMission;
@@ -456,5 +397,6 @@ namespace MissionPlanner
         private System.Windows.Forms.ToolStripMenuItem connectionOptionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem connectionListToolStripMenuItem;
         public Controls.Status status1;
+        private System.Windows.Forms.NumericUpDown hostSpeedInput;
     }
 }
