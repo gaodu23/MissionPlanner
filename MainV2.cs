@@ -1594,6 +1594,43 @@ namespace MissionPlanner
             }
         }
 
+        private void btnRTKInject_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var inject = new GCSViews.ConfigurationView.ConfigSerialInjectGPS();
+                var frm = new Form
+                {
+                    Text = "RTK/GPS Inject",
+                    Size = new Size(1024, 700),
+                    StartPosition = FormStartPosition.CenterParent,
+                    MinimizeBox = false
+                };
+                inject.Dock = DockStyle.Fill;
+                frm.Controls.Add(inject);
+                ThemeManager.ApplyThemeTo(frm);
+                inject.Activate();
+                frm.FormClosed += (s, args) => { try { inject.Deactivate(); } catch { } };
+                frm.Show(this);
+            }
+            catch (Exception ex)
+            {
+                CustomMessageBox.Show(ex.Message, Strings.ERROR);
+            }
+        }
+
+        private void btnBinToLog_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FlightData?.but_bintolog_Click(sender, e);
+            }
+            catch (Exception ex)
+            {
+                CustomMessageBox.Show(ex.Message, Strings.ERROR);
+            }
+        }
+
         private void MenuTuning_Click(object sender, EventArgs e)
         {
             if (Settings.Instance.GetBoolean("password_protect") == false)

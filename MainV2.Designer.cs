@@ -61,6 +61,8 @@ namespace MissionPlanner
             this.btnChangeSpeed = new System.Windows.Forms.ToolStripButton();
             this.btnReadWPs = new System.Windows.Forms.ToolStripButton();
             this.btnResumeMission = new System.Windows.Forms.ToolStripButton();
+            this.btnRTKInject = new System.Windows.Forms.ToolStripButton();
+            this.btnBinToLog = new System.Windows.Forms.ToolStripButton();
             this.MenuConnect = new System.Windows.Forms.ToolStripButton();
             this.toolStripConnectionControl = new MissionPlanner.Controls.ToolStripConnectionControl();
             this.menu = new MissionPlanner.Controls.MyButton();
@@ -95,6 +97,8 @@ namespace MissionPlanner
             this.btnChangeSpeed,
             this.btnReadWPs,
             this.btnResumeMission,
+            this.btnRTKInject,
+            this.btnBinToLog,
             this.MenuConnect,
             this.toolStripConnectionControl});
             this.MainMenu.Name = "MainMenu";
@@ -335,6 +339,30 @@ namespace MissionPlanner
             this.btnResumeMission.ToolTipText = "Resume mission from last waypoint";
             this.btnResumeMission.Click += new System.EventHandler(this.btnResumeMission_Click);
             // 
+            // btnRTKInject
+            // 
+            this.btnRTKInject.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnRTKInject.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnRTKInject.Margin = new System.Windows.Forms.Padding(0);
+            this.btnRTKInject.Name = "btnRTKInject";
+            this.btnRTKInject.Size = new System.Drawing.Size(55, 43);
+            this.btnRTKInject.Text = "RTK INJ";
+            this.btnRTKInject.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnRTKInject.ToolTipText = "Open RTK/GPS Inject tool";
+            this.btnRTKInject.Click += new System.EventHandler(this.btnRTKInject_Click);
+            // 
+            // btnBinToLog
+            // 
+            this.btnBinToLog.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnBinToLog.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnBinToLog.Margin = new System.Windows.Forms.Padding(0);
+            this.btnBinToLog.Name = "btnBinToLog";
+            this.btnBinToLog.Size = new System.Drawing.Size(50, 43);
+            this.btnBinToLog.Text = "BIN2LOG";
+            this.btnBinToLog.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnBinToLog.ToolTipText = "Convert .BIN log to .LOG";
+            this.btnBinToLog.Click += new System.EventHandler(this.btnBinToLog_Click);
+            // 
             // MenuConnect
             // 
             this.MenuConnect.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -415,6 +443,8 @@ namespace MissionPlanner
         public System.Windows.Forms.ToolStripButton btnChangeSpeed;
         public System.Windows.Forms.ToolStripButton btnReadWPs;
         public System.Windows.Forms.ToolStripButton btnResumeMission;
+        public System.Windows.Forms.ToolStripButton btnRTKInject;
+        public System.Windows.Forms.ToolStripButton btnBinToLog;
         private Controls.ToolStripConnectionControl toolStripConnectionControl;
         private Controls.MyButton menu;
         public System.Windows.Forms.Panel panel1;

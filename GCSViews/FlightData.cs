@@ -1100,7 +1100,7 @@ namespace MissionPlanner.GCSViews
             }
         }
 
-        private void but_bintolog_Click(object sender, EventArgs e)
+        internal void but_bintolog_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
