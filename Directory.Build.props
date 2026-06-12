@@ -2,5 +2,11 @@
   <PropertyGroup>
     <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
     <LangVersion>latest</LangVersion>
+    <SatelliteResourceLanguages>en;zh-Hans</SatelliteResourceLanguages>
   </PropertyGroup>
+
+  <!-- 构建后删除非中英文的卫星程序集文件夹 (来自NuGet包等第三方) -->
+  <Target Name="RemoveUnwantedSatelliteAssemblies" AfterTargets="Build">
+    <Exec Command="powershell -NoProfile -Command &quot;$allowed=@('en','zh-Hans','zh-CN','zh'); Get-ChildItem '$(OutputPath)' -Directory | Where-Object { $_.Name -notin $allowed -and $_.Name -match '^[a-z]{2}(-[A-Z][a-z]+(-[A-Z]+)?)?$' } | Remove-Item -Recurse -Force -ErrorAction SilentlyContinue&quot;" />
+  </Target>
 </Project>
