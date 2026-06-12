@@ -55,6 +55,12 @@ namespace MissionPlanner
             this.btnArmDisarm = new System.Windows.Forms.ToolStripButton();
             this.cmbWPJump = new System.Windows.Forms.ToolStripComboBox();
             this.btnWPJump = new System.Windows.Forms.ToolStripButton();
+            this.btnClearTrack = new System.Windows.Forms.ToolStripButton();
+            this.numericUpDownSpeed = new System.Windows.Forms.NumericUpDown();
+            this.hostSpeedInput = new System.Windows.Forms.ToolStripControlHost(this.numericUpDownSpeed);
+            this.btnChangeSpeed = new System.Windows.Forms.ToolStripButton();
+            this.btnReadWPs = new System.Windows.Forms.ToolStripButton();
+            this.btnResumeMission = new System.Windows.Forms.ToolStripButton();
             this.MenuConnect = new System.Windows.Forms.ToolStripButton();
             this.toolStripConnectionControl = new MissionPlanner.Controls.ToolStripConnectionControl();
             this.menu = new MissionPlanner.Controls.MyButton();
@@ -84,6 +90,11 @@ namespace MissionPlanner
             this.btnArmDisarm,
             this.cmbWPJump,
             this.btnWPJump,
+            this.btnClearTrack,
+            this.hostSpeedInput,
+            this.btnChangeSpeed,
+            this.btnReadWPs,
+            this.btnResumeMission,
             this.MenuConnect,
             this.toolStripConnectionControl});
             this.MainMenu.Name = "MainMenu";
@@ -258,6 +269,72 @@ namespace MissionPlanner
             this.btnWPJump.ToolTipText = "Jump to selected waypoint";
             this.btnWPJump.Click += new System.EventHandler(this.btnWPJump_Click);
             // 
+            // btnClearTrack
+            // 
+            this.btnClearTrack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnClearTrack.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnClearTrack.Margin = new System.Windows.Forms.Padding(0);
+            this.btnClearTrack.Name = "btnClearTrack";
+            this.btnClearTrack.Size = new System.Drawing.Size(50, 43);
+            this.btnClearTrack.Text = "CLR TRK";
+            this.btnClearTrack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnClearTrack.ToolTipText = "Clear the recorded camera track on the map";
+            this.btnClearTrack.Click += new System.EventHandler(this.btnClearTrack_Click);
+            // 
+            // numericUpDownSpeed
+            // 
+            this.numericUpDownSpeed.DecimalPlaces = 1;
+            this.numericUpDownSpeed.Increment = new decimal(new int[] { 1, 0, 0, 0 });
+            this.numericUpDownSpeed.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            this.numericUpDownSpeed.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
+            this.numericUpDownSpeed.Name = "numericUpDownSpeed";
+            this.numericUpDownSpeed.Size = new System.Drawing.Size(65, 20);
+            this.numericUpDownSpeed.Value = new decimal(new int[] { 22, 0, 0, 0 });
+            this.numericUpDownSpeed.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // hostSpeedInput
+            // 
+            this.hostSpeedInput.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.hostSpeedInput.Name = "hostSpeedInput";
+            this.hostSpeedInput.Size = new System.Drawing.Size(65, 20);
+            this.hostSpeedInput.ToolTipText = "Target speed in m/s (DO_CHANGE_SPEED)";
+            // 
+            // btnChangeSpeed
+            // 
+            this.btnChangeSpeed.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnChangeSpeed.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnChangeSpeed.Margin = new System.Windows.Forms.Padding(0);
+            this.btnChangeSpeed.Name = "btnChangeSpeed";
+            this.btnChangeSpeed.Size = new System.Drawing.Size(50, 43);
+            this.btnChangeSpeed.Text = "SET SPD";
+            this.btnChangeSpeed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnChangeSpeed.ToolTipText = "Send DO_CHANGE_SPEED command";
+            this.btnChangeSpeed.Click += new System.EventHandler(this.btnChangeSpeed_Click);
+            // 
+            // btnReadWPs
+            // 
+            this.btnReadWPs.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnReadWPs.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnReadWPs.Margin = new System.Windows.Forms.Padding(0);
+            this.btnReadWPs.Name = "btnReadWPs";
+            this.btnReadWPs.Size = new System.Drawing.Size(45, 43);
+            this.btnReadWPs.Text = "READ";
+            this.btnReadWPs.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnReadWPs.ToolTipText = "Read waypoints from flight controller";
+            this.btnReadWPs.Click += new System.EventHandler(this.btnReadWPs_Click);
+            // 
+            // btnResumeMission
+            // 
+            this.btnResumeMission.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnResumeMission.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnResumeMission.Margin = new System.Windows.Forms.Padding(0);
+            this.btnResumeMission.Name = "btnResumeMission";
+            this.btnResumeMission.Size = new System.Drawing.Size(55, 43);
+            this.btnResumeMission.Text = "RESUME";
+            this.btnResumeMission.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnResumeMission.ToolTipText = "Resume mission from last waypoint";
+            this.btnResumeMission.Click += new System.EventHandler(this.btnResumeMission_Click);
+            // 
             // MenuConnect
             // 
             this.MenuConnect.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -332,6 +409,12 @@ namespace MissionPlanner
         public System.Windows.Forms.ToolStripButton btnArmDisarm;
         public System.Windows.Forms.ToolStripComboBox cmbWPJump;
         public System.Windows.Forms.ToolStripButton btnWPJump;
+        public System.Windows.Forms.ToolStripButton btnClearTrack;
+        public System.Windows.Forms.NumericUpDown numericUpDownSpeed;
+        public System.Windows.Forms.ToolStripControlHost hostSpeedInput;
+        public System.Windows.Forms.ToolStripButton btnChangeSpeed;
+        public System.Windows.Forms.ToolStripButton btnReadWPs;
+        public System.Windows.Forms.ToolStripButton btnResumeMission;
         private Controls.ToolStripConnectionControl toolStripConnectionControl;
         private Controls.MyButton menu;
         public System.Windows.Forms.Panel panel1;

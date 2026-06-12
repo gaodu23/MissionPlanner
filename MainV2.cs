@@ -1338,10 +1338,17 @@ namespace MissionPlanner
                     CustomMessageBox.Show(Strings.ErrorNotConnected, Strings.ERROR);
                     return;
                 }
-                // PREFLIGHT_CALIBRATION: param3=1 calibrate baro and airspeed sensor
-                comPort.doCommand((byte)comPort.sysidcurrent, (byte)comPort.compidcurrent,
-                    MAVLink.MAV_CMD.PREFLIGHT_CALIBRATION, 0, 0, 1, 0, 0, 0, 0, true);
-                CustomMessageBox.Show("Airspeed calibration command sent", "Airspeed Calibration");
+                int param1 = 0;
+                int param2 = 0;
+                int param3 = 1;
+                // request gyro for copter
+                if (comPort.MAV.cs.firmware == Firmwares.ArduCopter2)
+                    param1 = 1; // gyro
+                // param3=1: baro / airspeed
+                if (!comPort.doCommand(MAVLink.MAV_CMD.PREFLIGHT_CALIBRATION, param1, param2, param3, 0, 0, 0, 0))
+                {
+                    CustomMessageBox.Show(Strings.CommandFailed, Strings.ERROR);
+                }
             }
             catch (Exception ex)
             {
@@ -1486,6 +1493,104 @@ namespace MissionPlanner
             finally
             {
                 btnWPJump.Enabled = true;
+            }
+        }
+
+        private void btnClearTrack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Clear camera feedback points
+                if (comPort.MAV.camerapoints != null)
+                    comPort.MAV.camerapoints.Clear();
+
+                // Clear flight track route and camera markers on map
+                try
+                {
+                    GCSViews.FlightData.instance?.BeginInvokeIfRequired(() =>
+                    {
+                        GCSViews.FlightData.instance?.BUT_clear_track_Click(null, null);
+                    });
+                }
+                catch { }
+            }
+            catch
+            {
+            }
+        }
+
+        private void btnChangeSpeed_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!comPort.BaseStream.IsOpen)
+                {
+                    CustomMessageBox.Show(Strings.ErrorNotConnected, Strings.ERROR);
+                    return;
+                }
+                btnChangeSpeed.Enabled = false;
+                _ = comPort.doCommandAsync(comPort.MAV.sysid, comPort.MAV.compid,
+                    MAVLink.MAV_CMD.DO_CHANGE_SPEED, 0, (float)numericUpDownSpeed.Value, 0, 0, 0, 0, 0);
+            }
+            catch
+            {
+                CustomMessageBox.Show(Strings.ErrorCommunicating, Strings.ERROR);
+            }
+            finally
+            {
+                btnChangeSpeed.Enabled = true;
+            }
+        }
+
+        private void btnReadWPs_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!comPort.BaseStream.IsOpen)
+                {
+                    CustomMessageBox.Show(Strings.ErrorNotConnected, Strings.ERROR);
+                    return;
+                }
+                btnReadWPs.Enabled = false;
+                try
+                {
+                    // Ensure FlightPlanner view is active so its handle is created
+                    MenuFlightPlanner_Click(null, null);
+                    FlightPlanner?.BUT_read_Click(sender, e);
+                }
+                finally
+                {
+                    btnReadWPs.Enabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                CustomMessageBox.Show(ex.Message, Strings.ERROR);
+            }
+        }
+
+        private void btnResumeMission_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!comPort.BaseStream.IsOpen)
+                {
+                    CustomMessageBox.Show(Strings.ErrorNotConnected, Strings.ERROR);
+                    return;
+                }
+                btnResumeMission.Enabled = false;
+                try
+                {
+                    FlightData?.BUT_resumemis_Click(sender, e);
+                }
+                finally
+                {
+                    btnResumeMission.Enabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                CustomMessageBox.Show(ex.Message, Strings.ERROR);
             }
         }
 

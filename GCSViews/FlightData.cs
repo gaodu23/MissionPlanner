@@ -558,6 +558,14 @@ namespace MissionPlanner.GCSViews
                         });
                         return true;
                     }, (byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent);
+
+                // Show existing data immediately
+                if (MainV2.comPort.MAV.camerapoints.Count > 0)
+                {
+                    var latest = MainV2.comPort.MAV.camerapoints.Last();
+                    lastImgIdx = latest.img_idx;
+                    lbl_imageindex.Text = "Img: " + lastImgIdx;
+                }
             }
 
             hud1.doResize();
@@ -1111,7 +1119,7 @@ namespace MissionPlanner.GCSViews
             }
         }
 
-        private void BUT_clear_track_Click(object sender, EventArgs e)
+        internal void BUT_clear_track_Click(object sender, EventArgs e)
         {
             if (route != null)
                 route.Points.Clear();
@@ -1491,7 +1499,7 @@ namespace MissionPlanner.GCSViews
                 (float) trackBarYaw.Value * 100.0f, false);
         }
 
-        private void BUT_resumemis_Click(object sender, EventArgs e)
+        internal void BUT_resumemis_Click(object sender, EventArgs e)
         {
             if (
                 Common.MessageShowAgain("Resume Mission",
