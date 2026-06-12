@@ -1621,11 +1621,15 @@ namespace MissionPlanner
             }
         }
 
-        private void btnBinToLog_Click(object sender, EventArgs e)
+        private void btnBinToPos_Click(object sender, EventArgs e)
         {
             try
             {
-                FlightData?.but_bintolog_Click(sender, e);
+                // 打开POS点提取工具
+                using (PosExtract form = new PosExtract())
+                {
+                    form.ShowDialog(this);
+                }
             }
             catch (Exception ex)
             {
