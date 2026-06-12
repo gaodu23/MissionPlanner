@@ -62,6 +62,8 @@ namespace MissionPlanner.GCSViews
         private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         AviWriter aviwriter;
         private bool CameraOverlap;
+        int lastImgIdx = -1;
+        int lastImgIdxSubscription;
         GMapMarker center = new GMarkerGoogle(new PointLatLng(0.0, 0.0), GMarkerGoogleType.none);
         bool huddropout;
         bool huddropoutresize;
@@ -542,6 +544,22 @@ namespace MissionPlanner.GCSViews
             // update tabs displayed
             updateDisplayView();
 
+            // subscribe to CAMERA_FEEDBACK to track last img_idx
+            if (MainV2.comPort.BaseStream.IsOpen)
+            {
+                lastImgIdxSubscription = MainV2.comPort.SubscribeToPacketType(
+                    MAVLink.MAVLINK_MSG_ID.CAMERA_FEEDBACK, message =>
+                    {
+                        var cam = (MAVLink.mavlink_camera_feedback_t)message.data;
+                        lastImgIdx = cam.img_idx;
+                        this.BeginInvokeIfRequired(() =>
+                        {
+                            lbl_imageindex.Text = "Img: " + lastImgIdx;
+                        });
+                        return true;
+                    }, (byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent);
+            }
+
             hud1.doResize();
         }
 
@@ -654,6 +672,13 @@ namespace MissionPlanner.GCSViews
             Settings.Instance["maplast_lat"] = gMapControl1.Position.Lat.ToString();
             Settings.Instance["maplast_lng"] = gMapControl1.Position.Lng.ToString();
             Settings.Instance["maplast_zoom"] = gMapControl1.Zoom.ToString();
+
+            // Unsubscribe CAMERA_FEEDBACK
+            try
+            {
+                MainV2.comPort.UnSubscribeToPacketType(lastImgIdxSubscription);
+            }
+            catch { }
 
             ZedGraphTimer.Stop();
         }
@@ -1883,6 +1908,11 @@ namespace MissionPlanner.GCSViews
             //GCSViews.FlightPlanner.instance.autopan = CHK_autopan.Checked;
         }
 
+        private void CHK_showcamera_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.Instance["CHK_showcamera"] = CHK_showcamera.Checked.ToString();
+        }
+
         void chk_box_tunningCheckedChanged(object sender, EventArgs e)
         {
             ThemeManager.ApplyThemeTo((Control) sender);
@@ -2678,6 +2708,9 @@ namespace MissionPlanner.GCSViews
                     break;
                 }
             }
+
+            if (Settings.Instance.ContainsKey("CHK_showcamera"))
+                CHK_showcamera.Checked = Settings.Instance.GetBoolean("CHK_showcamera");
 
             if (Settings.Instance["CHK_autopan"] != null)
                 CHK_autopan.Checked = Settings.Instance.GetBoolean("CHK_autopan");
@@ -3954,22 +3987,29 @@ namespace MissionPlanner.GCSViews
                                 GMapMarkerPhoto.vfov = Settings.Instance.GetDouble("camera_fovv");
                             }
 
-                            // add new - populate camera_feedback to map
-                            double oldtime = double.MinValue;
-                            foreach (var mark in MainV2.comPort.MAV.camerapoints.ToArray())
+                            // add new - populate camera_feedback to map if Show Camera is enabled
+                            if (CHK_showcamera.Checked)
                             {
-                                var timesincelastshot = (mark.time_usec / 1000.0) / 1000.0 - oldtime;
-                                MainV2.comPort.MAV.cs.timesincelastshot = timesincelastshot;
-                                bool contains = photosoverlay.Markers.Any(p => p.Tag.Equals(mark.time_usec));
-                                if (!contains)
+                                double oldtime = double.MinValue;
+                                foreach (var mark in MainV2.comPort.MAV.camerapoints.ToArray())
                                 {
-                                    if (timesincelastshot < min_interval)
-                                        addMissionPhotoMarker(new GMapMarkerPhoto(mark, true));
-                                    else
-                                        addMissionPhotoMarker(new GMapMarkerPhoto(mark, false));
-                                }
+                                    var timesincelastshot = (mark.time_usec / 1000.0) / 1000.0 - oldtime;
+                                    MainV2.comPort.MAV.cs.timesincelastshot = timesincelastshot;
+                                    bool contains = photosoverlay.Markers.Any(p => p.Tag.Equals(mark.time_usec));
+                                    if (!contains)
+                                    {
+                                        if (timesincelastshot < min_interval)
+                                            addMissionPhotoMarker(new GMapMarkerPhoto(mark, true));
+                                        else
+                                            addMissionPhotoMarker(new GMapMarkerPhoto(mark, false));
+                                    }
 
-                                oldtime = (mark.time_usec / 1000.0) / 1000.0;
+                                    oldtime = (mark.time_usec / 1000.0) / 1000.0;
+                                }
+                            }
+                            else if (photosoverlay.Markers.Count > 0)
+                            {
+                                photosoverlay.Markers.Clear();
                             }
 
                             var GMapMarkerOverlapCount = new GMapMarkerOverlapCount(PointLatLng.Empty);

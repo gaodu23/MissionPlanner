@@ -233,6 +233,8 @@ namespace MissionPlanner.GCSViews
             this.panel1 = new System.Windows.Forms.Panel();
             this.coords1 = new MissionPlanner.Controls.Coords();
             this.CHK_autopan = new System.Windows.Forms.CheckBox();
+            this.CHK_showcamera = new System.Windows.Forms.CheckBox();
+            this.lbl_imageindex = new System.Windows.Forms.Label();
             this.CB_tuning = new System.Windows.Forms.CheckBox();
             this.ZedGraphTimer = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -2835,6 +2837,8 @@ namespace MissionPlanner.GCSViews
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.coords1);
             this.panel1.Controls.Add(this.CHK_autopan);
+            this.panel1.Controls.Add(this.CHK_showcamera);
+            this.panel1.Controls.Add(this.lbl_imageindex);
             this.panel1.Controls.Add(this.CB_tuning);
             this.panel1.Name = "panel1";
             // 
@@ -2861,6 +2865,32 @@ namespace MissionPlanner.GCSViews
             this.toolTip1.SetToolTip(this.CHK_autopan, resources.GetString("CHK_autopan.ToolTip"));
             this.CHK_autopan.UseVisualStyleBackColor = true;
             this.CHK_autopan.CheckedChanged += new System.EventHandler(this.CHK_autopan_CheckedChanged);
+            // 
+            // CHK_showcamera
+            // 
+            this.CHK_showcamera.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CHK_showcamera.AutoSize = true;
+            this.CHK_showcamera.Checked = true;
+            this.CHK_showcamera.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CHK_showcamera.Location = new System.Drawing.Point(400, 3);
+            this.CHK_showcamera.Name = "CHK_showcamera";
+            this.CHK_showcamera.Size = new System.Drawing.Size(92, 17);
+            this.CHK_showcamera.TabIndex = 69;
+            this.CHK_showcamera.Text = "Show Camera";
+            this.toolTip1.SetToolTip(this.CHK_showcamera, "Show camera image markers on the map");
+            this.CHK_showcamera.UseVisualStyleBackColor = true;
+            this.CHK_showcamera.CheckedChanged += new System.EventHandler(this.CHK_showcamera_CheckedChanged);
+            // 
+            // lbl_imageindex
+            // 
+            this.lbl_imageindex.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbl_imageindex.AutoSize = true;
+            this.lbl_imageindex.Location = new System.Drawing.Point(498, 5);
+            this.lbl_imageindex.Name = "lbl_imageindex";
+            this.lbl_imageindex.Size = new System.Drawing.Size(89, 13);
+            this.lbl_imageindex.TabIndex = 70;
+            this.lbl_imageindex.Text = "Img: --";
+            this.toolTip1.SetToolTip(this.lbl_imageindex, "Last received CAMERA_FEEDBACK img_idx");
             // 
             // CB_tuning
             // 
@@ -3003,6 +3033,8 @@ namespace MissionPlanner.GCSViews
         private System.Windows.Forms.NumericUpDown Zoomlevel;
         private Label label1;
         private System.Windows.Forms.CheckBox CHK_autopan;
+        private System.Windows.Forms.CheckBox CHK_showcamera;
+        private System.Windows.Forms.Label lbl_imageindex;
         public Controls.myGMAP gMapControl1;
         private ZedGraph.ZedGraphControl zg1;
         public System.Windows.Forms.TabControl tabControlactions;
