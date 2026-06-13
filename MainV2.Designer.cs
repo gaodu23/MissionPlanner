@@ -56,7 +56,6 @@ namespace MissionPlanner
             this.cmbWPJump = new System.Windows.Forms.ToolStripComboBox();
             this.btnWPJump = new System.Windows.Forms.ToolStripButton();
             this.btnClearTrack = new System.Windows.Forms.ToolStripButton();
-            this.hostSpeedInput = new System.Windows.Forms.NumericUpDown();
             this.btnChangeSpeed = new System.Windows.Forms.ToolStripButton();
             this.btnReadWPs = new System.Windows.Forms.ToolStripButton();
             this.btnResumeMission = new System.Windows.Forms.ToolStripButton();
@@ -64,6 +63,7 @@ namespace MissionPlanner
             this.btnBinToPos = new System.Windows.Forms.ToolStripButton();
             this.MenuConnect = new System.Windows.Forms.ToolStripButton();
             this.toolStripConnectionControl = new MissionPlanner.Controls.ToolStripConnectionControl();
+            this.hostSpeedInput = new System.Windows.Forms.NumericUpDown();
             this.menu = new MissionPlanner.Controls.MyButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.status1 = new MissionPlanner.Controls.Status();
@@ -321,6 +321,11 @@ namespace MissionPlanner
             this.toolStripConnectionControl.Margin = new System.Windows.Forms.Padding(0);
             this.toolStripConnectionControl.Name = "toolStripConnectionControl";
             this.toolStripConnectionControl.MouseLeave += new System.EventHandler(this.MainMenu_MouseLeave);
+            // 
+            // hostSpeedInput
+            // 
+            resources.ApplyResources(this.hostSpeedInput, "hostSpeedInput");
+            this.hostSpeedInput.Name = "hostSpeedInput";
             // 
             // menu
             // 
