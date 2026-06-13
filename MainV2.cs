@@ -699,6 +699,9 @@ namespace MissionPlanner
 
             InitializeComponent();
 
+            // Set custom multi-line renderer for toolbar buttons
+            MainMenu.Renderer = new MultilineToolStripRenderer();
+
             //Init Theme table and load BurntKermit as a default
             ThemeManager.thmColor = new ThemeColorTable(); //Init colortable
             ThemeManager.thmColor.InitColors(); //This fills up the table with BurntKermit defaults.
@@ -5395,6 +5398,66 @@ namespace MissionPlanner
         }
 
         //Handle QV panel coloring from warning engine
+
+    /// <summary>
+    /// Custom ToolStrip renderer：多行文字 + 豆绿渐变背景，与 FlightData tabActions 按钮外观一致
+    /// </summary>
+    public class MultilineToolStripRenderer : ToolStripProfessionalRenderer
+    {
+        private static readonly Color _gradTop = Color.FromArgb(148, 193, 31);   // #94C11F
+        private static readonly Color _gradBot = Color.FromArgb(100, 141, 14);   // 深一点的绿
+        private static readonly Color _borderColor = Color.FromArgb(64, 87, 4);  // #405704
+        private static readonly Color _textColor  = Color.FromArgb(64, 87, 4);   // 深绿文字
+
+        // 绘制背景：仅对含 \n 的功能按钮（DisplayStyle=Text）绘制豆绿渐变
+        protected override void OnRenderButtonBackground(ToolStripItemRenderEventArgs e)
+        {
+            var btn = e.Item as ToolStripButton;
+            if (btn != null && btn.DisplayStyle == ToolStripItemDisplayStyle.Text
+                && btn.Text != null && btn.Text.Contains("\\n"))
+            {
+                var g = e.Graphics;
+                var rc = new Rectangle(1, 1, btn.Width - 2, btn.Height - 2);
+                using (var brush = new System.Drawing.Drawing2D.LinearGradientBrush(
+                    rc, _gradTop, _gradBot,
+                    System.Drawing.Drawing2D.LinearGradientMode.Vertical))
+                {
+                    g.FillRectangle(brush, rc);
+                }
+                using (var pen = new Pen(_borderColor))
+                    g.DrawRectangle(pen, rc);
+                return;
+            }
+            base.OnRenderButtonBackground(e);
+        }
+
+        // 绘制文字：多行居中，坐标用 ContentRectangle（已在按钮本地坐标系）
+        protected override void OnRenderItemText(ToolStripItemTextRenderEventArgs e)
+        {
+            var text = e.Text;
+            if (!string.IsNullOrEmpty(text) && text.Contains("\\n"))
+            {
+                var parts = text.Split(new[] { "\\n" }, StringSplitOptions.None);
+                var g = e.Graphics;
+                var font = e.TextFont;
+
+                // ContentRectangle 已在按钮本地坐标（Graphics 原点 = 按钮左上角）
+                var rc = e.Item.ContentRectangle;
+                int lineHeight = rc.Height / parts.Length;
+                for (int i = 0; i < parts.Length; i++)
+                {
+                    var lineBounds = new Rectangle(rc.X, rc.Y + i * lineHeight, rc.Width, lineHeight);
+                    TextRenderer.DrawText(g, parts[i], font, lineBounds, _textColor,
+                        TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
+                        | TextFormatFlags.NoPrefix | TextFormatFlags.SingleLine);
+                }
+                return;
+            }
+            base.OnRenderItemText(e);
+        }
+    }
+
+
         private void WarningEngine_QuickPanelColoring(string name, string color)
         {
             // return if we still initialize

@@ -125,25 +125,25 @@
     <value>配置/调试</value>
   </data>
   <data name="MenuFlightPlanner.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 43</value>
+    <value>59, 52</value>
   </data>
   <data name="MenuFlightData.ToolTipText" xml:space="preserve">
     <value>飞行数据</value>
   </data>
   <data name="btnArmDisarm.Text" xml:space="preserve">
-    <value>解锁/锁定</value>
+    <value>解锁\n锁定</value>
   </data>
   <data name="btnResumeMission.ToolTipText" xml:space="preserve">
     <value>从上一个航点恢复任务</value>
   </data>
   <data name="btnClearTrack.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 43</value>
+    <value>55, 52</value>
   </data>
   <data name="MenuInitConfig.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 43</value>
+    <value>59, 52</value>
   </data>
   <data name="btnBinToPos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 43</value>
+    <value>55, 52</value>
   </data>
   <data name="btnAirspeedCalib.ToolTipText" xml:space="preserve">
     <value>校准空速传感器</value>
@@ -194,13 +194,13 @@
     <value>模拟</value>
   </data>
   <data name="btnArmDisarm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 43</value>
+    <value>55, 52</value>
   </data>
   <data name="btnRTKInject.Text" xml:space="preserve">
-    <value>RTK注入</value>
+    <value>RTK\n注入</value>
   </data>
   <data name="btnReadWPs.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 43</value>
+    <value>55, 52</value>
   </data>
   <data name="fullScreenToolStripMenuItem.Text" xml:space="preserve">
     <value>全屏</value>
@@ -209,7 +209,7 @@
     <value>飞行计划</value>
   </data>
   <data name="btnRTL.Text" xml:space="preserve">
-    <value>返航</value>
+    <value>返\n航</value>
   </data>
   <data name="MenuFlightData.Text" xml:space="preserve">
     <value>飞行数据</value>
@@ -384,7 +384,7 @@
     <value>124, 22</value>
   </data>
   <data name="btnRTKInject.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 43</value>
+    <value>55, 52</value>
   </data>
   <data name="MenuFlightPlanner.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -441,7 +441,7 @@
     <value>从.BIN日志提取位置数据</value>
   </data>
   <data name="btnTakePhoto.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 43</value>
+    <value>55, 52</value>
   </data>
   <data name="btnArmDisarm.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -466,28 +466,28 @@
 </value>
   </data>
   <data name="btnAutoMode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 43</value>
+    <value>55, 52</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Mission Planner</value>
   </data>
   <data name="MenuConfigTune.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 43</value>
+    <value>64, 52</value>
   </data>
   <data name="CTX_mainmenu.Size" type="System.Drawing.Size, System.Drawing">
     <value>125, 114</value>
   </data>
   <data name="btnResumeMission.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 43</value>
+    <value>55, 52</value>
   </data>
   <data name="btnWPJump.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 43</value>
+    <value>55, 52</value>
   </data>
   <data name="MenuInitConfig.ToolTipText" xml:space="preserve">
     <value>硬件配置</value>
   </data>
   <data name="MenuFlightData.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 43</value>
+    <value>59, 52</value>
   </data>
   <data name="MenuConnect.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -524,7 +524,7 @@
 </value>
   </data>
   <data name="btnReadWPs.Text" xml:space="preserve">
-    <value>读取</value>
+    <value>读\n取</value>
   </data>
   <data name="btnClearTrack.ToolTipText" xml:space="preserve">
     <value>清除地图上记录的相机轨迹</value>
@@ -557,16 +557,16 @@
 </value>
   </data>
   <data name="btnBinToPos.Text" xml:space="preserve">
-    <value>BIN转位置</value>
+    <value>BIN转\n位置</value>
   </data>
   <data name="btnSetCamTriggDist.ToolTipText" xml:space="preserve">
     <value>设置拍照触发距离</value>
   </data>
   <data name="btnSetCamTriggDist.Text" xml:space="preserve">
-    <value>拍照距离</value>
+    <value>拍照\n距离</value>
   </data>
   <data name="btnAutoMode.Text" xml:space="preserve">
-    <value>自动</value>
+    <value>自\n动</value>
   </data>
   <data name="cmbWPJump.ToolTipText" xml:space="preserve">
     <value>选择要跳转到的航点</value>
@@ -666,7 +666,7 @@
     <value>飞行计划器</value>
   </data>
   <data name="btnResumeMission.Text" xml:space="preserve">
-    <value>恢复</value>
+    <value>恢\n复</value>
   </data>
   <data name="MenuFlightData.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -706,10 +706,10 @@
 </value>
   </data>
   <data name="btnClearTrack.Text" xml:space="preserve">
-    <value>清除轨迹</value>
+    <value>清除\n轨迹</value>
   </data>
   <data name="btnChangeSpeed.Text" xml:space="preserve">
-    <value>设置速度</value>
+    <value>设置\n速度</value>
   </data>
   <data name="btnTakePhoto.ToolTipText" xml:space="preserve">
     <value>触发相机快门</value>
@@ -721,10 +721,10 @@
     <value>只读</value>
   </data>
   <data name="btnAirspeedCalib.Text" xml:space="preserve">
-    <value>空速校准</value>
+    <value>空速\n校准</value>
   </data>
   <data name="btnAirspeedCalib.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 43</value>
+    <value>55, 52</value>
   </data>
   <data name="btnWPJump.ToolTipText" xml:space="preserve">
     <value>跳转到所选航点</value>
@@ -2408,13 +2408,13 @@
 </value>
   </data>
   <data name="MenuConnect.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 43</value>
+    <value>49, 52</value>
   </data>
   <data name="btnTakePhoto.Text" xml:space="preserve">
-    <value>拍照</value>
+    <value>拍\n照</value>
   </data>
   <data name="btnChangeSpeed.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 43</value>
+    <value>55, 52</value>
   </data>
   <data name="connectionOptionsToolStripMenuItem.Text" xml:space="preserve">
     <value>连接选项</value>
@@ -2580,7 +2580,7 @@
     <value>连接</value>
   </data>
   <data name="MenuSimulation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 43</value>
+    <value>49, 52</value>
   </data>
   <data name="btnAutoMode.ToolTipText" xml:space="preserve">
     <value>切换到自动飞行模式</value>
@@ -2589,7 +2589,7 @@
     <value>发送DO_CHANGE_SPEED命令</value>
   </data>
   <data name="btnWPJump.Text" xml:space="preserve">
-    <value>跳转</value>
+    <value>跳\n转</value>
   </data>
   <data name="readonlyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>124, 22</value>

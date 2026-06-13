@@ -56,13 +56,15 @@ namespace MissionPlanner
             this.cmbWPJump = new System.Windows.Forms.ToolStripComboBox();
             this.btnWPJump = new System.Windows.Forms.ToolStripButton();
             this.btnClearTrack = new System.Windows.Forms.ToolStripButton();
-            this.speedHost = new System.Windows.Forms.NumericUpDown();
+            this.hostSpeedInput = new System.Windows.Forms.NumericUpDown();
+            this.speedHost = new System.Windows.Forms.ToolStripControlHost(this.hostSpeedInput);
             this.btnChangeSpeed = new System.Windows.Forms.ToolStripButton();
             this.btnReadWPs = new System.Windows.Forms.ToolStripButton();
             this.btnResumeMission = new System.Windows.Forms.ToolStripButton();
             this.btnRTKInject = new System.Windows.Forms.ToolStripButton();
             this.btnBinToPos = new System.Windows.Forms.ToolStripButton();
-            this.camtriggDistHost = new System.Windows.Forms.NumericUpDown();
+            this.camtriggDistInput = new System.Windows.Forms.NumericUpDown();
+            this.camtriggDistHost = new System.Windows.Forms.ToolStripControlHost(this.camtriggDistInput);
             this.btnSetCamTriggDist = new System.Windows.Forms.ToolStripButton();
             this.MenuConnect = new System.Windows.Forms.ToolStripButton();
             this.toolStripConnectionControl = new MissionPlanner.Controls.ToolStripConnectionControl();
@@ -71,8 +73,8 @@ namespace MissionPlanner
             this.status1 = new MissionPlanner.Controls.Status();
             this.MainMenu.SuspendLayout();
             this.CTX_mainmenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.speedHost)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.camtriggDistHost)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hostSpeedInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.camtriggDistInput)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -157,8 +159,8 @@ namespace MissionPlanner
             // 
             // MenuFlightData
             // 
-            this.MenuFlightData.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.MenuFlightData.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.MenuFlightData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
+            this.MenuFlightData.Image = global::MissionPlanner.Properties.Resources.light_flightdata_icon;
             resources.ApplyResources(this.MenuFlightData, "MenuFlightData");
             this.MenuFlightData.Margin = new System.Windows.Forms.Padding(0);
             this.MenuFlightData.Name = "MenuFlightData";
@@ -166,8 +168,8 @@ namespace MissionPlanner
             // 
             // MenuFlightPlanner
             // 
-            this.MenuFlightPlanner.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.MenuFlightPlanner.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.MenuFlightPlanner.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
+            this.MenuFlightPlanner.Image = global::MissionPlanner.Properties.Resources.light_flightplan_icon;
             resources.ApplyResources(this.MenuFlightPlanner, "MenuFlightPlanner");
             this.MenuFlightPlanner.Margin = new System.Windows.Forms.Padding(0);
             this.MenuFlightPlanner.Name = "MenuFlightPlanner";
@@ -175,8 +177,8 @@ namespace MissionPlanner
             // 
             // MenuInitConfig
             // 
-            this.MenuInitConfig.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.MenuInitConfig.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.MenuInitConfig.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
+            this.MenuInitConfig.Image = global::MissionPlanner.Properties.Resources.light_initialsetup_icon;
             resources.ApplyResources(this.MenuInitConfig, "MenuInitConfig");
             this.MenuInitConfig.Margin = new System.Windows.Forms.Padding(0);
             this.MenuInitConfig.Name = "MenuInitConfig";
@@ -184,8 +186,8 @@ namespace MissionPlanner
             // 
             // MenuConfigTune
             // 
-            this.MenuConfigTune.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.MenuConfigTune.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.MenuConfigTune.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
+            this.MenuConfigTune.Image = global::MissionPlanner.Properties.Resources.light_tuningconfig_icon;
             resources.ApplyResources(this.MenuConfigTune, "MenuConfigTune");
             this.MenuConfigTune.Margin = new System.Windows.Forms.Padding(0);
             this.MenuConfigTune.Name = "MenuConfigTune";
@@ -193,8 +195,8 @@ namespace MissionPlanner
             // 
             // MenuSimulation
             // 
-            this.MenuSimulation.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.MenuSimulation.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.MenuSimulation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
+            this.MenuSimulation.Image = global::MissionPlanner.Properties.Resources.light_simulation_icon;
             resources.ApplyResources(this.MenuSimulation, "MenuSimulation");
             this.MenuSimulation.Margin = new System.Windows.Forms.Padding(0);
             this.MenuSimulation.Name = "MenuSimulation";
@@ -203,7 +205,7 @@ namespace MissionPlanner
             // btnAirspeedCalib
             // 
             this.btnAirspeedCalib.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnAirspeedCalib.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnAirspeedCalib.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
             resources.ApplyResources(this.btnAirspeedCalib, "btnAirspeedCalib");
             this.btnAirspeedCalib.Margin = new System.Windows.Forms.Padding(0);
             this.btnAirspeedCalib.Name = "btnAirspeedCalib";
@@ -212,7 +214,7 @@ namespace MissionPlanner
             // btnTakePhoto
             // 
             this.btnTakePhoto.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnTakePhoto.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnTakePhoto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
             this.btnTakePhoto.Margin = new System.Windows.Forms.Padding(0);
             this.btnTakePhoto.Name = "btnTakePhoto";
             resources.ApplyResources(this.btnTakePhoto, "btnTakePhoto");
@@ -221,7 +223,7 @@ namespace MissionPlanner
             // btnAutoMode
             // 
             this.btnAutoMode.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnAutoMode.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnAutoMode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
             this.btnAutoMode.Margin = new System.Windows.Forms.Padding(0);
             this.btnAutoMode.Name = "btnAutoMode";
             resources.ApplyResources(this.btnAutoMode, "btnAutoMode");
@@ -230,7 +232,7 @@ namespace MissionPlanner
             // btnRTL
             // 
             this.btnRTL.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnRTL.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnRTL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
             resources.ApplyResources(this.btnRTL, "btnRTL");
             this.btnRTL.Margin = new System.Windows.Forms.Padding(0);
             this.btnRTL.Name = "btnRTL";
@@ -239,7 +241,7 @@ namespace MissionPlanner
             // btnArmDisarm
             // 
             this.btnArmDisarm.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnArmDisarm.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnArmDisarm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
             this.btnArmDisarm.Margin = new System.Windows.Forms.Padding(0);
             this.btnArmDisarm.Name = "btnArmDisarm";
             resources.ApplyResources(this.btnArmDisarm, "btnArmDisarm");
@@ -258,7 +260,7 @@ namespace MissionPlanner
             // btnWPJump
             // 
             this.btnWPJump.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnWPJump.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnWPJump.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
             this.btnWPJump.Margin = new System.Windows.Forms.Padding(0);
             this.btnWPJump.Name = "btnWPJump";
             resources.ApplyResources(this.btnWPJump, "btnWPJump");
@@ -267,7 +269,7 @@ namespace MissionPlanner
             // btnClearTrack
             // 
             this.btnClearTrack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnClearTrack.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnClearTrack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
             this.btnClearTrack.Margin = new System.Windows.Forms.Padding(0);
             this.btnClearTrack.Name = "btnClearTrack";
             resources.ApplyResources(this.btnClearTrack, "btnClearTrack");
@@ -275,30 +277,12 @@ namespace MissionPlanner
             // 
             // speedHost
             // 
-            resources.ApplyResources(this.speedHost, "speedHost");
-            this.speedHost.DecimalPlaces = 1;
-            this.speedHost.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.speedHost.Name = "speedHost";
-            this.speedHost.Value = new decimal(new int[] {
-            22,
-            0,
-            0,
-            0});
-            // 
-            // speedHost
-            // 
             this.speedHost.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.speedHost.Name = "speedHost";
-            resources.ApplyResources(this.speedHost, "speedHost");
             // 
             // btnChangeSpeed
             // 
             this.btnChangeSpeed.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnChangeSpeed.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnChangeSpeed.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
             this.btnChangeSpeed.Margin = new System.Windows.Forms.Padding(0);
             this.btnChangeSpeed.Name = "btnChangeSpeed";
             resources.ApplyResources(this.btnChangeSpeed, "btnChangeSpeed");
@@ -307,7 +291,7 @@ namespace MissionPlanner
             // btnReadWPs
             // 
             this.btnReadWPs.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnReadWPs.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnReadWPs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
             this.btnReadWPs.Margin = new System.Windows.Forms.Padding(0);
             this.btnReadWPs.Name = "btnReadWPs";
             resources.ApplyResources(this.btnReadWPs, "btnReadWPs");
@@ -316,7 +300,7 @@ namespace MissionPlanner
             // btnResumeMission
             // 
             this.btnResumeMission.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnResumeMission.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnResumeMission.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
             this.btnResumeMission.Margin = new System.Windows.Forms.Padding(0);
             this.btnResumeMission.Name = "btnResumeMission";
             resources.ApplyResources(this.btnResumeMission, "btnResumeMission");
@@ -325,7 +309,7 @@ namespace MissionPlanner
             // btnRTKInject
             // 
             this.btnRTKInject.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnRTKInject.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnRTKInject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
             this.btnRTKInject.Margin = new System.Windows.Forms.Padding(0);
             this.btnRTKInject.Name = "btnRTKInject";
             resources.ApplyResources(this.btnRTKInject, "btnRTKInject");
@@ -334,7 +318,7 @@ namespace MissionPlanner
             // btnBinToPos
             // 
             this.btnBinToPos.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnBinToPos.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnBinToPos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
             this.btnBinToPos.Margin = new System.Windows.Forms.Padding(0);
             this.btnBinToPos.Name = "btnBinToPos";
             resources.ApplyResources(this.btnBinToPos, "btnBinToPos");
@@ -342,25 +326,12 @@ namespace MissionPlanner
             // 
             // camtriggDistHost
             // 
-            resources.ApplyResources(this.camtriggDistHost, "camtriggDistHost");
-            this.camtriggDistHost.DecimalPlaces = 1;
-            this.camtriggDistHost.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.camtriggDistHost.Name = "camtriggDistHost";
-            // 
-            // camtriggDistHost
-            // 
             this.camtriggDistHost.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.camtriggDistHost.Name = "camtriggDistHost";
-            resources.ApplyResources(this.camtriggDistHost, "camtriggDistHost");
             // 
             // btnSetCamTriggDist
             // 
             this.btnSetCamTriggDist.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnSetCamTriggDist.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnSetCamTriggDist.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
             this.btnSetCamTriggDist.Margin = new System.Windows.Forms.Padding(0);
             this.btnSetCamTriggDist.Name = "btnSetCamTriggDist";
             resources.ApplyResources(this.btnSetCamTriggDist, "btnSetCamTriggDist");
@@ -370,7 +341,7 @@ namespace MissionPlanner
             // 
             this.MenuConnect.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.MenuConnect.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.MenuConnect.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.MenuConnect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
             resources.ApplyResources(this.MenuConnect, "MenuConnect");
             this.MenuConnect.Margin = new System.Windows.Forms.Padding(0);
             this.MenuConnect.Name = "MenuConnect";
@@ -389,7 +360,7 @@ namespace MissionPlanner
             // 
             resources.ApplyResources(this.menu, "menu");
             this.menu.Name = "menu";
-            this.menu.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.menu.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
             this.menu.UseVisualStyleBackColor = true;
             this.menu.MouseEnter += new System.EventHandler(this.menu_MouseEnter);
             // 
@@ -421,8 +392,8 @@ namespace MissionPlanner
             this.MainMenu.ResumeLayout(false);
             this.MainMenu.PerformLayout();
             this.CTX_mainmenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.speedHost)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.camtriggDistHost)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hostSpeedInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.camtriggDistInput)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -444,7 +415,6 @@ namespace MissionPlanner
         public System.Windows.Forms.ToolStripComboBox cmbWPJump;
         public System.Windows.Forms.ToolStripButton btnWPJump;
         public System.Windows.Forms.ToolStripButton btnClearTrack;
-        public System.Windows.Forms.NumericUpDown numericUpDownSpeed;
         public System.Windows.Forms.ToolStripButton btnChangeSpeed;
         public System.Windows.Forms.ToolStripButton btnReadWPs;
         public System.Windows.Forms.ToolStripButton btnResumeMission;
@@ -462,9 +432,9 @@ namespace MissionPlanner
         private System.Windows.Forms.ToolStripMenuItem connectionListToolStripMenuItem;
         public Controls.Status status1;
         private System.Windows.Forms.NumericUpDown hostSpeedInput;
+        private System.Windows.Forms.ToolStripControlHost speedHost;
         private System.Windows.Forms.NumericUpDown camtriggDistInput;
+        private System.Windows.Forms.ToolStripControlHost camtriggDistHost;
         public System.Windows.Forms.ToolStripButton btnSetCamTriggDist;
-        private System.Windows.Forms.NumericUpDown speedHost;
-        private System.Windows.Forms.NumericUpDown camtriggDistHost;
     }
 }
