@@ -1157,14 +1157,12 @@ namespace MissionPlanner
             string resPath = Path.Combine(running_directory, "Resources");
             string img(string name) => Path.Combine(resPath, name);
 
-            void SetBtn(ToolStripButton btn, string imgFile)
+            void SetBtn(Controls.MyButton btn, string imgFile)
             {
                 var path = img(imgFile);
                 if (File.Exists(path))
                 {
                     btn.Image = Image.FromFile(path);
-                    btn.DisplayStyle = ToolStripItemDisplayStyle.ImageAndText;
-                    btn.TextImageRelation = TextImageRelation.ImageAboveText;
                 }
             }
 

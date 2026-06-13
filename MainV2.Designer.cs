@@ -48,24 +48,37 @@ namespace MissionPlanner
             this.MenuInitConfig = new System.Windows.Forms.ToolStripButton();
             this.MenuConfigTune = new System.Windows.Forms.ToolStripButton();
             this.MenuSimulation = new System.Windows.Forms.ToolStripButton();
-            this.btnAirspeedCalib = new System.Windows.Forms.ToolStripButton();
-            this.btnTakePhoto = new System.Windows.Forms.ToolStripButton();
-            this.btnAutoMode = new System.Windows.Forms.ToolStripButton();
-            this.btnRTL = new System.Windows.Forms.ToolStripButton();
-            this.btnArmDisarm = new System.Windows.Forms.ToolStripButton();
+            this.btnAirspeedCalib = new MissionPlanner.Controls.MyButton();
+            this.btnTakePhoto = new MissionPlanner.Controls.MyButton();
+            this.btnAutoMode = new MissionPlanner.Controls.MyButton();
+            this.btnRTL = new MissionPlanner.Controls.MyButton();
+            this.btnArmDisarm = new MissionPlanner.Controls.MyButton();
             this.cmbWPJump = new System.Windows.Forms.ToolStripComboBox();
-            this.btnWPJump = new System.Windows.Forms.ToolStripButton();
-            this.btnClearTrack = new System.Windows.Forms.ToolStripButton();
+            this.btnWPJump = new MissionPlanner.Controls.MyButton();
+            this.btnClearTrack = new MissionPlanner.Controls.MyButton();
             this.hostSpeedInput = new System.Windows.Forms.NumericUpDown();
             this.speedHost = new System.Windows.Forms.ToolStripControlHost(this.hostSpeedInput);
-            this.btnChangeSpeed = new System.Windows.Forms.ToolStripButton();
-            this.btnReadWPs = new System.Windows.Forms.ToolStripButton();
-            this.btnResumeMission = new System.Windows.Forms.ToolStripButton();
-            this.btnRTKInject = new System.Windows.Forms.ToolStripButton();
-            this.btnBinToPos = new System.Windows.Forms.ToolStripButton();
+            this.btnChangeSpeed = new MissionPlanner.Controls.MyButton();
+            this.btnReadWPs = new MissionPlanner.Controls.MyButton();
+            this.btnResumeMission = new MissionPlanner.Controls.MyButton();
+            this.btnRTKInject = new MissionPlanner.Controls.MyButton();
+            this.btnBinToPos = new MissionPlanner.Controls.MyButton();
             this.camtriggDistInput = new System.Windows.Forms.NumericUpDown();
             this.camtriggDistHost = new System.Windows.Forms.ToolStripControlHost(this.camtriggDistInput);
-            this.btnSetCamTriggDist = new System.Windows.Forms.ToolStripButton();
+            this.btnSetCamTriggDist = new MissionPlanner.Controls.MyButton();
+            this.hostAirspeedCalib = new System.Windows.Forms.ToolStripControlHost(this.btnAirspeedCalib);
+            this.hostTakePhoto = new System.Windows.Forms.ToolStripControlHost(this.btnTakePhoto);
+            this.hostAutoMode = new System.Windows.Forms.ToolStripControlHost(this.btnAutoMode);
+            this.hostRTL = new System.Windows.Forms.ToolStripControlHost(this.btnRTL);
+            this.hostArmDisarm = new System.Windows.Forms.ToolStripControlHost(this.btnArmDisarm);
+            this.hostWPJump = new System.Windows.Forms.ToolStripControlHost(this.btnWPJump);
+            this.hostClearTrack = new System.Windows.Forms.ToolStripControlHost(this.btnClearTrack);
+            this.hostChangeSpeed = new System.Windows.Forms.ToolStripControlHost(this.btnChangeSpeed);
+            this.hostReadWPs = new System.Windows.Forms.ToolStripControlHost(this.btnReadWPs);
+            this.hostResumeMission = new System.Windows.Forms.ToolStripControlHost(this.btnResumeMission);
+            this.hostRTKInject = new System.Windows.Forms.ToolStripControlHost(this.btnRTKInject);
+            this.hostBinToPos = new System.Windows.Forms.ToolStripControlHost(this.btnBinToPos);
+            this.hostSetCamTriggDist = new System.Windows.Forms.ToolStripControlHost(this.btnSetCamTriggDist);
             this.MenuConnect = new System.Windows.Forms.ToolStripButton();
             this.toolStripConnectionControl = new MissionPlanner.Controls.ToolStripConnectionControl();
             this.menu = new MissionPlanner.Controls.MyButton();
@@ -90,22 +103,22 @@ namespace MissionPlanner
             this.MenuInitConfig,
             this.MenuConfigTune,
             this.MenuSimulation,
-            this.btnAirspeedCalib,
-            this.btnTakePhoto,
-            this.btnAutoMode,
-            this.btnRTL,
-            this.btnArmDisarm,
+            this.hostAirspeedCalib,
+            this.hostTakePhoto,
+            this.hostAutoMode,
+            this.hostRTL,
+            this.hostArmDisarm,
             this.cmbWPJump,
-            this.btnWPJump,
-            this.btnClearTrack,
+            this.hostWPJump,
+            this.hostClearTrack,
             this.speedHost,
-            this.btnChangeSpeed,
-            this.btnReadWPs,
-            this.btnResumeMission,
-            this.btnRTKInject,
-            this.btnBinToPos,
+            this.hostChangeSpeed,
+            this.hostReadWPs,
+            this.hostResumeMission,
+            this.hostRTKInject,
+            this.hostBinToPos,
             this.camtriggDistHost,
-            this.btnSetCamTriggDist,
+            this.hostSetCamTriggDist,
             this.MenuConnect,
             this.toolStripConnectionControl});
             this.MainMenu.Name = "MainMenu";
@@ -204,47 +217,57 @@ namespace MissionPlanner
             // 
             // btnAirspeedCalib
             // 
-            this.btnAirspeedCalib.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnAirspeedCalib.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
+            this.btnAirspeedCalib.ColorMouseDown = System.Drawing.Color.Empty;
+            this.btnAirspeedCalib.ColorMouseOver = System.Drawing.Color.Empty;
+            this.btnAirspeedCalib.ColorNotEnabled = System.Drawing.Color.Empty;
             resources.ApplyResources(this.btnAirspeedCalib, "btnAirspeedCalib");
-            this.btnAirspeedCalib.Margin = new System.Windows.Forms.Padding(0);
             this.btnAirspeedCalib.Name = "btnAirspeedCalib";
+            this.btnAirspeedCalib.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.btnAirspeedCalib.UseVisualStyleBackColor = true;
             this.btnAirspeedCalib.Click += new System.EventHandler(this.btnAirspeedCalib_Click);
             // 
             // btnTakePhoto
             // 
-            this.btnTakePhoto.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnTakePhoto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
-            this.btnTakePhoto.Margin = new System.Windows.Forms.Padding(0);
-            this.btnTakePhoto.Name = "btnTakePhoto";
+            this.btnTakePhoto.ColorMouseDown = System.Drawing.Color.Empty;
+            this.btnTakePhoto.ColorMouseOver = System.Drawing.Color.Empty;
+            this.btnTakePhoto.ColorNotEnabled = System.Drawing.Color.Empty;
             resources.ApplyResources(this.btnTakePhoto, "btnTakePhoto");
+            this.btnTakePhoto.Name = "btnTakePhoto";
+            this.btnTakePhoto.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.btnTakePhoto.UseVisualStyleBackColor = true;
             this.btnTakePhoto.Click += new System.EventHandler(this.btnTakePhoto_Click);
             // 
             // btnAutoMode
             // 
-            this.btnAutoMode.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnAutoMode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
-            this.btnAutoMode.Margin = new System.Windows.Forms.Padding(0);
-            this.btnAutoMode.Name = "btnAutoMode";
+            this.btnAutoMode.ColorMouseDown = System.Drawing.Color.Empty;
+            this.btnAutoMode.ColorMouseOver = System.Drawing.Color.Empty;
+            this.btnAutoMode.ColorNotEnabled = System.Drawing.Color.Empty;
             resources.ApplyResources(this.btnAutoMode, "btnAutoMode");
+            this.btnAutoMode.Name = "btnAutoMode";
+            this.btnAutoMode.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.btnAutoMode.UseVisualStyleBackColor = true;
             this.btnAutoMode.Click += new System.EventHandler(this.btnAutoMode_Click);
             // 
             // btnRTL
             // 
-            this.btnRTL.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnRTL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
+            this.btnRTL.ColorMouseDown = System.Drawing.Color.Empty;
+            this.btnRTL.ColorMouseOver = System.Drawing.Color.Empty;
+            this.btnRTL.ColorNotEnabled = System.Drawing.Color.Empty;
             resources.ApplyResources(this.btnRTL, "btnRTL");
-            this.btnRTL.Margin = new System.Windows.Forms.Padding(0);
             this.btnRTL.Name = "btnRTL";
+            this.btnRTL.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.btnRTL.UseVisualStyleBackColor = true;
             this.btnRTL.Click += new System.EventHandler(this.btnRTL_Click);
             // 
             // btnArmDisarm
             // 
-            this.btnArmDisarm.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnArmDisarm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
-            this.btnArmDisarm.Margin = new System.Windows.Forms.Padding(0);
-            this.btnArmDisarm.Name = "btnArmDisarm";
+            this.btnArmDisarm.ColorMouseDown = System.Drawing.Color.Empty;
+            this.btnArmDisarm.ColorMouseOver = System.Drawing.Color.Empty;
+            this.btnArmDisarm.ColorNotEnabled = System.Drawing.Color.Empty;
             resources.ApplyResources(this.btnArmDisarm, "btnArmDisarm");
+            this.btnArmDisarm.Name = "btnArmDisarm";
+            this.btnArmDisarm.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.btnArmDisarm.UseVisualStyleBackColor = true;
             this.btnArmDisarm.Click += new System.EventHandler(this.btnArmDisarm_Click);
             // 
             // cmbWPJump
@@ -259,20 +282,24 @@ namespace MissionPlanner
             // 
             // btnWPJump
             // 
-            this.btnWPJump.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnWPJump.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
-            this.btnWPJump.Margin = new System.Windows.Forms.Padding(0);
-            this.btnWPJump.Name = "btnWPJump";
+            this.btnWPJump.ColorMouseDown = System.Drawing.Color.Empty;
+            this.btnWPJump.ColorMouseOver = System.Drawing.Color.Empty;
+            this.btnWPJump.ColorNotEnabled = System.Drawing.Color.Empty;
             resources.ApplyResources(this.btnWPJump, "btnWPJump");
+            this.btnWPJump.Name = "btnWPJump";
+            this.btnWPJump.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.btnWPJump.UseVisualStyleBackColor = true;
             this.btnWPJump.Click += new System.EventHandler(this.btnWPJump_Click);
             // 
             // btnClearTrack
             // 
-            this.btnClearTrack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnClearTrack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
-            this.btnClearTrack.Margin = new System.Windows.Forms.Padding(0);
-            this.btnClearTrack.Name = "btnClearTrack";
+            this.btnClearTrack.ColorMouseDown = System.Drawing.Color.Empty;
+            this.btnClearTrack.ColorMouseOver = System.Drawing.Color.Empty;
+            this.btnClearTrack.ColorNotEnabled = System.Drawing.Color.Empty;
             resources.ApplyResources(this.btnClearTrack, "btnClearTrack");
+            this.btnClearTrack.Name = "btnClearTrack";
+            this.btnClearTrack.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.btnClearTrack.UseVisualStyleBackColor = true;
             this.btnClearTrack.Click += new System.EventHandler(this.btnClearTrack_Click);
             // 
             // speedHost
@@ -281,47 +308,57 @@ namespace MissionPlanner
             // 
             // btnChangeSpeed
             // 
-            this.btnChangeSpeed.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnChangeSpeed.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
-            this.btnChangeSpeed.Margin = new System.Windows.Forms.Padding(0);
-            this.btnChangeSpeed.Name = "btnChangeSpeed";
+            this.btnChangeSpeed.ColorMouseDown = System.Drawing.Color.Empty;
+            this.btnChangeSpeed.ColorMouseOver = System.Drawing.Color.Empty;
+            this.btnChangeSpeed.ColorNotEnabled = System.Drawing.Color.Empty;
             resources.ApplyResources(this.btnChangeSpeed, "btnChangeSpeed");
+            this.btnChangeSpeed.Name = "btnChangeSpeed";
+            this.btnChangeSpeed.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.btnChangeSpeed.UseVisualStyleBackColor = true;
             this.btnChangeSpeed.Click += new System.EventHandler(this.btnChangeSpeed_Click);
             // 
             // btnReadWPs
             // 
-            this.btnReadWPs.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnReadWPs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
-            this.btnReadWPs.Margin = new System.Windows.Forms.Padding(0);
-            this.btnReadWPs.Name = "btnReadWPs";
+            this.btnReadWPs.ColorMouseDown = System.Drawing.Color.Empty;
+            this.btnReadWPs.ColorMouseOver = System.Drawing.Color.Empty;
+            this.btnReadWPs.ColorNotEnabled = System.Drawing.Color.Empty;
             resources.ApplyResources(this.btnReadWPs, "btnReadWPs");
+            this.btnReadWPs.Name = "btnReadWPs";
+            this.btnReadWPs.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.btnReadWPs.UseVisualStyleBackColor = true;
             this.btnReadWPs.Click += new System.EventHandler(this.btnReadWPs_Click);
             // 
             // btnResumeMission
             // 
-            this.btnResumeMission.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnResumeMission.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
-            this.btnResumeMission.Margin = new System.Windows.Forms.Padding(0);
-            this.btnResumeMission.Name = "btnResumeMission";
+            this.btnResumeMission.ColorMouseDown = System.Drawing.Color.Empty;
+            this.btnResumeMission.ColorMouseOver = System.Drawing.Color.Empty;
+            this.btnResumeMission.ColorNotEnabled = System.Drawing.Color.Empty;
             resources.ApplyResources(this.btnResumeMission, "btnResumeMission");
+            this.btnResumeMission.Name = "btnResumeMission";
+            this.btnResumeMission.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.btnResumeMission.UseVisualStyleBackColor = true;
             this.btnResumeMission.Click += new System.EventHandler(this.btnResumeMission_Click);
             // 
             // btnRTKInject
             // 
-            this.btnRTKInject.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnRTKInject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
-            this.btnRTKInject.Margin = new System.Windows.Forms.Padding(0);
-            this.btnRTKInject.Name = "btnRTKInject";
+            this.btnRTKInject.ColorMouseDown = System.Drawing.Color.Empty;
+            this.btnRTKInject.ColorMouseOver = System.Drawing.Color.Empty;
+            this.btnRTKInject.ColorNotEnabled = System.Drawing.Color.Empty;
             resources.ApplyResources(this.btnRTKInject, "btnRTKInject");
+            this.btnRTKInject.Name = "btnRTKInject";
+            this.btnRTKInject.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.btnRTKInject.UseVisualStyleBackColor = true;
             this.btnRTKInject.Click += new System.EventHandler(this.btnRTKInject_Click);
             // 
             // btnBinToPos
             // 
-            this.btnBinToPos.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnBinToPos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
-            this.btnBinToPos.Margin = new System.Windows.Forms.Padding(0);
-            this.btnBinToPos.Name = "btnBinToPos";
+            this.btnBinToPos.ColorMouseDown = System.Drawing.Color.Empty;
+            this.btnBinToPos.ColorMouseOver = System.Drawing.Color.Empty;
+            this.btnBinToPos.ColorNotEnabled = System.Drawing.Color.Empty;
             resources.ApplyResources(this.btnBinToPos, "btnBinToPos");
+            this.btnBinToPos.Name = "btnBinToPos";
+            this.btnBinToPos.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.btnBinToPos.UseVisualStyleBackColor = true;
             this.btnBinToPos.Click += new System.EventHandler(this.btnBinToPos_Click);
             // 
             // camtriggDistHost
@@ -330,11 +367,13 @@ namespace MissionPlanner
             // 
             // btnSetCamTriggDist
             // 
-            this.btnSetCamTriggDist.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnSetCamTriggDist.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
-            this.btnSetCamTriggDist.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSetCamTriggDist.Name = "btnSetCamTriggDist";
+            this.btnSetCamTriggDist.ColorMouseDown = System.Drawing.Color.Empty;
+            this.btnSetCamTriggDist.ColorMouseOver = System.Drawing.Color.Empty;
+            this.btnSetCamTriggDist.ColorNotEnabled = System.Drawing.Color.Empty;
             resources.ApplyResources(this.btnSetCamTriggDist, "btnSetCamTriggDist");
+            this.btnSetCamTriggDist.Name = "btnSetCamTriggDist";
+            this.btnSetCamTriggDist.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.btnSetCamTriggDist.UseVisualStyleBackColor = true;
             this.btnSetCamTriggDist.Click += new System.EventHandler(this.btnSetCamTriggDist_Click);
             // 
             // MenuConnect
@@ -407,21 +446,34 @@ namespace MissionPlanner
         public System.Windows.Forms.ToolStripButton MenuSimulation;
         public System.Windows.Forms.ToolStripButton MenuConfigTune;
         public System.Windows.Forms.ToolStripButton MenuConnect;
-        public System.Windows.Forms.ToolStripButton btnAirspeedCalib;
-        public System.Windows.Forms.ToolStripButton btnTakePhoto;
-        public System.Windows.Forms.ToolStripButton btnAutoMode;
-        public System.Windows.Forms.ToolStripButton btnRTL;
-        public System.Windows.Forms.ToolStripButton btnArmDisarm;
+        public Controls.MyButton btnAirspeedCalib;
+        public Controls.MyButton btnTakePhoto;
+        public Controls.MyButton btnAutoMode;
+        public Controls.MyButton btnRTL;
+        public Controls.MyButton btnArmDisarm;
         public System.Windows.Forms.ToolStripComboBox cmbWPJump;
-        public System.Windows.Forms.ToolStripButton btnWPJump;
-        public System.Windows.Forms.ToolStripButton btnClearTrack;
-        public System.Windows.Forms.ToolStripButton btnChangeSpeed;
-        public System.Windows.Forms.ToolStripButton btnReadWPs;
-        public System.Windows.Forms.ToolStripButton btnResumeMission;
-        public System.Windows.Forms.ToolStripButton btnRTKInject;
-        public System.Windows.Forms.ToolStripButton btnBinToPos;
+        public Controls.MyButton btnWPJump;
+        public Controls.MyButton btnClearTrack;
+        public Controls.MyButton btnChangeSpeed;
+        public Controls.MyButton btnReadWPs;
+        public Controls.MyButton btnResumeMission;
+        public Controls.MyButton btnRTKInject;
+        public Controls.MyButton btnBinToPos;
         private Controls.ToolStripConnectionControl toolStripConnectionControl;
         private Controls.MyButton menu;
+        private System.Windows.Forms.ToolStripControlHost hostAirspeedCalib;
+        private System.Windows.Forms.ToolStripControlHost hostTakePhoto;
+        private System.Windows.Forms.ToolStripControlHost hostAutoMode;
+        private System.Windows.Forms.ToolStripControlHost hostRTL;
+        private System.Windows.Forms.ToolStripControlHost hostArmDisarm;
+        private System.Windows.Forms.ToolStripControlHost hostWPJump;
+        private System.Windows.Forms.ToolStripControlHost hostClearTrack;
+        private System.Windows.Forms.ToolStripControlHost hostChangeSpeed;
+        private System.Windows.Forms.ToolStripControlHost hostReadWPs;
+        private System.Windows.Forms.ToolStripControlHost hostResumeMission;
+        private System.Windows.Forms.ToolStripControlHost hostRTKInject;
+        private System.Windows.Forms.ToolStripControlHost hostBinToPos;
+        private System.Windows.Forms.ToolStripControlHost hostSetCamTriggDist;
         public System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ContextMenuStrip CTX_mainmenu;
         private System.Windows.Forms.ToolStripMenuItem autoHideToolStripMenuItem;
@@ -435,6 +487,6 @@ namespace MissionPlanner
         private System.Windows.Forms.ToolStripControlHost speedHost;
         private System.Windows.Forms.NumericUpDown camtriggDistInput;
         private System.Windows.Forms.ToolStripControlHost camtriggDistHost;
-        public System.Windows.Forms.ToolStripButton btnSetCamTriggDist;
+        public Controls.MyButton btnSetCamTriggDist;
     }
 }
