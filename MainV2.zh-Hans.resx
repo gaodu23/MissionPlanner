@@ -559,6 +559,12 @@
   <data name="btnBinToPos.Text" xml:space="preserve">
     <value>BIN转位置</value>
   </data>
+  <data name="btnSetCamTriggDist.ToolTipText" xml:space="preserve">
+    <value>设置拍照触发距离</value>
+  </data>
+  <data name="btnSetCamTriggDist.Text" xml:space="preserve">
+    <value>拍照距离</value>
+  </data>
   <data name="btnAutoMode.Text" xml:space="preserve">
     <value>自动</value>
   </data>

@@ -45,158 +45,259 @@ namespace MissionPlanner
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PosExtract));
+            this.panelLeft = new System.Windows.Forms.Panel();
+            this.labelTitle = new System.Windows.Forms.Label();
+            this.btnImportBin = new System.Windows.Forms.Button();
+            this.lblCount = new System.Windows.Forms.Label();
+            this.labelFilter = new System.Windows.Forms.Label();
+            this.cmbFilter = new System.Windows.Forms.ComboBox();
+            this.labelPrefix = new System.Windows.Forms.Label();
+            this.txtPhotoPrefix = new System.Windows.Forms.TextBox();
+            this.labelExt = new System.Windows.Forms.Label();
+            this.txtPhotoExt = new System.Windows.Forms.TextBox();
+            this.labelStartNum = new System.Windows.Forms.Label();
+            this.txtPhotoStartNum = new System.Windows.Forms.TextBox();
+            this.btnExtractPos = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.labelRawData = new System.Windows.Forms.Label();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.dgvRawData = new System.Windows.Forms.DataGridView();
+            this.dgvResultData = new System.Windows.Forms.DataGridView();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.panelLeft.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRawData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResultData)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // panelLeft
+            // 
+            this.panelLeft.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelLeft.Controls.Add(this.labelTitle);
+            this.panelLeft.Controls.Add(this.btnImportBin);
+            this.panelLeft.Controls.Add(this.lblCount);
+            this.panelLeft.Controls.Add(this.lblStatus);
+            this.panelLeft.Controls.Add(this.labelFilter);
+            this.panelLeft.Controls.Add(this.cmbFilter);
+            this.panelLeft.Controls.Add(this.labelPrefix);
+            this.panelLeft.Controls.Add(this.txtPhotoPrefix);
+            this.panelLeft.Controls.Add(this.labelExt);
+            this.panelLeft.Controls.Add(this.txtPhotoExt);
+            this.panelLeft.Controls.Add(this.labelStartNum);
+            this.panelLeft.Controls.Add(this.txtPhotoStartNum);
+            this.panelLeft.Controls.Add(this.btnExtractPos);
+            this.panelLeft.Controls.Add(this.btnSave);
+            this.panelLeft.Location = new System.Drawing.Point(0, 0);
+            this.panelLeft.Name = "panelLeft";
+            this.panelLeft.Size = new System.Drawing.Size(185, 490);
+            this.panelLeft.TabIndex = 0;
+            // 
+            // labelTitle
+            // 
+            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.labelTitle.Location = new System.Drawing.Point(12, 15);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(160, 25);
+            this.labelTitle.TabIndex = 0;
+            this.labelTitle.Text = "POS点提取工具";
+            // 
+            // btnImportBin
+            // 
+            this.btnImportBin.Location = new System.Drawing.Point(12, 50);
+            this.btnImportBin.Name = "btnImportBin";
+            this.btnImportBin.Size = new System.Drawing.Size(160, 30);
+            this.btnImportBin.TabIndex = 1;
+            this.btnImportBin.Text = "导入 .bin文件";
+            // 
+            // lblCount
+            // 
+            this.lblCount.Location = new System.Drawing.Point(12, 98);
+            this.lblCount.Name = "lblCount";
+            this.lblCount.Size = new System.Drawing.Size(160, 23);
+            this.lblCount.TabIndex = 2;
+            this.lblCount.Text = "统计0";
+            // 
+            // labelFilter
+            // 
+            this.labelFilter.Location = new System.Drawing.Point(12, 128);
+            this.labelFilter.Name = "labelFilter";
+            this.labelFilter.Size = new System.Drawing.Size(160, 20);
+            this.labelFilter.TabIndex = 3;
+            this.labelFilter.Text = "CAM/TRIG筛选";
+            // 
+            // cmbFilter
+            // 
+            this.cmbFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFilter.Items.AddRange(new object[] {
+            "全部(CAM+TRIG)",
+            "仅CAM",
+            "仅TRIG"});
+            this.cmbFilter.Location = new System.Drawing.Point(12, 151);
+            this.cmbFilter.Name = "cmbFilter";
+            this.cmbFilter.Size = new System.Drawing.Size(160, 20);
+            this.cmbFilter.TabIndex = 4;
+            // 
+            // labelPrefix
+            // 
+            this.labelPrefix.Location = new System.Drawing.Point(12, 183);
+            this.labelPrefix.Name = "labelPrefix";
+            this.labelPrefix.Size = new System.Drawing.Size(160, 20);
+            this.labelPrefix.TabIndex = 5;
+            this.labelPrefix.Text = "照片前缀";
+            // 
+            // txtPhotoPrefix
+            // 
+            this.txtPhotoPrefix.Location = new System.Drawing.Point(12, 206);
+            this.txtPhotoPrefix.Name = "txtPhotoPrefix";
+            this.txtPhotoPrefix.Size = new System.Drawing.Size(160, 21);
+            this.txtPhotoPrefix.TabIndex = 6;
+            this.txtPhotoPrefix.Text = "DSC";
+            // 
+            // labelExt
+            // 
+            this.labelExt.Location = new System.Drawing.Point(12, 238);
+            this.labelExt.Name = "labelExt";
+            this.labelExt.Size = new System.Drawing.Size(160, 20);
+            this.labelExt.TabIndex = 7;
+            this.labelExt.Text = "照片扩展名";
+            // 
+            // txtPhotoExt
+            // 
+            this.txtPhotoExt.Location = new System.Drawing.Point(12, 261);
+            this.txtPhotoExt.Name = "txtPhotoExt";
+            this.txtPhotoExt.Size = new System.Drawing.Size(160, 21);
+            this.txtPhotoExt.TabIndex = 8;
+            this.txtPhotoExt.Text = "JPG";
+            // 
+            // labelStartNum
+            // 
+            this.labelStartNum.Location = new System.Drawing.Point(12, 293);
+            this.labelStartNum.Name = "labelStartNum";
+            this.labelStartNum.Size = new System.Drawing.Size(160, 20);
+            this.labelStartNum.TabIndex = 9;
+            this.labelStartNum.Text = "照片起始编号";
+            // 
+            // txtPhotoStartNum
+            // 
+            this.txtPhotoStartNum.Location = new System.Drawing.Point(12, 316);
+            this.txtPhotoStartNum.Name = "txtPhotoStartNum";
+            this.txtPhotoStartNum.Size = new System.Drawing.Size(160, 21);
+            this.txtPhotoStartNum.TabIndex = 10;
+            this.txtPhotoStartNum.Text = "00006";
+            // 
+            // btnExtractPos
+            // 
+            this.btnExtractPos.Location = new System.Drawing.Point(12, 353);
+            this.btnExtractPos.Name = "btnExtractPos";
+            this.btnExtractPos.Size = new System.Drawing.Size(160, 30);
+            this.btnExtractPos.TabIndex = 11;
+            this.btnExtractPos.Text = "pos点提取";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(12, 393);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(160, 30);
+            this.btnSave.TabIndex = 12;
+            this.btnSave.Text = "保存";
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(197, 458);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(781, 20);
+            this.progressBar1.TabIndex = 13;
+            // 
+            // labelRawData
+            // 
+            this.labelRawData.Location = new System.Drawing.Point(195, 10);
+            this.labelRawData.Name = "labelRawData";
+            this.labelRawData.Size = new System.Drawing.Size(400, 20);
+            this.labelRawData.TabIndex = 1;
+            this.labelRawData.Text = "原始提取数据（上） / POS结果（下）";
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.Location = new System.Drawing.Point(195, 35);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.dgvRawData);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.dgvResultData);
+            this.splitContainer1.Size = new System.Drawing.Size(780, 410);
+            this.splitContainer1.SplitterDistance = 190;
+            this.splitContainer1.TabIndex = 2;
+            // 
+            // dgvRawData
+            // 
+            this.dgvRawData.AllowUserToAddRows = false;
+            this.dgvRawData.AllowUserToDeleteRows = false;
+            this.dgvRawData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvRawData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvRawData.Location = new System.Drawing.Point(0, 0);
+            this.dgvRawData.Name = "dgvRawData";
+            this.dgvRawData.ReadOnly = true;
+            this.dgvRawData.Size = new System.Drawing.Size(780, 190);
+            this.dgvRawData.TabIndex = 0;
+            // 
+            // dgvResultData
+            // 
+            this.dgvResultData.AllowUserToAddRows = false;
+            this.dgvResultData.AllowUserToDeleteRows = false;
+            this.dgvResultData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvResultData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvResultData.Location = new System.Drawing.Point(0, 0);
+            this.dgvResultData.Name = "dgvResultData";
+            this.dgvResultData.ReadOnly = true;
+            this.dgvResultData.Size = new System.Drawing.Size(780, 216);
+            this.dgvResultData.TabIndex = 0;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblStatus.Location = new System.Drawing.Point(13, 447);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(159, 23);
+            this.lblStatus.TabIndex = 3;
+            this.lblStatus.Text = "就绪";
+            // 
+            // PosExtract
+            // 
+            this.ClientSize = new System.Drawing.Size(990, 490);
+            this.Controls.Add(this.panelLeft);
+            this.Controls.Add(this.labelRawData);
+            this.Controls.Add(this.splitContainer1);
+            this.Controls.Add(this.progressBar1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(800, 420);
+            this.Name = "PosExtract";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "POS点提取工具";
-            this.ClientSize = new Size(990, 490);
-            this.StartPosition = FormStartPosition.CenterParent;
-            this.MinimumSize = new Size(800, 420);
+            this.panelLeft.ResumeLayout(false);
+            this.panelLeft.PerformLayout();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRawData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResultData)).EndInit();
+            this.ResumeLayout(false);
 
-            // Left panel
-            panelLeft = new Panel();
-            panelLeft.Location = new Point(0, 0);
-            panelLeft.Size = new Size(185, 490);
-            panelLeft.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-
-            // Title label
-            labelTitle = new Label();
-            labelTitle.Text = "POS点提取工具";
-            labelTitle.Location = new Point(12, 15);
-            labelTitle.Size = new Size(160, 25);
-            labelTitle.Font = new Font("Microsoft Sans Serif", 10f, FontStyle.Bold);
-
-            // Import button
-            btnImportBin = new Button();
-            btnImportBin.Text = "导入 .bin文件";
-            btnImportBin.Location = new Point(12, 50);
-            btnImportBin.Size = new Size(160, 30);
-            btnImportBin.Click += btnImportBin_Click;
-
-            // Count label
-            lblCount = new Label();
-            lblCount.Text = "统计0";
-            lblCount.Location = new Point(12, 90);
-            lblCount.Size = new Size(160, 23);
-
-            // CAM/TRIG filter
-            labelFilter = new Label();
-            labelFilter.Text = "CAM/TRIG筛选";
-            labelFilter.Location = new Point(12, 120);
-            labelFilter.Size = new Size(160, 20);
-
-            cmbFilter = new ComboBox();
-            cmbFilter.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbFilter.Items.AddRange(new object[] { "全部(CAM+TRIG)", "仅CAM", "仅TRIG" });
-            cmbFilter.SelectedIndex = 0;
-            cmbFilter.Location = new Point(12, 143);
-            cmbFilter.Size = new Size(160, 23);
-            cmbFilter.SelectedIndexChanged += cmbFilter_SelectedIndexChanged;
-
-            // Photo prefix
-            labelPrefix = new Label();
-            labelPrefix.Text = "照片前缀";
-            labelPrefix.Location = new Point(12, 175);
-            labelPrefix.Size = new Size(160, 20);
-
-            txtPhotoPrefix = new TextBox();
-            txtPhotoPrefix.Text = "DSC";
-            txtPhotoPrefix.Location = new Point(12, 198);
-            txtPhotoPrefix.Size = new Size(160, 23);
-
-            // Photo extension
-            labelExt = new Label();
-            labelExt.Text = "照片扩展名";
-            labelExt.Location = new Point(12, 230);
-            labelExt.Size = new Size(160, 20);
-
-            txtPhotoExt = new TextBox();
-            txtPhotoExt.Text = "JPG";
-            txtPhotoExt.Location = new Point(12, 253);
-            txtPhotoExt.Size = new Size(160, 23);
-
-            // Photo start number
-            labelStartNum = new Label();
-            labelStartNum.Text = "照片起始编号";
-            labelStartNum.Location = new Point(12, 285);
-            labelStartNum.Size = new Size(160, 20);
-
-            txtPhotoStartNum = new TextBox();
-            txtPhotoStartNum.Text = "00006";
-            txtPhotoStartNum.Location = new Point(12, 308);
-            txtPhotoStartNum.Size = new Size(160, 23);
-
-            // Extract POS button
-            btnExtractPos = new Button();
-            btnExtractPos.Text = "pos点提取";
-            btnExtractPos.Location = new Point(12, 345);
-            btnExtractPos.Size = new Size(160, 30);
-            btnExtractPos.Click += btnExtractPos_Click;
-
-            // Save button
-            btnSave = new Button();
-            btnSave.Text = "保存";
-            btnSave.Location = new Point(12, 385);
-            btnSave.Size = new Size(160, 30);
-            btnSave.Click += btnSave_Click;
-
-            // Progress bar
-            progressBar1 = new ProgressBar();
-            progressBar1.Location = new Point(12, 430);
-            progressBar1.Size = new Size(160, 20);
-
-            // Add controls to left panel
-            panelLeft.Controls.AddRange(new Control[] {
-                labelTitle, btnImportBin, lblCount,
-                labelFilter, cmbFilter,
-                labelPrefix, txtPhotoPrefix,
-                labelExt, txtPhotoExt,
-                labelStartNum, txtPhotoStartNum,
-                btnExtractPos, btnSave, progressBar1
-            });
-
-            // Raw data label
-            labelRawData = new Label();
-            labelRawData.Text = "原始提取数据（上） / POS结果（下）";
-            labelRawData.Location = new Point(195, 10);
-            labelRawData.Size = new Size(400, 20);
-            labelRawData.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-
-            // Split container for two DataGridViews
-            splitContainer1 = new SplitContainer();
-            splitContainer1.Location = new Point(195, 35);
-            splitContainer1.Size = new Size(780, 410);
-            splitContainer1.Orientation = Orientation.Horizontal;
-            splitContainer1.SplitterDistance = 190;
-            splitContainer1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-
-            // Upper DataGridView - raw data
-            dgvRawData = new DataGridView();
-            dgvRawData.Dock = DockStyle.Fill;
-            dgvRawData.AllowUserToAddRows = false;
-            dgvRawData.AllowUserToDeleteRows = false;
-            dgvRawData.ReadOnly = true;
-            dgvRawData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            // Lower DataGridView - result data
-            dgvResultData = new DataGridView();
-            dgvResultData.Dock = DockStyle.Fill;
-            dgvResultData.AllowUserToAddRows = false;
-            dgvResultData.AllowUserToDeleteRows = false;
-            dgvResultData.ReadOnly = true;
-            dgvResultData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            splitContainer1.Panel1.Controls.Add(dgvRawData);
-            splitContainer1.Panel2.Controls.Add(dgvResultData);
-
-            // Status label
-            lblStatus = new Label();
-            lblStatus.Text = "就绪";
-            lblStatus.Location = new Point(195, 455);
-            lblStatus.Size = new Size(780, 23);
-            lblStatus.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-
-            // Add all to form
-            this.Controls.AddRange(new Control[] {
-                panelLeft, labelRawData, splitContainer1, lblStatus
-            });
         }
 
         /// <summary>

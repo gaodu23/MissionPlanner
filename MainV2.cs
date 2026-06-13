@@ -719,19 +719,14 @@ namespace MissionPlanner
 
             Utilities.ThemeManager.ApplyThemeTo(this);
 
-            // 设置工具栏按钮图标（图上文下）
-            SetupToolbarButtonIcons();
+            // 设置工具栏按钮图标（图上文下） - 已禁用，改用纯文本显示
+            //SetupToolbarButtonIcons();
 
-            // 恢复速度输入框（用ToolStripControlHost包装NumericUpDown）
+            // 速度输入框已集成到 MainV2.Designer.cs 的 MainMenu.Items 中，无需运行时插入
             hostSpeedInput.DecimalPlaces = 1;
             hostSpeedInput.Maximum = 1000;
             hostSpeedInput.Minimum = 0;
             hostSpeedInput.Value = 22;
-            var speedHost = new ToolStripControlHost(hostSpeedInput);
-            speedHost.Margin = new Padding(2, 0, 2, 0);
-            // 插入到btnClearTrack和btnChangeSpeed之间
-            var insertIndex = MainMenu.Items.IndexOf(btnClearTrack) + 1;
-            MainMenu.Items.Insert(insertIndex, speedHost);
 
             // define default basestream
             comPort.BaseStream = new SerialPort();
@@ -1195,24 +1190,21 @@ namespace MissionPlanner
 
             displayicons = icons;
 
-            MainMenu.BackColor = SystemColors.MenuBar;
-
-            MainMenu.BackgroundImage = displayicons.bg;
-
-            MenuFlightData.Image = displayicons.fd;
-            MenuFlightPlanner.Image = displayicons.fp;
-            MenuInitConfig.Image = displayicons.initsetup;
-            MenuSimulation.Image = displayicons.sim;
-            MenuConfigTune.Image = displayicons.config_tuning;
-            MenuConnect.Image = displayicons.connect;
-
-
-            MenuFlightData.ForeColor = ThemeManager.TextColor;
-            MenuFlightPlanner.ForeColor = ThemeManager.TextColor;
-            MenuInitConfig.ForeColor = ThemeManager.TextColor;
-            MenuSimulation.ForeColor = ThemeManager.TextColor;
-            MenuConfigTune.ForeColor = ThemeManager.TextColor;
-            MenuConnect.ForeColor = ThemeManager.TextColor;
+            // 以下由 MainV2.Designer.cs 统一控制，此处不再覆盖
+            //MainMenu.BackColor = SystemColors.MenuBar;
+            //MainMenu.BackgroundImage = displayicons.bg;
+            //MenuFlightData.Image = displayicons.fd;
+            //MenuFlightPlanner.Image = displayicons.fp;
+            //MenuInitConfig.Image = displayicons.initsetup;
+            //MenuSimulation.Image = displayicons.sim;
+            //MenuConfigTune.Image = displayicons.config_tuning;
+            //MenuConnect.Image = displayicons.connect;
+            //MenuFlightData.ForeColor = ThemeManager.TextColor;
+            //MenuFlightPlanner.ForeColor = ThemeManager.TextColor;
+            //MenuInitConfig.ForeColor = ThemeManager.TextColor;
+            //MenuSimulation.ForeColor = ThemeManager.TextColor;
+            //MenuConfigTune.ForeColor = ThemeManager.TextColor;
+            //MenuConnect.ForeColor = ThemeManager.TextColor;
         }
 
         void adsb_UpdatePlanePosition(object sender, MissionPlanner.Utilities.adsb.PointLatLngAltHdg adsb)
@@ -1583,6 +1575,29 @@ namespace MissionPlanner
             finally
             {
                 btnChangeSpeed.Enabled = true;
+            }
+        }
+
+        private void btnSetCamTriggDist_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!comPort.BaseStream.IsOpen)
+                {
+                    CustomMessageBox.Show(Strings.ErrorNotConnected, Strings.ERROR);
+                    return;
+                }
+                btnSetCamTriggDist.Enabled = false;
+                _ = comPort.doCommandAsync(comPort.MAV.sysid, comPort.MAV.compid,
+                    MAVLink.MAV_CMD.DO_SET_CAM_TRIGG_DIST, (float)camtriggDistInput.Value, 0, 0, 0, 0, 0, 0);
+            }
+            catch
+            {
+                CustomMessageBox.Show(Strings.ErrorCommunicating, Strings.ERROR);
+            }
+            finally
+            {
+                btnSetCamTriggDist.Enabled = true;
             }
         }
 
