@@ -288,6 +288,13 @@ namespace MissionPlanner
             this.Name = "PosExtract";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "POS点提取工具";
+            // 
+            // Event handlers
+            // 
+            this.btnImportBin.Click += new System.EventHandler(this.btnImportBin_Click);
+            this.cmbFilter.SelectedIndexChanged += new System.EventHandler(this.cmbFilter_SelectedIndexChanged);
+            this.btnExtractPos.Click += new System.EventHandler(this.btnExtractPos_Click);
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             this.panelLeft.ResumeLayout(false);
             this.panelLeft.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
