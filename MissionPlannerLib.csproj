@@ -643,7 +643,7 @@
     <None Update="mavutil.py">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="mpdesktop.ico">
+    <None Update="mpdesktop1.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ParameterFactMetaData.xml">

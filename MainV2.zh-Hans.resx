@@ -831,4 +831,10 @@
         RWVk/AHK+gkLXz4DGAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="btnSERVER.Text" xml:space="preserve">
+    <value>服务器</value>
+  </data>
+  <data name="btnSERVER.ToolTipText" xml:space="preserve">
+    <value>打开服务器</value>
+  </data>
 </root>

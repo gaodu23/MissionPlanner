@@ -79,6 +79,9 @@ namespace MissionPlanner
             this.hostRTKInject = new System.Windows.Forms.ToolStripControlHost(this.btnRTKInject);
             this.hostBinToPos = new System.Windows.Forms.ToolStripControlHost(this.btnBinToPos);
             this.hostSetCamTriggDist = new System.Windows.Forms.ToolStripControlHost(this.btnSetCamTriggDist);
+            this.btnSERVER = new MissionPlanner.Controls.MyButton();
+            this.hostSERVER = new System.Windows.Forms.ToolStripControlHost(this.btnSERVER);
+            this.toolStripSeparator0 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -107,6 +110,7 @@ namespace MissionPlanner
             this.MenuInitConfig,
             this.MenuConfigTune,
             this.MenuSimulation,
+            this.toolStripSeparator0,
             // 1 解锁锁定
             this.hostArmDisarm,
             // 2 校准
@@ -140,7 +144,8 @@ namespace MissionPlanner
             // 13 清除
             this.hostClearTrack,
             this.MenuConnect,
-            this.toolStripConnectionControl});
+            this.toolStripConnectionControl,
+            this.hostSERVER});
             this.MainMenu.Name = "MainMenu";
             this.MainMenu.ShowItemToolTips = true;
             this.MainMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MainMenu_ItemClicked);
@@ -419,6 +424,19 @@ namespace MissionPlanner
             this.MenuConnect.Name = "MenuConnect";
             this.MenuConnect.Click += new System.EventHandler(this.MenuConnect_Click);
             // 
+            // btnSERVER
+            // 
+            this.btnSERVER.Name = "btnSERVER";
+            resources.ApplyResources(this.btnSERVER, "btnSERVER");
+            this.btnSERVER.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.btnSERVER.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.btnSERVER, resources.GetString("btnSERVER.ToolTipText"));
+            this.btnSERVER.Click += new System.EventHandler(this.btnSERVER_Click);
+            // 
+            // hostSERVER
+            // 
+            this.hostSERVER.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            // 
             // toolStripConnectionControl
             // 
             this.toolStripConnectionControl.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -492,6 +510,7 @@ namespace MissionPlanner
         public Controls.MyButton btnResumeMission;
         public Controls.MyButton btnRTKInject;
         public Controls.MyButton btnBinToPos;
+        public Controls.MyButton btnSERVER;
         private Controls.ToolStripConnectionControl toolStripConnectionControl;
         private Controls.MyButton menu;
         private System.Windows.Forms.ToolStripControlHost hostAirspeedCalib;
@@ -507,6 +526,8 @@ namespace MissionPlanner
         private System.Windows.Forms.ToolStripControlHost hostRTKInject;
         private System.Windows.Forms.ToolStripControlHost hostBinToPos;
         private System.Windows.Forms.ToolStripControlHost hostSetCamTriggDist;
+        private System.Windows.Forms.ToolStripControlHost hostSERVER;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator0;        
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;

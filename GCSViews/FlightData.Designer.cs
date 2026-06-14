@@ -2856,12 +2856,9 @@ namespace MissionPlanner.GCSViews
             this.CHK_showcamera.AutoSize = true;
             this.CHK_showcamera.Checked = true;
             this.CHK_showcamera.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CHK_showcamera.Location = new System.Drawing.Point(400, 3);
+            resources.ApplyResources(this.CHK_showcamera, "CHK_showcamera");
             this.CHK_showcamera.Name = "CHK_showcamera";
-            this.CHK_showcamera.Size = new System.Drawing.Size(92, 17);
-            this.CHK_showcamera.TabIndex = 69;
-            this.CHK_showcamera.Text = "Show Camera";
-            this.toolTip1.SetToolTip(this.CHK_showcamera, "Show camera image markers on the map");
+            this.toolTip1.SetToolTip(this.CHK_showcamera, resources.GetString("CHK_showcamera.ToolTip"));
             this.CHK_showcamera.UseVisualStyleBackColor = true;
             this.CHK_showcamera.CheckedChanged += new System.EventHandler(this.CHK_showcamera_CheckedChanged);
             // 
@@ -2869,12 +2866,9 @@ namespace MissionPlanner.GCSViews
             // 
             this.lbl_imageindex.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_imageindex.AutoSize = true;
-            this.lbl_imageindex.Location = new System.Drawing.Point(498, 5);
+            resources.ApplyResources(this.lbl_imageindex, "lbl_imageindex");
             this.lbl_imageindex.Name = "lbl_imageindex";
-            this.lbl_imageindex.Size = new System.Drawing.Size(89, 13);
-            this.lbl_imageindex.TabIndex = 70;
-            this.lbl_imageindex.Text = "Img: --";
-            this.toolTip1.SetToolTip(this.lbl_imageindex, "Last received CAMERA_FEEDBACK img_idx");
+            this.toolTip1.SetToolTip(this.lbl_imageindex, resources.GetString("lbl_imageindex.ToolTip"));
             // 
             // CB_tuning
             // 

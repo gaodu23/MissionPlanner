@@ -2467,6 +2467,11 @@ namespace MissionPlanner
             SaveConfig();
         }
 
+        private void btnSERVER_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://mapuav.top:8080");
+        }
+
         private void Connect()
         {
             comPort.giveComport = false;

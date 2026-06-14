@@ -64,6 +64,7 @@ namespace MissionPlanner.GCSViews
         private bool CameraOverlap;
         int lastImgIdx = -1;
         int lastImgIdxSubscription;
+        string lbl_imageindex_format = "Img: {0}";
         GMapMarker center = new GMarkerGoogle(new PointLatLng(0.0, 0.0), GMarkerGoogleType.none);
         bool huddropout;
         bool huddropoutresize;
@@ -545,6 +546,9 @@ namespace MissionPlanner.GCSViews
             // subscribe to CAMERA_FEEDBACK to track last img_idx
             if (MainV2.comPort.BaseStream.IsOpen)
             {
+                // Initialize the label format from its localized text (replace "--" with format placeholder)
+                lbl_imageindex_format = lbl_imageindex.Text.Replace("--", "{0}");
+
                 lastImgIdxSubscription = MainV2.comPort.SubscribeToPacketType(
                     MAVLink.MAVLINK_MSG_ID.CAMERA_FEEDBACK, message =>
                     {
@@ -552,7 +556,7 @@ namespace MissionPlanner.GCSViews
                         lastImgIdx = cam.img_idx;
                         this.BeginInvokeIfRequired(() =>
                         {
-                            lbl_imageindex.Text = "Img: " + lastImgIdx;
+                            lbl_imageindex.Text = string.Format(lbl_imageindex_format, lastImgIdx);
                         });
                         return true;
                     }, (byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent);
@@ -562,7 +566,7 @@ namespace MissionPlanner.GCSViews
                 {
                     var latest = MainV2.comPort.MAV.camerapoints.Last();
                     lastImgIdx = latest.img_idx;
-                    lbl_imageindex.Text = "Img: " + lastImgIdx;
+                    lbl_imageindex.Text = string.Format(lbl_imageindex_format, lastImgIdx);
                 }
             }
 
