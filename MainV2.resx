@@ -413,7 +413,7 @@
     <value>35, 52</value>
   </data>
   <data name="btnAirspeedCalib.Text" xml:space="preserve">
-    <value>ASP CAL</value>
+    <value>CAL</value>
   </data>
   <data name="btnAirspeedCalib.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageAboveText</value>
@@ -425,7 +425,7 @@
     <value>35, 52</value>
   </data>
   <data name="btnTakePhoto.Text" xml:space="preserve">
-    <value>PHOTO</value>
+    <value>TRIG</value>
   </data>
   <data name="btnTakePhoto.ToolTipText" xml:space="preserve">
     <value>Trigger Camera Shutter</value>
@@ -458,7 +458,7 @@
     <value>35, 52</value>
   </data>
   <data name="btnArmDisarm.Text" xml:space="preserve">
-    <value>ARM\DIS</value>
+    <value>ARM</value>
   </data>
   <data name="btnArmDisarm.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageAboveText</value>
@@ -467,7 +467,7 @@
     <value>Toggle Arm / Disarm</value>
   </data>
   <data name="cmbWPJump.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 43</value>
+    <value>50, 50</value>
   </data>
   <data name="cmbWPJump.ToolTipText" xml:space="preserve">
     <value>Select waypoint to jump to</value>
@@ -485,13 +485,13 @@
     <value>35, 52</value>
   </data>
   <data name="btnClearTrack.Text" xml:space="preserve">
-    <value>CLR TRK</value>
+    <value>CLR</value>
   </data>
   <data name="btnClearTrack.ToolTipText" xml:space="preserve">
     <value>Clear the recorded camera track on the map</value>
   </data>
   <data name="speedHost.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 52</value>
+    <value>50, 50</value>
   </data>
   <data name="speedHost.Text" xml:space="preserve">
     <value>0</value>
@@ -500,7 +500,7 @@
     <value>35, 52</value>
   </data>
   <data name="btnChangeSpeed.Text" xml:space="preserve">
-    <value>SET SPD</value>
+    <value>SPD</value>
   </data>
   <data name="btnChangeSpeed.ToolTipText" xml:space="preserve">
     <value>Send DO_CHANGE_SPEED command</value>
@@ -509,7 +509,7 @@
     <value>35, 52</value>
   </data>
   <data name="btnReadWPs.Text" xml:space="preserve">
-    <value>READ WP</value>
+    <value>READ</value>
   </data>
   <data name="btnReadWPs.ToolTipText" xml:space="preserve">
     <value>Read waypoints from flight controller</value>
@@ -518,7 +518,7 @@
     <value>35, 52</value>
   </data>
   <data name="btnResumeMission.Text" xml:space="preserve">
-    <value>RESUME</value>
+    <value>RES</value>
   </data>
   <data name="btnResumeMission.ToolTipText" xml:space="preserve">
     <value>Resume mission from last waypoint</value>
@@ -527,7 +527,7 @@
     <value>35, 52</value>
   </data>
   <data name="btnRTKInject.Text" xml:space="preserve">
-    <value>RTK INJ</value>
+    <value>RTK</value>
   </data>
   <data name="btnRTKInject.ToolTipText" xml:space="preserve">
     <value>Open RTK/GPS Inject tool</value>
@@ -536,13 +536,13 @@
     <value>35, 52</value>
   </data>
   <data name="btnBinToPos.Text" xml:space="preserve">
-    <value>BIN2POS</value>
+    <value>POS</value>
   </data>
   <data name="btnBinToPos.ToolTipText" xml:space="preserve">
     <value>Extract POS data from .BIN log</value>
   </data>
   <data name="camtriggDistHost.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 52</value>
+    <value>50, 50</value>
   </data>
   <data name="camtriggDistHost.Text" xml:space="preserve">
     <value>0</value>
@@ -551,7 +551,7 @@
     <value>35, 52</value>
   </data>
   <data name="btnSetCamTriggDist.Text" xml:space="preserve">
-    <value>CAM DIS</value>
+    <value>DIS</value>
   </data>
   <data name="btnSetCamTriggDist.ToolTipText" xml:space="preserve">
     <value>Set Camera Trigger Distance</value>
@@ -1077,7 +1077,7 @@
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="btnSERVER.Text" xml:space="preserve">
-    <value>SERVER</value>
+    <value>SVR</value>
   </data>
   <data name="btnSERVER.Size" type="System.Drawing.Size, System.Drawing">
     <value>35, 52</value>

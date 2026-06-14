@@ -305,7 +305,7 @@ namespace MissionPlanner
             this.cmbWPJump.Name = "cmbWPJump";
             resources.ApplyResources(this.cmbWPJump, "cmbWPJump");
             this.cmbWPJump.AutoSize = false;
-            this.cmbWPJump.Size = new System.Drawing.Size(40, 43);
+            this.cmbWPJump.Size = new System.Drawing.Size(50, 50);
             this.cmbWPJump.DropDownWidth = 40;
             this.cmbWPJump.DropDown += new System.EventHandler(this.cmbWPJump_DropDown);
             // 
@@ -338,6 +338,8 @@ namespace MissionPlanner
             // speedHost
             // 
             this.speedHost.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.hostSpeedInput.AutoSize = false;
+            this.hostSpeedInput.Size = new System.Drawing.Size(50, 50);
             // 
             // btnChangeSpeed
             // 
@@ -407,6 +409,8 @@ namespace MissionPlanner
             // camtriggDistHost
             // 
             this.camtriggDistHost.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.camtriggDistInput.AutoSize = false;
+            this.camtriggDistInput.Size = new System.Drawing.Size(50, 50);
             // 
             // btnSetCamTriggDist
             // 
@@ -424,8 +428,7 @@ namespace MissionPlanner
             // MenuConnect
             // 
             this.MenuConnect.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.MenuConnect.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.MenuConnect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
+            this.MenuConnect.ForeColor = System.Drawing.SystemColors.ControlLight;
             resources.ApplyResources(this.MenuConnect, "MenuConnect");
             this.MenuConnect.Margin = new System.Windows.Forms.Padding(0);
             this.MenuConnect.Name = "MenuConnect";

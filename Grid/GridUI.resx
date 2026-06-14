@@ -2961,7 +2961,7 @@ Control-O to load form file</value>
     <value>Display</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>Distance between lines [m]</value>
+    <value>Distance between lines</value>
   </data>
   <data name="&gt;&gt;label41.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -3075,7 +3075,7 @@ Control-O to load form file</value>
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label24.Text" xml:space="preserve">
-    <value>Flying Speed (est)</value>
+    <value>Flying Speed</value>
   </data>
   <data name="&gt;&gt;label44.Name" xml:space="preserve">
     <value>label44</value>

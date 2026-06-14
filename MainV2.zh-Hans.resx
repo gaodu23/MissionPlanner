@@ -402,7 +402,7 @@
     <value>选择要跳转到的航点</value>
   </data>
   <data name="cmbWPJump.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 43</value>
+    <value>50, 50</value>
   </data>
   <data name="btnWPJump.Size" type="System.Drawing.Size, System.Drawing">
     <value>35, 52</value>

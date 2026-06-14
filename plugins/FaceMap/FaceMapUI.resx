@@ -3049,7 +3049,7 @@
     <value>70</value>
   </data>
   <data name="label24.Text" xml:space="preserve">
-    <value>Flying Speed (est)</value>
+    <value>Flying Speed</value>
   </data>
   <data name="&gt;&gt;label24.Name" xml:space="preserve">
     <value>label24</value>

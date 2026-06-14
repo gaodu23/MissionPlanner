@@ -730,6 +730,10 @@ namespace MissionPlanner
             hostSpeedInput.Maximum = 1000;
             hostSpeedInput.Minimum = 0;
             hostSpeedInput.Value = 22;
+            hostSpeedInput.AutoSize = false;
+            hostSpeedInput.Size = new System.Drawing.Size(50, 50);
+            camtriggDistInput.AutoSize = false;
+            camtriggDistInput.Size = new System.Drawing.Size(50, 50);
 
             // define default basestream
             comPort.BaseStream = new SerialPort();
