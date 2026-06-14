@@ -81,10 +81,6 @@ namespace MissionPlanner
             this.hostSetCamTriggDist = new System.Windows.Forms.ToolStripControlHost(this.btnSetCamTriggDist);
             this.btnSERVER = new MissionPlanner.Controls.MyButton();
             this.hostSERVER = new System.Windows.Forms.ToolStripControlHost(this.btnSERVER);
-            this.toolStripSeparator0 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.MenuConnect = new System.Windows.Forms.ToolStripButton();
             this.toolStripConnectionControl = new MissionPlanner.Controls.ToolStripConnectionControl();
@@ -110,14 +106,12 @@ namespace MissionPlanner
             this.MenuInitConfig,
             this.MenuConfigTune,
             this.MenuSimulation,
-            this.toolStripSeparator0,
             // 1 解锁锁定
             this.hostArmDisarm,
             // 2 校准
             this.hostAirspeedCalib,
             // 3 试拍
             this.hostTakePhoto,
-            this.toolStripSeparator1,
             // 4 速度
             this.speedHost,
             this.hostChangeSpeed,
@@ -127,7 +121,6 @@ namespace MissionPlanner
             // 6 航点跳转
             this.cmbWPJump,
             this.hostWPJump,
-            this.toolStripSeparator2,
             // 7 读取
             this.hostReadWPs,
             // 8 自动
@@ -136,7 +129,6 @@ namespace MissionPlanner
             this.hostRTL,
             // 10 恢复
             this.hostResumeMission,
-            this.toolStripSeparator3,
             // 11 RTK
             this.hostRTKInject,
             // 12 POS
@@ -245,6 +237,7 @@ namespace MissionPlanner
             this.btnAirspeedCalib.ColorMouseDown = System.Drawing.Color.Empty;
             this.btnAirspeedCalib.ColorMouseOver = System.Drawing.Color.Empty;
             this.btnAirspeedCalib.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.btnAirspeedCalib.AutoSize = false;
             resources.ApplyResources(this.btnAirspeedCalib, "btnAirspeedCalib");
             this.btnAirspeedCalib.Name = "btnAirspeedCalib";
             this.btnAirspeedCalib.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
@@ -257,6 +250,7 @@ namespace MissionPlanner
             this.btnTakePhoto.ColorMouseDown = System.Drawing.Color.Empty;
             this.btnTakePhoto.ColorMouseOver = System.Drawing.Color.Empty;
             this.btnTakePhoto.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.btnTakePhoto.AutoSize = false;
             resources.ApplyResources(this.btnTakePhoto, "btnTakePhoto");
             this.btnTakePhoto.Name = "btnTakePhoto";
             this.btnTakePhoto.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
@@ -269,6 +263,7 @@ namespace MissionPlanner
             this.btnAutoMode.ColorMouseDown = System.Drawing.Color.Empty;
             this.btnAutoMode.ColorMouseOver = System.Drawing.Color.Empty;
             this.btnAutoMode.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.btnAutoMode.AutoSize = false;
             resources.ApplyResources(this.btnAutoMode, "btnAutoMode");
             this.btnAutoMode.Name = "btnAutoMode";
             this.btnAutoMode.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
@@ -281,6 +276,7 @@ namespace MissionPlanner
             this.btnRTL.ColorMouseDown = System.Drawing.Color.Empty;
             this.btnRTL.ColorMouseOver = System.Drawing.Color.Empty;
             this.btnRTL.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.btnRTL.AutoSize = false;
             resources.ApplyResources(this.btnRTL, "btnRTL");
             this.btnRTL.Name = "btnRTL";
             this.btnRTL.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
@@ -293,6 +289,7 @@ namespace MissionPlanner
             this.btnArmDisarm.ColorMouseDown = System.Drawing.Color.Empty;
             this.btnArmDisarm.ColorMouseOver = System.Drawing.Color.Empty;
             this.btnArmDisarm.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.btnArmDisarm.AutoSize = false;
             resources.ApplyResources(this.btnArmDisarm, "btnArmDisarm");
             this.btnArmDisarm.Name = "btnArmDisarm";
             this.btnArmDisarm.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
@@ -303,11 +300,13 @@ namespace MissionPlanner
             // cmbWPJump
             // 
             this.cmbWPJump.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbWPJump.DropDownWidth = 80;
             this.cmbWPJump.ForeColor = System.Drawing.SystemColors.WindowText;
             this.cmbWPJump.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.cmbWPJump.Name = "cmbWPJump";
             resources.ApplyResources(this.cmbWPJump, "cmbWPJump");
+            this.cmbWPJump.AutoSize = false;
+            this.cmbWPJump.Size = new System.Drawing.Size(40, 43);
+            this.cmbWPJump.DropDownWidth = 40;
             this.cmbWPJump.DropDown += new System.EventHandler(this.cmbWPJump_DropDown);
             // 
             // btnWPJump
@@ -315,6 +314,7 @@ namespace MissionPlanner
             this.btnWPJump.ColorMouseDown = System.Drawing.Color.Empty;
             this.btnWPJump.ColorMouseOver = System.Drawing.Color.Empty;
             this.btnWPJump.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.btnWPJump.AutoSize = false;
             resources.ApplyResources(this.btnWPJump, "btnWPJump");
             this.btnWPJump.Name = "btnWPJump";
             this.btnWPJump.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
@@ -327,6 +327,7 @@ namespace MissionPlanner
             this.btnClearTrack.ColorMouseDown = System.Drawing.Color.Empty;
             this.btnClearTrack.ColorMouseOver = System.Drawing.Color.Empty;
             this.btnClearTrack.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.btnClearTrack.AutoSize = false;
             resources.ApplyResources(this.btnClearTrack, "btnClearTrack");
             this.btnClearTrack.Name = "btnClearTrack";
             this.btnClearTrack.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
@@ -343,6 +344,7 @@ namespace MissionPlanner
             this.btnChangeSpeed.ColorMouseDown = System.Drawing.Color.Empty;
             this.btnChangeSpeed.ColorMouseOver = System.Drawing.Color.Empty;
             this.btnChangeSpeed.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.btnChangeSpeed.AutoSize = false;
             resources.ApplyResources(this.btnChangeSpeed, "btnChangeSpeed");
             this.btnChangeSpeed.Name = "btnChangeSpeed";
             this.btnChangeSpeed.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
@@ -355,6 +357,7 @@ namespace MissionPlanner
             this.btnReadWPs.ColorMouseDown = System.Drawing.Color.Empty;
             this.btnReadWPs.ColorMouseOver = System.Drawing.Color.Empty;
             this.btnReadWPs.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.btnReadWPs.AutoSize = false;
             resources.ApplyResources(this.btnReadWPs, "btnReadWPs");
             this.btnReadWPs.Name = "btnReadWPs";
             this.btnReadWPs.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
@@ -367,6 +370,7 @@ namespace MissionPlanner
             this.btnResumeMission.ColorMouseDown = System.Drawing.Color.Empty;
             this.btnResumeMission.ColorMouseOver = System.Drawing.Color.Empty;
             this.btnResumeMission.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.btnResumeMission.AutoSize = false;
             resources.ApplyResources(this.btnResumeMission, "btnResumeMission");
             this.btnResumeMission.Name = "btnResumeMission";
             this.btnResumeMission.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
@@ -379,6 +383,7 @@ namespace MissionPlanner
             this.btnRTKInject.ColorMouseDown = System.Drawing.Color.Empty;
             this.btnRTKInject.ColorMouseOver = System.Drawing.Color.Empty;
             this.btnRTKInject.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.btnRTKInject.AutoSize = false;
             resources.ApplyResources(this.btnRTKInject, "btnRTKInject");
             this.btnRTKInject.Name = "btnRTKInject";
             this.btnRTKInject.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
@@ -391,6 +396,7 @@ namespace MissionPlanner
             this.btnBinToPos.ColorMouseDown = System.Drawing.Color.Empty;
             this.btnBinToPos.ColorMouseOver = System.Drawing.Color.Empty;
             this.btnBinToPos.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.btnBinToPos.AutoSize = false;
             resources.ApplyResources(this.btnBinToPos, "btnBinToPos");
             this.btnBinToPos.Name = "btnBinToPos";
             this.btnBinToPos.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
@@ -407,6 +413,7 @@ namespace MissionPlanner
             this.btnSetCamTriggDist.ColorMouseDown = System.Drawing.Color.Empty;
             this.btnSetCamTriggDist.ColorMouseOver = System.Drawing.Color.Empty;
             this.btnSetCamTriggDist.ColorNotEnabled = System.Drawing.Color.Empty;
+            this.btnSetCamTriggDist.AutoSize = false;
             resources.ApplyResources(this.btnSetCamTriggDist, "btnSetCamTriggDist");
             this.btnSetCamTriggDist.Name = "btnSetCamTriggDist";
             this.btnSetCamTriggDist.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
@@ -427,6 +434,7 @@ namespace MissionPlanner
             // btnSERVER
             // 
             this.btnSERVER.Name = "btnSERVER";
+            this.btnSERVER.AutoSize = false;
             resources.ApplyResources(this.btnSERVER, "btnSERVER");
             this.btnSERVER.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.btnSERVER.UseVisualStyleBackColor = true;
@@ -527,10 +535,6 @@ namespace MissionPlanner
         private System.Windows.Forms.ToolStripControlHost hostBinToPos;
         private System.Windows.Forms.ToolStripControlHost hostSetCamTriggDist;
         private System.Windows.Forms.ToolStripControlHost hostSERVER;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator0;        
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolTip toolTip1;
         public System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ContextMenuStrip CTX_mainmenu;

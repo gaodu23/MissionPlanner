@@ -354,7 +354,7 @@
     <value>模拟</value>
   </data>
   <data name="btnAirspeedCalib.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 52</value>
+    <value>35, 52</value>
   </data>
   <data name="btnAirspeedCalib.Text" xml:space="preserve">
     <value>校准</value>
@@ -363,7 +363,7 @@
     <value>校准空速传感器</value>
   </data>
   <data name="btnTakePhoto.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 52</value>
+    <value>35, 52</value>
   </data>
   <data name="btnTakePhoto.Text" xml:space="preserve">
     <value>试拍</value>
@@ -372,13 +372,16 @@
     <value>触发相机快门</value>
   </data>
   <data name="btnAutoMode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 52</value>
+    <value>35, 52</value>
   </data>
   <data name="btnAutoMode.Text" xml:space="preserve">
     <value>自动</value>
   </data>
   <data name="btnAutoMode.ToolTipText" xml:space="preserve">
     <value>切换到自动飞行模式</value>
+  </data>
+  <data name="btnRTL.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 52</value>
   </data>
   <data name="btnRTL.Text" xml:space="preserve">
     <value>返航</value>
@@ -387,10 +390,10 @@
     <value>切换到返航模式</value>
   </data>
   <data name="btnArmDisarm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 52</value>
+    <value>35, 52</value>
   </data>
   <data name="btnArmDisarm.Text" xml:space="preserve">
-    <value>开关锁</value>
+    <value>开关</value>
   </data>
   <data name="btnArmDisarm.ToolTipText" xml:space="preserve">
     <value>切换解锁/锁定</value>
@@ -398,8 +401,11 @@
   <data name="cmbWPJump.ToolTipText" xml:space="preserve">
     <value>选择要跳转到的航点</value>
   </data>
+  <data name="cmbWPJump.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 43</value>
+  </data>
   <data name="btnWPJump.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 52</value>
+    <value>35, 52</value>
   </data>
   <data name="btnWPJump.Text" xml:space="preserve">
     <value>跳转</value>
@@ -408,7 +414,7 @@
     <value>跳转到所选航点</value>
   </data>
   <data name="btnClearTrack.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 52</value>
+    <value>35, 52</value>
   </data>
   <data name="btnClearTrack.Text" xml:space="preserve">
     <value>清除</value>
@@ -417,7 +423,7 @@
     <value>清除地图上记录的相机轨迹</value>
   </data>
   <data name="btnChangeSpeed.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 52</value>
+    <value>35, 52</value>
   </data>
   <data name="btnChangeSpeed.Text" xml:space="preserve">
     <value>速度</value>
@@ -426,7 +432,7 @@
     <value>发送DO_CHANGE_SPEED命令</value>
   </data>
   <data name="btnReadWPs.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 52</value>
+    <value>35, 52</value>
   </data>
   <data name="btnReadWPs.Text" xml:space="preserve">
     <value>读取</value>
@@ -435,7 +441,7 @@
     <value>从飞控读取航点</value>
   </data>
   <data name="btnResumeMission.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 52</value>
+    <value>35, 52</value>
   </data>
   <data name="btnResumeMission.Text" xml:space="preserve">
     <value>恢复</value>
@@ -444,7 +450,7 @@
     <value>从上一个航点恢复任务</value>
   </data>
   <data name="btnRTKInject.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 52</value>
+    <value>35, 52</value>
   </data>
   <data name="btnRTKInject.Text" xml:space="preserve">
     <value>RTK</value>
@@ -453,13 +459,16 @@
     <value>打开RTK/GPS注入工具</value>
   </data>
   <data name="btnBinToPos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 52</value>
+    <value>35, 52</value>
   </data>
   <data name="btnBinToPos.Text" xml:space="preserve">
     <value>POS</value>
   </data>
   <data name="btnBinToPos.ToolTipText" xml:space="preserve">
     <value>从.BIN日志提取位置数据</value>
+  </data>
+  <data name="btnSetCamTriggDist.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 52</value>
   </data>
   <data name="btnSetCamTriggDist.Text" xml:space="preserve">
     <value>拍距</value>
@@ -832,9 +841,12 @@
 </value>
   </data>
   <data name="btnSERVER.Text" xml:space="preserve">
-    <value>服务器</value>
+    <value>网页</value>
+  </data>
+  <data name="btnSERVER.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 52</value>
   </data>
   <data name="btnSERVER.ToolTipText" xml:space="preserve">
-    <value>打开服务器</value>
+    <value>打开服务器网页</value>
   </data>
 </root>

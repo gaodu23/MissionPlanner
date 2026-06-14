@@ -726,7 +726,7 @@ namespace MissionPlanner
             //SetupToolbarButtonIcons();
 
             // 速度输入框已集成到 MainV2.Designer.cs 的 MainMenu.Items 中，无需运行时插入
-            hostSpeedInput.DecimalPlaces = 1;
+            hostSpeedInput.DecimalPlaces = 0;
             hostSpeedInput.Maximum = 1000;
             hostSpeedInput.Minimum = 0;
             hostSpeedInput.Value = 22;

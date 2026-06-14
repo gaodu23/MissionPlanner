@@ -410,7 +410,7 @@
     <value>Magenta</value>
   </data>
   <data name="btnAirspeedCalib.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 52</value>
+    <value>35, 52</value>
   </data>
   <data name="btnAirspeedCalib.Text" xml:space="preserve">
     <value>ASP CAL</value>
@@ -422,7 +422,7 @@
     <value>Calibrate Airspeed Sensor</value>
   </data>
   <data name="btnTakePhoto.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 52</value>
+    <value>35, 52</value>
   </data>
   <data name="btnTakePhoto.Text" xml:space="preserve">
     <value>PHOTO</value>
@@ -431,7 +431,7 @@
     <value>Trigger Camera Shutter</value>
   </data>
   <data name="btnAutoMode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 52</value>
+    <value>35, 52</value>
   </data>
   <data name="btnAutoMode.Text" xml:space="preserve">
     <value>AUTO</value>
@@ -443,7 +443,7 @@
     <value>BottomCenter</value>
   </data>
   <data name="btnRTL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 52</value>
+    <value>35, 52</value>
   </data>
   <data name="btnRTL.Text" xml:space="preserve">
     <value>RTL</value>
@@ -455,7 +455,7 @@
     <value>Switch to Return to Launch Mode</value>
   </data>
   <data name="btnArmDisarm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 52</value>
+    <value>35, 52</value>
   </data>
   <data name="btnArmDisarm.Text" xml:space="preserve">
     <value>ARM\DIS</value>
@@ -467,13 +467,13 @@
     <value>Toggle Arm / Disarm</value>
   </data>
   <data name="cmbWPJump.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 43</value>
+    <value>40, 43</value>
   </data>
   <data name="cmbWPJump.ToolTipText" xml:space="preserve">
     <value>Select waypoint to jump to</value>
   </data>
   <data name="btnWPJump.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 52</value>
+    <value>35, 52</value>
   </data>
   <data name="btnWPJump.Text" xml:space="preserve">
     <value>JUMP</value>
@@ -482,7 +482,7 @@
     <value>Jump to selected waypoint</value>
   </data>
   <data name="btnClearTrack.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 52</value>
+    <value>35, 52</value>
   </data>
   <data name="btnClearTrack.Text" xml:space="preserve">
     <value>CLR TRK</value>
@@ -497,7 +497,7 @@
     <value>0</value>
   </data>
   <data name="btnChangeSpeed.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 52</value>
+    <value>35, 52</value>
   </data>
   <data name="btnChangeSpeed.Text" xml:space="preserve">
     <value>SET SPD</value>
@@ -506,7 +506,7 @@
     <value>Send DO_CHANGE_SPEED command</value>
   </data>
   <data name="btnReadWPs.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 52</value>
+    <value>35, 52</value>
   </data>
   <data name="btnReadWPs.Text" xml:space="preserve">
     <value>READ WP</value>
@@ -515,7 +515,7 @@
     <value>Read waypoints from flight controller</value>
   </data>
   <data name="btnResumeMission.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 52</value>
+    <value>35, 52</value>
   </data>
   <data name="btnResumeMission.Text" xml:space="preserve">
     <value>RESUME</value>
@@ -524,7 +524,7 @@
     <value>Resume mission from last waypoint</value>
   </data>
   <data name="btnRTKInject.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 52</value>
+    <value>35, 52</value>
   </data>
   <data name="btnRTKInject.Text" xml:space="preserve">
     <value>RTK INJ</value>
@@ -533,7 +533,7 @@
     <value>Open RTK/GPS Inject tool</value>
   </data>
   <data name="btnBinToPos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 52</value>
+    <value>35, 52</value>
   </data>
   <data name="btnBinToPos.Text" xml:space="preserve">
     <value>BIN2POS</value>
@@ -548,7 +548,7 @@
     <value>0</value>
   </data>
   <data name="btnSetCamTriggDist.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 52</value>
+    <value>35, 52</value>
   </data>
   <data name="btnSetCamTriggDist.Text" xml:space="preserve">
     <value>CAM DIS</value>
@@ -1079,7 +1079,10 @@
   <data name="btnSERVER.Text" xml:space="preserve">
     <value>SERVER</value>
   </data>
+  <data name="btnSERVER.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 52</value>
+  </data>
   <data name="btnSERVER.ToolTipText" xml:space="preserve">
-    <value>打开服务器</value>
+    <value>Open the server webpage</value>
   </data>
 </root>
