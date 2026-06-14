@@ -41,6 +41,7 @@ namespace MissionPlanner
         public PosExtract()
         {
             InitializeComponent();
+            cmbFilter.SelectedIndex = 0;
         }
 
         private void InitializeComponent()
@@ -50,6 +51,7 @@ namespace MissionPlanner
             this.labelTitle = new System.Windows.Forms.Label();
             this.btnImportBin = new System.Windows.Forms.Button();
             this.lblCount = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.labelFilter = new System.Windows.Forms.Label();
             this.cmbFilter = new System.Windows.Forms.ComboBox();
             this.labelPrefix = new System.Windows.Forms.Label();
@@ -65,7 +67,6 @@ namespace MissionPlanner
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dgvRawData = new System.Windows.Forms.DataGridView();
             this.dgvResultData = new System.Windows.Forms.DataGridView();
-            this.lblStatus = new System.Windows.Forms.Label();
             this.panelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -95,7 +96,7 @@ namespace MissionPlanner
             this.panelLeft.Controls.Add(this.btnSave);
             this.panelLeft.Location = new System.Drawing.Point(0, 0);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(185, 490);
+            this.panelLeft.Size = new System.Drawing.Size(151, 491);
             this.panelLeft.TabIndex = 0;
             // 
             // labelTitle
@@ -111,21 +112,32 @@ namespace MissionPlanner
             // 
             this.btnImportBin.Location = new System.Drawing.Point(12, 50);
             this.btnImportBin.Name = "btnImportBin";
-            this.btnImportBin.Size = new System.Drawing.Size(160, 30);
+            this.btnImportBin.Size = new System.Drawing.Size(127, 30);
             this.btnImportBin.TabIndex = 1;
             this.btnImportBin.Text = "导入 .bin文件";
+            this.btnImportBin.Click += new System.EventHandler(this.btnImportBin_Click);
             // 
             // lblCount
             // 
-            this.lblCount.Location = new System.Drawing.Point(12, 98);
+            this.lblCount.Location = new System.Drawing.Point(12, 90);
             this.lblCount.Name = "lblCount";
-            this.lblCount.Size = new System.Drawing.Size(160, 23);
+            this.lblCount.Size = new System.Drawing.Size(127, 23);
             this.lblCount.TabIndex = 2;
             this.lblCount.Text = "统计0";
             // 
+            // lblStatus
+            // 
+            this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblStatus.Location = new System.Drawing.Point(13, 419);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(123, 60);
+            this.lblStatus.TabIndex = 3;
+            this.lblStatus.Text = "就绪";
+            // 
             // labelFilter
             // 
-            this.labelFilter.Location = new System.Drawing.Point(12, 128);
+            this.labelFilter.Location = new System.Drawing.Point(12, 120);
             this.labelFilter.Name = "labelFilter";
             this.labelFilter.Size = new System.Drawing.Size(160, 20);
             this.labelFilter.TabIndex = 3;
@@ -138,14 +150,15 @@ namespace MissionPlanner
             "全部(CAM+TRIG)",
             "仅CAM",
             "仅TRIG"});
-            this.cmbFilter.Location = new System.Drawing.Point(12, 151);
+            this.cmbFilter.Location = new System.Drawing.Point(12, 143);
             this.cmbFilter.Name = "cmbFilter";
-            this.cmbFilter.Size = new System.Drawing.Size(160, 20);
+            this.cmbFilter.Size = new System.Drawing.Size(127, 20);
             this.cmbFilter.TabIndex = 4;
+            this.cmbFilter.SelectedIndexChanged += new System.EventHandler(this.cmbFilter_SelectedIndexChanged);
             // 
             // labelPrefix
             // 
-            this.labelPrefix.Location = new System.Drawing.Point(12, 183);
+            this.labelPrefix.Location = new System.Drawing.Point(12, 175);
             this.labelPrefix.Name = "labelPrefix";
             this.labelPrefix.Size = new System.Drawing.Size(160, 20);
             this.labelPrefix.TabIndex = 5;
@@ -153,15 +166,15 @@ namespace MissionPlanner
             // 
             // txtPhotoPrefix
             // 
-            this.txtPhotoPrefix.Location = new System.Drawing.Point(12, 206);
+            this.txtPhotoPrefix.Location = new System.Drawing.Point(12, 198);
             this.txtPhotoPrefix.Name = "txtPhotoPrefix";
-            this.txtPhotoPrefix.Size = new System.Drawing.Size(160, 21);
+            this.txtPhotoPrefix.Size = new System.Drawing.Size(127, 21);
             this.txtPhotoPrefix.TabIndex = 6;
             this.txtPhotoPrefix.Text = "DSC";
             // 
             // labelExt
             // 
-            this.labelExt.Location = new System.Drawing.Point(12, 238);
+            this.labelExt.Location = new System.Drawing.Point(12, 230);
             this.labelExt.Name = "labelExt";
             this.labelExt.Size = new System.Drawing.Size(160, 20);
             this.labelExt.TabIndex = 7;
@@ -169,15 +182,15 @@ namespace MissionPlanner
             // 
             // txtPhotoExt
             // 
-            this.txtPhotoExt.Location = new System.Drawing.Point(12, 261);
+            this.txtPhotoExt.Location = new System.Drawing.Point(12, 253);
             this.txtPhotoExt.Name = "txtPhotoExt";
-            this.txtPhotoExt.Size = new System.Drawing.Size(160, 21);
+            this.txtPhotoExt.Size = new System.Drawing.Size(127, 21);
             this.txtPhotoExt.TabIndex = 8;
             this.txtPhotoExt.Text = "JPG";
             // 
             // labelStartNum
             // 
-            this.labelStartNum.Location = new System.Drawing.Point(12, 293);
+            this.labelStartNum.Location = new System.Drawing.Point(12, 285);
             this.labelStartNum.Name = "labelStartNum";
             this.labelStartNum.Size = new System.Drawing.Size(160, 20);
             this.labelStartNum.TabIndex = 9;
@@ -185,38 +198,40 @@ namespace MissionPlanner
             // 
             // txtPhotoStartNum
             // 
-            this.txtPhotoStartNum.Location = new System.Drawing.Point(12, 316);
+            this.txtPhotoStartNum.Location = new System.Drawing.Point(12, 308);
             this.txtPhotoStartNum.Name = "txtPhotoStartNum";
-            this.txtPhotoStartNum.Size = new System.Drawing.Size(160, 21);
+            this.txtPhotoStartNum.Size = new System.Drawing.Size(127, 21);
             this.txtPhotoStartNum.TabIndex = 10;
-            this.txtPhotoStartNum.Text = "00006";
+            this.txtPhotoStartNum.Text = "00003";
             // 
             // btnExtractPos
             // 
-            this.btnExtractPos.Location = new System.Drawing.Point(12, 353);
+            this.btnExtractPos.Location = new System.Drawing.Point(12, 340);
             this.btnExtractPos.Name = "btnExtractPos";
-            this.btnExtractPos.Size = new System.Drawing.Size(160, 30);
+            this.btnExtractPos.Size = new System.Drawing.Size(127, 30);
             this.btnExtractPos.TabIndex = 11;
             this.btnExtractPos.Text = "pos点提取";
+            this.btnExtractPos.Click += new System.EventHandler(this.btnExtractPos_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(12, 393);
+            this.btnSave.Location = new System.Drawing.Point(12, 379);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(160, 30);
+            this.btnSave.Size = new System.Drawing.Size(127, 30);
             this.btnSave.TabIndex = 12;
             this.btnSave.Text = "保存";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(197, 458);
+            this.progressBar1.Location = new System.Drawing.Point(155, 458);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(781, 20);
+            this.progressBar1.Size = new System.Drawing.Size(824, 20);
             this.progressBar1.TabIndex = 13;
             // 
             // labelRawData
             // 
-            this.labelRawData.Location = new System.Drawing.Point(195, 10);
+            this.labelRawData.Location = new System.Drawing.Point(155, 9);
             this.labelRawData.Name = "labelRawData";
             this.labelRawData.Size = new System.Drawing.Size(400, 20);
             this.labelRawData.TabIndex = 1;
@@ -227,7 +242,7 @@ namespace MissionPlanner
             this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.Location = new System.Drawing.Point(195, 35);
+            this.splitContainer1.Location = new System.Drawing.Point(155, 35);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -238,47 +253,37 @@ namespace MissionPlanner
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dgvResultData);
-            this.splitContainer1.Size = new System.Drawing.Size(780, 410);
-            this.splitContainer1.SplitterDistance = 190;
+            this.splitContainer1.Size = new System.Drawing.Size(824, 419);
+            this.splitContainer1.SplitterDistance = 205;
             this.splitContainer1.TabIndex = 2;
             // 
             // dgvRawData
             // 
             this.dgvRawData.AllowUserToAddRows = false;
             this.dgvRawData.AllowUserToDeleteRows = false;
-            this.dgvRawData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvRawData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvRawData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRawData.Location = new System.Drawing.Point(0, 0);
             this.dgvRawData.Name = "dgvRawData";
             this.dgvRawData.ReadOnly = true;
-            this.dgvRawData.Size = new System.Drawing.Size(780, 190);
+            this.dgvRawData.Size = new System.Drawing.Size(824, 205);
             this.dgvRawData.TabIndex = 0;
             // 
             // dgvResultData
             // 
             this.dgvResultData.AllowUserToAddRows = false;
             this.dgvResultData.AllowUserToDeleteRows = false;
-            this.dgvResultData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvResultData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvResultData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvResultData.Location = new System.Drawing.Point(0, 0);
             this.dgvResultData.Name = "dgvResultData";
             this.dgvResultData.ReadOnly = true;
-            this.dgvResultData.Size = new System.Drawing.Size(780, 216);
+            this.dgvResultData.Size = new System.Drawing.Size(824, 210);
             this.dgvResultData.TabIndex = 0;
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblStatus.Location = new System.Drawing.Point(13, 447);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(159, 23);
-            this.lblStatus.TabIndex = 3;
-            this.lblStatus.Text = "就绪";
             // 
             // PosExtract
             // 
-            this.ClientSize = new System.Drawing.Size(990, 490);
+            this.ClientSize = new System.Drawing.Size(984, 491);
             this.Controls.Add(this.panelLeft);
             this.Controls.Add(this.labelRawData);
             this.Controls.Add(this.splitContainer1);
@@ -288,13 +293,6 @@ namespace MissionPlanner
             this.Name = "PosExtract";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "POS点提取工具";
-            // 
-            // Event handlers
-            // 
-            this.btnImportBin.Click += new System.EventHandler(this.btnImportBin_Click);
-            this.cmbFilter.SelectedIndexChanged += new System.EventHandler(this.cmbFilter_SelectedIndexChanged);
-            this.btnExtractPos.Click += new System.EventHandler(this.btnExtractPos_Click);
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             this.panelLeft.ResumeLayout(false);
             this.panelLeft.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
