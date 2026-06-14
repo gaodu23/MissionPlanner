@@ -357,7 +357,7 @@
     <value>55, 52</value>
   </data>
   <data name="btnAirspeedCalib.Text" xml:space="preserve">
-    <value>空速校准</value>
+    <value>校准</value>
   </data>
   <data name="btnAirspeedCalib.ToolTipText" xml:space="preserve">
     <value>校准空速传感器</value>
@@ -366,7 +366,7 @@
     <value>55, 52</value>
   </data>
   <data name="btnTakePhoto.Text" xml:space="preserve">
-    <value>试拍照片</value>
+    <value>试拍</value>
   </data>
   <data name="btnTakePhoto.ToolTipText" xml:space="preserve">
     <value>触发相机快门</value>
@@ -375,13 +375,13 @@
     <value>55, 52</value>
   </data>
   <data name="btnAutoMode.Text" xml:space="preserve">
-    <value>任务自动</value>
+    <value>自动</value>
   </data>
   <data name="btnAutoMode.ToolTipText" xml:space="preserve">
     <value>切换到自动飞行模式</value>
   </data>
   <data name="btnRTL.Text" xml:space="preserve">
-    <value>任务返航</value>
+    <value>返航</value>
   </data>
   <data name="btnRTL.ToolTipText" xml:space="preserve">
     <value>切换到返航模式</value>
@@ -402,7 +402,7 @@
     <value>55, 52</value>
   </data>
   <data name="btnWPJump.Text" xml:space="preserve">
-    <value>跳转航点</value>
+    <value>跳转</value>
   </data>
   <data name="btnWPJump.ToolTipText" xml:space="preserve">
     <value>跳转到所选航点</value>
@@ -411,7 +411,7 @@
     <value>55, 52</value>
   </data>
   <data name="btnClearTrack.Text" xml:space="preserve">
-    <value>清除轨迹</value>
+    <value>清除</value>
   </data>
   <data name="btnClearTrack.ToolTipText" xml:space="preserve">
     <value>清除地图上记录的相机轨迹</value>
@@ -420,7 +420,7 @@
     <value>55, 52</value>
   </data>
   <data name="btnChangeSpeed.Text" xml:space="preserve">
-    <value>设置速度</value>
+    <value>速度</value>
   </data>
   <data name="btnChangeSpeed.ToolTipText" xml:space="preserve">
     <value>发送DO_CHANGE_SPEED命令</value>
@@ -429,7 +429,7 @@
     <value>55, 52</value>
   </data>
   <data name="btnReadWPs.Text" xml:space="preserve">
-    <value>读取航点</value>
+    <value>读取</value>
   </data>
   <data name="btnReadWPs.ToolTipText" xml:space="preserve">
     <value>从飞控读取航点</value>
@@ -438,7 +438,7 @@
     <value>55, 52</value>
   </data>
   <data name="btnResumeMission.Text" xml:space="preserve">
-    <value>恢复任务</value>
+    <value>恢复</value>
   </data>
   <data name="btnResumeMission.ToolTipText" xml:space="preserve">
     <value>从上一个航点恢复任务</value>
@@ -447,7 +447,7 @@
     <value>55, 52</value>
   </data>
   <data name="btnRTKInject.Text" xml:space="preserve">
-    <value>RTK注入</value>
+    <value>RTK</value>
   </data>
   <data name="btnRTKInject.ToolTipText" xml:space="preserve">
     <value>打开RTK/GPS注入工具</value>
@@ -456,13 +456,13 @@
     <value>55, 52</value>
   </data>
   <data name="btnBinToPos.Text" xml:space="preserve">
-    <value>POS提取</value>
+    <value>POS</value>
   </data>
   <data name="btnBinToPos.ToolTipText" xml:space="preserve">
     <value>从.BIN日志提取位置数据</value>
   </data>
   <data name="btnSetCamTriggDist.Text" xml:space="preserve">
-    <value>拍照距离</value>
+    <value>拍距</value>
   </data>
   <data name="btnSetCamTriggDist.ToolTipText" xml:space="preserve">
     <value>设置拍照触发距离</value>
@@ -642,7 +642,7 @@
   <data name="MenuConfigTune.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADQAAAAtCAYAAADhoUi4AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAACIhJREFUaEPtmf1TU9kZx/0PlmnHvYUQbt4I6k/5D5qZzo4zuzOVbbulut0lVXdp
+        vwAADr8BOAVTJAAACIhJREFUaEPtmf1TU9kZx/0PlmnHvYUQbt4I6k/5D5qZzo4zuzOVbbulut0lVXdp
         8YW4sNIKNBcIBEjYAMG3uHghoNGAXLIBYgQaFTRI1VQRUFHj+/tM/oSnz3PMZQO76wqtSmZ8Zs7cS+4h
         nM993r7nsOKdvbOfN6fTmdbQ0GCyWq2GxEepax0dHWav1xv3dHjAZrPFLRZLWuJR6tlAICBeOH8eZmZm
         IBKJQFdnJ6CnpMTj1LKhoSHx2rVr8OjRI3j69CnQvb+vL0rhl5iSOjYcGjbduHGDgTx//hzu378P45Fx
@@ -681,58 +681,10 @@
         b8ZwV8pOQGnQpm5sbExaDMyyNPSKc3pyUkJFsXg58s5exVas+C8Obxkzg7hg9AAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="MenuFlightPlanner.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
   <data name="MenuConnect.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAD4AAAAtCAYAAAD2g9hxAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAABqVJREFUaEPtmetPU3cYx3nX0J7Tc9puc5FNKohcBgIqMEWlyl7tzUiWbNkryPZ2
+        vwAADr8BOAVTJAAABqVJREFUaEPtmetPU3cYx3nX0J7Tc9puc5FNKohcBgIqMEWlyl7tzUiWbNkryPZ2
         C2SasWTLYJsJqaBH8QLipQIigpRSBhYQ0iEgUMBDuSrqqni/JOdPePY8Zy0Bqdxc4LDxTZ60Pbfw+T3P
         77kcAta0pjWtaU2rSJ9xHP+ZijN6f/4/9DXzXtqXqnelzzV6Dy2A9/B/V+lcMH9AG2TL4TdANhcE6cw7
         kKbmBe/p1aFsVbgxWxW84FDN1ASZftMYPUd0oVCoDwGzPhgyte/DFxodfKrm4ryXKVuHAiOy8lThUrYq
@@ -766,7 +718,7 @@
   <data name="MenuSimulation.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAAAtCAYAAAAeA21aAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAABxpJREFUaEPtmntTU9caxv0GZaaVNEBIyM5OiO3MyTdo/mk7tn/AkakerT1ED2KV
+        vwAADr8BOAVTJAAABxpJREFUaEPtmntTU9caxv0GZaaVNEBIyM5OiO3MyTdo/mk7tn/AkakerT1ED2KV
         DolamnJRNzESIcRtoJyIrW5HuaiAkWtIAkR06uiMzraO1qEM4m28z+yP8Jy1NpuOSDiKKQlFnpl3cluB
         vX/red91y4pUq9D+XtqG7z8IflW6ks8jz5W33x05GjOFHT9lYcs+NdbtSpe+2r7Sonz0bsjVqc2v7dNj
         d4sW3/ky8e8KFQpK3xfeKTccGmb4g1EG7q4clB3RoEhxQ0HJ+1alydIXgSD4RwzwDhA3tE654WsncUPJ
@@ -802,7 +754,7 @@
   <data name="MenuInitConfig.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADQAAAAtCAYAAADhoUi4AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAACKxJREFUaEPtWGlTU2kW9if4pSsFCARCQHQ+5CfwZcqZmupuLT9Y044DSlcxjgs0
+        vwAADr8BOAVTJAAACKxJREFUaEPtWGlTU2kW9if4pSsFCARCQHQ+5CfwZcqZmupuLT9Y044DSlcxjgs0
         vTASlqsNBkJiZAmBpiEwVggQIIYEkGa5oLQrY8R9nbjvVfkJZ85zuTcmISqby1Rxqk5le3Pf87znnOec
         865ZlVVZlVX56GKxWHR1lroci9ksGKuqCsrLy9fKP/3/Saej0z7g8dDQ0BB5jh+nttY2MtWY/AxSAmWz
         WgWr1SrWmo+Knz3YEZ9Pd/nyZbpz5w799949unXrFp2cmqJ/d3RQa2trgcfjEU6ePCl9N+jzUUd7OxkM
@@ -845,7 +797,7 @@
   <data name="MenuFlightData.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADEAAAAtCAYAAAAHiIP8AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAABztJREFUaEPtmG1TE1cUx/kGZWp1lRiy2Tygvso36M70RTu1LdaHWq1TMkWlgg5R
+        vwAADr8BOAVTJAAABztJREFUaEPtmG1TE1cUx/kGZWp1lRiy2Tygvso36M70RTu1LdaHWq1TMkWlgg5R
         qKgEWUFcCIYlpFYFMSJBCAFXkkCIIa4OFOz4kFLFx1GG+jD6Kh/h9J6dNaWaWEMAa9v/zBnIzebu/e25
         59xzNmM2tWHXolVfWRa41hUuNClD7552OrNgW+1i2FS2ENbueN+iDL9b4s/RYnV3NpQcyYJ8joKvdy6Y
         fOe8IoiazMYhbdTmp8F6Wg2FtiWyV9bsWMApl7wbEoIauinIxITzWqj2ZsMu4hVzBQXrdnwg5Ra/l6lc
@@ -878,9 +830,5 @@
         nuLbwulZa1ZEJhfRG6SEThik6RrOi/MjBL4tdLe3i8qtZ0+kTMgkruZwz86VPX78GONBCofD8ktn5db/
         RWVk/AHK+gkLXz4DGAAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="String1" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
   </data>
 </root>
