@@ -390,7 +390,7 @@
     <value>55, 52</value>
   </data>
   <data name="btnArmDisarm.Text" xml:space="preserve">
-    <value>解锁锁定</value>
+    <value>开关锁</value>
   </data>
   <data name="btnArmDisarm.ToolTipText" xml:space="preserve">
     <value>切换解锁/锁定</value>

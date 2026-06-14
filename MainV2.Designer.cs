@@ -79,6 +79,10 @@ namespace MissionPlanner
             this.hostRTKInject = new System.Windows.Forms.ToolStripControlHost(this.btnRTKInject);
             this.hostBinToPos = new System.Windows.Forms.ToolStripControlHost(this.btnBinToPos);
             this.hostSetCamTriggDist = new System.Windows.Forms.ToolStripControlHost(this.btnSetCamTriggDist);
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.MenuConnect = new System.Windows.Forms.ToolStripButton();
             this.toolStripConnectionControl = new MissionPlanner.Controls.ToolStripConnectionControl();
             this.menu = new MissionPlanner.Controls.MyButton();
@@ -103,22 +107,38 @@ namespace MissionPlanner
             this.MenuInitConfig,
             this.MenuConfigTune,
             this.MenuSimulation,
-            this.hostAirspeedCalib,
-            this.hostTakePhoto,
-            this.hostAutoMode,
-            this.hostRTL,
+            // 1 解锁锁定
             this.hostArmDisarm,
-            this.cmbWPJump,
-            this.hostWPJump,
-            this.hostClearTrack,
+            // 2 校准
+            this.hostAirspeedCalib,
+            // 3 试拍
+            this.hostTakePhoto,
+            this.toolStripSeparator1,
+            // 4 速度
             this.speedHost,
             this.hostChangeSpeed,
-            this.hostReadWPs,
-            this.hostResumeMission,
-            this.hostRTKInject,
-            this.hostBinToPos,
+            // 5 距离
             this.camtriggDistHost,
             this.hostSetCamTriggDist,
+            // 6 航点跳转
+            this.cmbWPJump,
+            this.hostWPJump,
+            this.toolStripSeparator2,
+            // 7 读取
+            this.hostReadWPs,
+            // 8 自动
+            this.hostAutoMode,
+            // 9 返航
+            this.hostRTL,
+            // 10 恢复
+            this.hostResumeMission,
+            this.toolStripSeparator3,
+            // 11 RTK
+            this.hostRTKInject,
+            // 12 POS
+            this.hostBinToPos,
+            // 13 清除
+            this.hostClearTrack,
             this.MenuConnect,
             this.toolStripConnectionControl});
             this.MainMenu.Name = "MainMenu";
@@ -225,6 +245,7 @@ namespace MissionPlanner
             this.btnAirspeedCalib.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.btnAirspeedCalib.UseVisualStyleBackColor = true;
             this.btnAirspeedCalib.Click += new System.EventHandler(this.btnAirspeedCalib_Click);
+            this.toolTip1.SetToolTip(this.btnAirspeedCalib, resources.GetString("btnAirspeedCalib.ToolTipText"));
             // 
             // btnTakePhoto
             // 
@@ -236,6 +257,7 @@ namespace MissionPlanner
             this.btnTakePhoto.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.btnTakePhoto.UseVisualStyleBackColor = true;
             this.btnTakePhoto.Click += new System.EventHandler(this.btnTakePhoto_Click);
+            this.toolTip1.SetToolTip(this.btnTakePhoto, resources.GetString("btnTakePhoto.ToolTipText"));
             // 
             // btnAutoMode
             // 
@@ -247,6 +269,7 @@ namespace MissionPlanner
             this.btnAutoMode.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.btnAutoMode.UseVisualStyleBackColor = true;
             this.btnAutoMode.Click += new System.EventHandler(this.btnAutoMode_Click);
+            this.toolTip1.SetToolTip(this.btnAutoMode, resources.GetString("btnAutoMode.ToolTipText"));
             // 
             // btnRTL
             // 
@@ -258,6 +281,7 @@ namespace MissionPlanner
             this.btnRTL.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.btnRTL.UseVisualStyleBackColor = true;
             this.btnRTL.Click += new System.EventHandler(this.btnRTL_Click);
+            this.toolTip1.SetToolTip(this.btnRTL, resources.GetString("btnRTL.ToolTipText"));
             // 
             // btnArmDisarm
             // 
@@ -269,11 +293,12 @@ namespace MissionPlanner
             this.btnArmDisarm.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.btnArmDisarm.UseVisualStyleBackColor = true;
             this.btnArmDisarm.Click += new System.EventHandler(this.btnArmDisarm_Click);
+            this.toolTip1.SetToolTip(this.btnArmDisarm, resources.GetString("btnArmDisarm.ToolTipText"));
             // 
             // cmbWPJump
             // 
             this.cmbWPJump.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbWPJump.DropDownWidth = 100;
+            this.cmbWPJump.DropDownWidth = 80;
             this.cmbWPJump.ForeColor = System.Drawing.SystemColors.WindowText;
             this.cmbWPJump.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.cmbWPJump.Name = "cmbWPJump";
@@ -290,6 +315,7 @@ namespace MissionPlanner
             this.btnWPJump.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.btnWPJump.UseVisualStyleBackColor = true;
             this.btnWPJump.Click += new System.EventHandler(this.btnWPJump_Click);
+            this.toolTip1.SetToolTip(this.btnWPJump, resources.GetString("btnWPJump.ToolTipText"));
             // 
             // btnClearTrack
             // 
@@ -301,6 +327,7 @@ namespace MissionPlanner
             this.btnClearTrack.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.btnClearTrack.UseVisualStyleBackColor = true;
             this.btnClearTrack.Click += new System.EventHandler(this.btnClearTrack_Click);
+            this.toolTip1.SetToolTip(this.btnClearTrack, resources.GetString("btnClearTrack.ToolTipText"));
             // 
             // speedHost
             // 
@@ -316,6 +343,7 @@ namespace MissionPlanner
             this.btnChangeSpeed.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.btnChangeSpeed.UseVisualStyleBackColor = true;
             this.btnChangeSpeed.Click += new System.EventHandler(this.btnChangeSpeed_Click);
+            this.toolTip1.SetToolTip(this.btnChangeSpeed, resources.GetString("btnChangeSpeed.ToolTipText"));
             // 
             // btnReadWPs
             // 
@@ -327,6 +355,7 @@ namespace MissionPlanner
             this.btnReadWPs.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.btnReadWPs.UseVisualStyleBackColor = true;
             this.btnReadWPs.Click += new System.EventHandler(this.btnReadWPs_Click);
+            this.toolTip1.SetToolTip(this.btnReadWPs, resources.GetString("btnReadWPs.ToolTipText"));
             // 
             // btnResumeMission
             // 
@@ -338,6 +367,7 @@ namespace MissionPlanner
             this.btnResumeMission.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.btnResumeMission.UseVisualStyleBackColor = true;
             this.btnResumeMission.Click += new System.EventHandler(this.btnResumeMission_Click);
+            this.toolTip1.SetToolTip(this.btnResumeMission, resources.GetString("btnResumeMission.ToolTipText"));
             // 
             // btnRTKInject
             // 
@@ -349,6 +379,7 @@ namespace MissionPlanner
             this.btnRTKInject.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.btnRTKInject.UseVisualStyleBackColor = true;
             this.btnRTKInject.Click += new System.EventHandler(this.btnRTKInject_Click);
+            this.toolTip1.SetToolTip(this.btnRTKInject, resources.GetString("btnRTKInject.ToolTipText"));
             // 
             // btnBinToPos
             // 
@@ -360,6 +391,7 @@ namespace MissionPlanner
             this.btnBinToPos.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.btnBinToPos.UseVisualStyleBackColor = true;
             this.btnBinToPos.Click += new System.EventHandler(this.btnBinToPos_Click);
+            this.toolTip1.SetToolTip(this.btnBinToPos, resources.GetString("btnBinToPos.ToolTipText"));
             // 
             // camtriggDistHost
             // 
@@ -375,6 +407,7 @@ namespace MissionPlanner
             this.btnSetCamTriggDist.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.btnSetCamTriggDist.UseVisualStyleBackColor = true;
             this.btnSetCamTriggDist.Click += new System.EventHandler(this.btnSetCamTriggDist_Click);
+            this.toolTip1.SetToolTip(this.btnSetCamTriggDist, resources.GetString("btnSetCamTriggDist.ToolTipText"));
             // 
             // MenuConnect
             // 
@@ -474,6 +507,10 @@ namespace MissionPlanner
         private System.Windows.Forms.ToolStripControlHost hostRTKInject;
         private System.Windows.Forms.ToolStripControlHost hostBinToPos;
         private System.Windows.Forms.ToolStripControlHost hostSetCamTriggDist;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolTip toolTip1;
         public System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ContextMenuStrip CTX_mainmenu;
         private System.Windows.Forms.ToolStripMenuItem autoHideToolStripMenuItem;
