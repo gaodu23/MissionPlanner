@@ -23,7 +23,7 @@ namespace MissionPlanner.Controls.PreFlight
         private List<TextBox> AfterSelectedItemTextList = new List<TextBox>();
         //bools to see if the item has been removed, added or is an entirely new item added
         private bool removed = false;
-        private bool added = false;
+        //private bool added = false;
         private bool newItemAdded = false;
         //List for Panel1 controls - used to distinguish between the PArent and Child checklistItems (Parent Items being the items with visible textboxes, Child Items are the items with textboxes not showing)
         List<object> PanelOneControls = new List<object>();
@@ -110,7 +110,7 @@ namespace MissionPlanner.Controls.PreFlight
         private void AddedSelectedSubItem(int a, int b, Control _ChecklistControl, CheckListInput _ChecklistInputItem, CheckListItem _ChecklistItemSelected)
         {
             //Set the added bool to true
-            added = true;
+            //added = true;
             try
             {
                 //Set the Y for the checklist item as the bottom of the previous input.
@@ -439,7 +439,7 @@ namespace MissionPlanner.Controls.PreFlight
             int a = 0;
             int b = 0;
             //variable for the y location
-            int y = 0;
+            //int y = 0;
             if (ChecklistInputText == "-" || (secondaryAddButton == true && ChecklistInputText == "-"))
             {
                 //For the controls on the Panel One Controls list

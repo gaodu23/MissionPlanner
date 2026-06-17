@@ -104,9 +104,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                     {
                         ms = _mavftp.GetFile(filename, cancel, false);
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
-                        //prd.doWorkArgs.ErrorMessage = ex.Message;
                         //fail silently
                     }
                     if (cancel.IsCancellationRequested)

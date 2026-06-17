@@ -3,7 +3,6 @@ using System.Windows.Forms;
 using DroneCAN;
 using MissionPlanner.Utilities;
 using System.Linq;
-using DroneCAN;
 
 namespace MissionPlanner.Controls
 {

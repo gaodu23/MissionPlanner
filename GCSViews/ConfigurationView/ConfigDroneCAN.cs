@@ -106,7 +106,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                             //return;
                         }
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                     }
 

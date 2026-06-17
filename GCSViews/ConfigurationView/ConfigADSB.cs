@@ -136,8 +136,10 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         public string ParameterMode { get; set; }
 
         private int y = 10;
+#pragma warning disable CS0649
         private int sub1;
         private int sub2;
+#pragma warning restore CS0649
 
         #endregion
 

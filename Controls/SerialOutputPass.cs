@@ -168,7 +168,7 @@ namespace MissionPlanner.Controls
             Settings.Instance.SetList(configlist, ans);
         }
 
-        private void Load()
+        private new void Load()
         {
             var ans = Settings.Instance.GetList(configlist);
 

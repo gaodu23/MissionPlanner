@@ -2584,7 +2584,7 @@ namespace MissionPlanner
 
         private void CMB_serialport_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (_connectionControl.CMB_serialport.SelectedItem == _connectionControl.CMB_serialport.Text)
+            if ((string)_connectionControl.CMB_serialport.SelectedItem == _connectionControl.CMB_serialport.Text)
                 return;
 
             comPortName = _connectionControl.CMB_serialport.Text;

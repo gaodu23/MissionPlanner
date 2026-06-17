@@ -329,7 +329,7 @@ namespace MissionPlanner.Controls
             if (e == null || e.Node == null || e.Node.Parent == null)
                 return;
 
-            int throwaway = 0;
+            //int throwaway = 0;
             //if (int.TryParse(e.Node.Parent.Name, out throwaway))
             {
                 selectedmsgid = e.Node.Name;

@@ -123,7 +123,7 @@ namespace MissionPlanner.Controls
             TreeView1_NodeMouseClick(this, new TreeNodeMouseClickEventArgs(rootNode, MouseButtons.Left, 1, 1, 1));
         }
 
-        private async Task PopulateDirectories(DirectoryInfo[] subDirs,
+        private Task PopulateDirectories(DirectoryInfo[] subDirs,
             TreeNode nodeToAddTo)
         {
             List<TreeNode> info = new List<TreeNode>();
@@ -136,6 +136,8 @@ namespace MissionPlanner.Controls
                 nodeToAddTo.Nodes.Add(aNode);
                 info.Add(aNode);
             }
+
+            return Task.CompletedTask;
         }
 
         private async void TreeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -304,7 +306,7 @@ namespace MissionPlanner.Controls
             }));
         }
 
-        private async void DownloadToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DownloadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             toolStripStatusLabel1.Text = "Download ";
             var sfd = new FolderBrowserDialog();
@@ -386,7 +388,7 @@ namespace MissionPlanner.Controls
                 new TreeNodeMouseClickEventArgs(treeView1.SelectedNode, MouseButtons.Left, 1, 1, 1));
         }
 
-        private async Task UploadFile(string ofdFileName)
+        private Task UploadFile(string ofdFileName)
         {
             toolStripStatusLabel1.Text = "Upload " + Path.GetFileName(ofdFileName);
             var fn = treeView1.SelectedNode.FullPath + "/" + Path.GetFileName(ofdFileName);
@@ -428,6 +430,8 @@ namespace MissionPlanner.Controls
             prd.RunBackgroundOperationAsync();
             _mavftp.Progress -= progress;
             toolStripStatusLabel1.Text = "Ready";
+
+            return Task.CompletedTask;
         }
 
         private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)

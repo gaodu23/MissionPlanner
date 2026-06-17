@@ -891,7 +891,7 @@ namespace MissionPlanner.Controls
                     }
                 }
 
-                int controlindex = 0;
+                //int controlindex = 0;
                 tableLayoutPanel1.Controls.Clear();
 
                 foreach (var sensordata in alldata)

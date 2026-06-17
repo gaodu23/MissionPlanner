@@ -27,7 +27,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 {
     public partial class ConfigSecure : UserControl, IDeactivate, IActivate
     {
-        private Uri _result;
+        //private Uri _result;
         private HttpClient httpclient;
         private TcpListener listener;
 

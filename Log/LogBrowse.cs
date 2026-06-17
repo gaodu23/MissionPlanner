@@ -3896,8 +3896,8 @@ main()
 
         private class MetaData
         {
-            public double Min;
-            public double Max;
+            //public double Min;
+            //public double Max;
         }
     }
 }

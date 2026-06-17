@@ -947,7 +947,7 @@ SIM_DRIFT_TIME=0
 
                         client.client = new TcpClient("127.0.0.1", 5760 + (10 * (a)));
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         return;
                     }

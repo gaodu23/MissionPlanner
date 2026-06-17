@@ -181,7 +181,7 @@ namespace RFDLib.IO.ATCommand
     public class TServer
     {
         TSerialPort _Port;
-        public event Action<TCommand> GotCommand;
+        //public event Action<TCommand> GotCommand;
 
         public TServer(TSerialPort Port)
         {

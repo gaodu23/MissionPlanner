@@ -7,7 +7,7 @@ namespace MissionPlanner.Grid
     {
 
 
-        ToolStripMenuItem but;
+        //ToolStripMenuItem but;
 
         public override string Name
         {

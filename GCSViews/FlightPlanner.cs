@@ -1569,7 +1569,7 @@ namespace MissionPlanner.GCSViews
         {
             try
             {
-                var existing = overlay.Markers.Where(a => a.Tag == tag);
+                var existing = overlay.Markers.Where(a => (string)a.Tag == tag);
                 if (existing.Count() > 0)
                 {
                     var item = existing.First();
@@ -5087,7 +5087,7 @@ namespace MissionPlanner.GCSViews
                         if (((Style)style).Line.Color != null)
                         {
                             color = ((Style)style).Line.Color.Value.Abgr;
-                            color = (int)((color & 0xFF00FF00) | ((color & 0x00FF0000) >> 16) | ((color & 0x000000FF) << 16));
+                            color = (int)((uint)(color & 0xFF00FF00) | ((uint)(color & 0x00FF0000) >> 16) | ((uint)(color & 0x000000FF) << 16));
 
                         }
                         else color = Color.White.ToArgb();

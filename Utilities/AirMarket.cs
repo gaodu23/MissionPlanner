@@ -271,7 +271,7 @@ namespace MissionPlanner.Utilities
             var password = Settings.Instance["AirMarket_password"];
             var server = Settings.Instance["AirMarket_server"];
 
-            int a = 0;
+            //int a = 0;
             while (Queue.Count > 0)
             {
                 var current = Queue.Peek();

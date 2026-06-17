@@ -6339,7 +6339,7 @@ namespace MissionPlanner.GCSViews
                 else CustomMessageBox.Show("Timeout: Status message not received.");
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 CustomMessageBox.Show("Timeout.");
             }
