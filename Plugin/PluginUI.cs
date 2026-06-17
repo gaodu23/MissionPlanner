@@ -145,5 +145,15 @@ namespace MissionPlanner.Controls
             else
                 CustomMessageBox.Show(msg, "Errors");
         }
+
+        private void cbSelectAll_CheckedChanged(object sender, EventArgs e)
+        {
+            bool enable = cbSelectAll.Checked;
+            foreach (DataGridViewRow row in dgvPlugins.Rows)
+            {
+                row.Cells["pluginEnabled"].Value = enable;
+                row.DefaultCellStyle.BackColor = enable ? Color.Green : Color.DarkOrange;
+            }
+        }
     }
 }

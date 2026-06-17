@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.labelWarning = new System.Windows.Forms.Label();
+            this.cbSelectAll = new System.Windows.Forms.CheckBox();
             this.but_errors = new MissionPlanner.Controls.MyButton();
             this.bSave = new MissionPlanner.Controls.MyButton();
             this.dgvPlugins = new MissionPlanner.Controls.MyDataGridView();
@@ -61,6 +62,18 @@
             this.but_errors.Text = "Show Errors";
             this.but_errors.UseVisualStyleBackColor = true;
             this.but_errors.Click += new System.EventHandler(this.but_errors_Click);
+            // 
+            // cbSelectAll
+            // 
+            this.cbSelectAll.AutoSize = true;
+            this.cbSelectAll.Location = new System.Drawing.Point(393, 14);
+            this.cbSelectAll.Margin = new System.Windows.Forms.Padding(2);
+            this.cbSelectAll.Name = "cbSelectAll";
+            this.cbSelectAll.Size = new System.Drawing.Size(78, 17);
+            this.cbSelectAll.TabIndex = 6;
+            this.cbSelectAll.Text = "Select All";
+            this.cbSelectAll.UseVisualStyleBackColor = true;
+            this.cbSelectAll.CheckedChanged += new System.EventHandler(this.cbSelectAll_CheckedChanged);
             // 
             // bSave
             // 
@@ -148,6 +161,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(673, 373);
+            this.Controls.Add(this.cbSelectAll);
             this.Controls.Add(this.but_errors);
             this.Controls.Add(this.labelWarning);
             this.Controls.Add(this.bSave);
@@ -174,5 +188,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pluginDll;
         private System.Windows.Forms.DataGridViewCheckBoxColumn pluginEnabled;
         private MyButton but_errors;
+        private System.Windows.Forms.CheckBox cbSelectAll;
     }
 }
