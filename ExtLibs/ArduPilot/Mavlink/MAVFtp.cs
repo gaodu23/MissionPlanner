@@ -13,6 +13,7 @@ using uint8_t = System.Byte;
 using uint16_t = System.UInt16;
 using uint32_t = System.UInt32;
 using MissionPlanner.Utilities;
+using MissionPlanner.Comms;
 using System.Reactive.Linq;
 
 namespace MissionPlanner.ArduPilot.Mavlink
@@ -28,8 +29,24 @@ namespace MissionPlanner.ArduPilot.Mavlink
         /// Identifies Skipped entry from List command
         const byte kDirentSkip = (byte) 'S';
 
-        /// max read/write size we will use - low to keep some radios happy
+        /// serial/radio max read/write size
         const byte rwSize = 80;
+
+        /// 4G/TCP/UDP max read/write size
+        const byte rwSizeFast = 220;
+
+        /// <summary>
+        /// Get optimal burst read size based on connection type.
+        /// Serial/radio -> small (80), 4G/TCP/UDP -> large (239)
+        /// </summary>
+        byte GetOptimalReadSize()
+        {
+            if (_mavint.BaseStream is TcpSerial ||
+                _mavint.BaseStream is UdpSerial ||
+                _mavint.BaseStream is UdpSerialConnect)
+                return rwSizeFast;
+            return rwSize;
+        }
 
         private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         private readonly byte _compid;
@@ -551,9 +568,11 @@ namespace MissionPlanner.ArduPilot.Mavlink
             kRspNak
         };
 
-        public MemoryStream GetFile(string file, CancellationTokenSource cancel, bool burst = true, byte readsize = rwSize)
+        public MemoryStream GetFile(string file, CancellationTokenSource cancel, bool burst = true, byte readsize = 0)
         {
-            log.InfoFormat("GetFile {0}-{1} {2}", _sysid, _compid, file);
+            if (readsize == 0)
+                readsize = GetOptimalReadSize();
+            log.InfoFormat("GetFile {0}-{1} {2} readsize={3}", _sysid, _compid, file, readsize);
             Progress?.Invoke("Opening file " + file, -1);
             kCmdResetSessions();
             kCmdOpenFileRO(file, out var size, cancel);
@@ -685,8 +704,10 @@ namespace MissionPlanner.ArduPilot.Mavlink
             return ans;
         }
 
-        public MemoryStream kCmdBurstReadFile(string file, int size, CancellationTokenSource cancel, byte readsize = rwSize)
+        public MemoryStream kCmdBurstReadFile(string file, int size, CancellationTokenSource cancel, byte readsize = 0)
         {
+            if (readsize == 0)
+                readsize = GetOptimalReadSize();
             RetryTimeout timeout = new RetryTimeout();
             fileTransferProtocol.target_system = _sysid;
             fileTransferProtocol.target_component = _compid;
@@ -1487,8 +1508,10 @@ namespace MissionPlanner.ArduPilot.Mavlink
             return ans;
         }
 
-        public MemoryStream kCmdReadFile(string file, int size, CancellationTokenSource cancel, byte readsize = rwSize)
+        public MemoryStream kCmdReadFile(string file, int size, CancellationTokenSource cancel, byte readsize = 0)
         {
+            if (readsize == 0)
+                readsize = GetOptimalReadSize();
             RetryTimeout timeout = new RetryTimeout();
             var payload = new FTPPayloadHeader()
             {

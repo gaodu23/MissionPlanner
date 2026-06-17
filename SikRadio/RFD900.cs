@@ -121,9 +121,8 @@ namespace RFD.RFD900
 
                     Thread.Sleep(50);
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
-                    //System.Diagnostics.Debug.WriteLine(e.Message);
                     //System.Diagnostics.Debug.WriteLine("No tokens, got " + Temp);
 
                     return -1;

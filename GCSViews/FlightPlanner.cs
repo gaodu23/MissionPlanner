@@ -3893,13 +3893,13 @@ namespace MissionPlanner.GCSViews
                         ftp.Progress += (status, percent) => { sender.UpdateProgressAndStatus((int)(percent), status); };
                         if (type == MAVLink.MAV_MISSION_TYPE.MISSION)
                             return ftp.GetFile(
-                                "@MISSION/mission.dat", null, true, 110);
+                                "@MISSION/mission.dat", null, true);
                         if (type == MAVLink.MAV_MISSION_TYPE.FENCE)
                             return ftp.GetFile(
-                                "@MISSION/fence.dat", null, true, 110);
+                                "@MISSION/fence.dat", null, true);
                         if (type == MAVLink.MAV_MISSION_TYPE.RALLY)
                             return ftp.GetFile(
-                                "@MISSION/rally.dat", null, true, 110);
+                                "@MISSION/rally.dat", null, true);
                         return null;
                     });
                     var values = missionpck.unpack(paramfileTask.GetAwaiter().GetResult().ToArray());

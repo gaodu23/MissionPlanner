@@ -17,7 +17,7 @@ namespace MissionPlanner.Utilities
     {
         static Settings _instance;
 
-        public static string AppConfigName { get; set; } = "Mission Planner";
+        public static string AppConfigName { get; set; } = "JWUAV";
 
         public static Settings Instance
         {
@@ -335,7 +335,7 @@ namespace MissionPlanner.Utilities
         public static string CustomUserDataDirectory = "";
 
         /// <summary>
-        /// User specific data
+        /// User specific data - stored under program install dir\JWData\
         /// </summary>
         /// <returns></returns>
         public static string GetUserDataDirectory()
@@ -344,7 +344,7 @@ namespace MissionPlanner.Utilities
                 return CustomUserDataDirectory + Path.DirectorySeparatorChar + AppConfigName +
                        Path.DirectorySeparatorChar;
 
-            return AppDomain.CurrentDomain.BaseDirectory;
+            return AppDomain.CurrentDomain.BaseDirectory + "JWData" + Path.DirectorySeparatorChar;
         }
 
         /// <summary>
@@ -432,6 +432,9 @@ namespace MissionPlanner.Utilities
                                             var key = xmlreader.Name;
                                             if (key.Contains("____"))
                                                 key = key.Replace("____", "/");
+                                            // Decode digit-leading keys: _4G_BAUD → 4G_BAUD
+                                            if (key.StartsWith("_") && key.Length > 1 && char.IsDigit(key[1]))
+                                                key = key.Substring(1);
                                             config[key] = xmlreader.ReadString();
                                             break;
                                     }
@@ -469,7 +472,13 @@ namespace MissionPlanner.Utilities
                                     case "xml":
                                         break;
                                     default:
-                                        config[xmlreader.Name] = xmlreader.ReadString();
+                                        var key = xmlreader.Name;
+                                        if (key.Contains("____"))
+                                            key = key.Replace("____", "/");
+                                        // Decode digit-leading keys: _4G_BAUD → 4G_BAUD
+                                        if (key.StartsWith("_") && key.Length > 1 && char.IsDigit(key[1]))
+                                            key = key.Substring(1);
+                                        config[key] = xmlreader.ReadString();
                                         break;
                                 }
                             }
@@ -491,8 +500,9 @@ namespace MissionPlanner.Utilities
         public void Save()
         {
             string filename = GetConfigFullPath();
+            string tmpfilename = filename + ".tmp";
 
-            using (XmlTextWriter xmlwriter = new XmlTextWriter(filename, Encoding.UTF8))
+            using (XmlTextWriter xmlwriter = new XmlTextWriter(tmpfilename, Encoding.UTF8))
             {
                 xmlwriter.Formatting = Formatting.Indented;
 
@@ -505,6 +515,11 @@ namespace MissionPlanner.Utilities
                     var key = key2;
                     try
                     {
+                        // Encode digit-leading keys so they are valid XML element names
+                        // e.g. 4G_BAUD → _4G_BAUD, 4G_user → _4G_user
+                        if (key.Length > 0 && char.IsDigit(key[0]))
+                            key = "_" + key;
+
                         if (key.Contains("/"))
                             key = key.Replace("/", "____");
 
@@ -519,7 +534,7 @@ namespace MissionPlanner.Utilities
                             continue;
                         }
 
-                        xmlwriter.WriteElementString(key, ""+config[key]);
+                        xmlwriter.WriteElementString(key, ""+config[key2]);
                     }
                     catch
                     {
@@ -531,6 +546,11 @@ namespace MissionPlanner.Utilities
                 xmlwriter.WriteEndDocument();
                 xmlwriter.Close();
             }
+
+            // Atomic replace: only overwrite original after successful write to temp
+            if (File.Exists(filename))
+                File.Delete(filename);
+            File.Move(tmpfilename, filename);
         }
 
         public void Remove(string key)

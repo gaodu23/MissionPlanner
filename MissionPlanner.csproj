@@ -429,27 +429,7 @@
     <None Include="plugins\example.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="plugins\example2.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="plugins\example3.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="plugins\example4.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="plugins\example5.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="plugins\example6.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="plugins\example7.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="plugins\example8.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+
     <None Include="plugins\example9-hudonoff.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -1089,22 +1069,15 @@
     <Compile Remove="plugins\example18-externalapi.cs" />
     <Compile Remove="plugins\example19-multiforward.cs" />
     <Compile Remove="plugins\example2-menu.cs" />
-    <Compile Remove="plugins\example2.cs" />
     <Compile Remove="plugins\example20-multiplepositions.cs" />
     <Compile Remove="plugins\example21-persistentsimple.cs" />
     <Compile Remove="plugins\example22-fontsize.cs" />
     <Compile Remove="plugins\example3-fencedist.cs" />
-    <Compile Remove="plugins\example3.cs" />
     <Compile Remove="plugins\example4-herelink.cs" />
-    <Compile Remove="plugins\example4.cs" />
     <Compile Remove="plugins\example5-latencytracker.cs" />
-    <Compile Remove="plugins\example5.cs" />
     <Compile Remove="plugins\example6-mapicondesc.cs" />
-    <Compile Remove="plugins\example6.cs" />
     <Compile Remove="plugins\example7-canrtcm.cs" />
-    <Compile Remove="plugins\example7.cs" />
     <Compile Remove="plugins\example8-modechange.cs" />
-    <Compile Remove="plugins\example8.cs" />
     <Compile Remove="plugins\example9-hudonoff.cs" />
     <Compile Remove="plugins\generator.cs" />
     <Compile Remove="plugins\InitialParamsCalculator.cs" />

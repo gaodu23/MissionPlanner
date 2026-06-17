@@ -12,7 +12,6 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
-using Org.BouncyCastle.Crypto.Digests;
 
 namespace MissionPlanner
 {
@@ -20,40 +19,15 @@ namespace MissionPlanner
     {
         public static string lasterror = "";
 
-        public static string CachePath = Settings.GetDataDirectory() + "plugins" + Path.DirectorySeparatorChar;
-
         public static Assembly BuildCode(string filepath)
         {
-            try
-            {
-                Directory.CreateDirectory(CachePath);
-            }
-            catch
-            {
-            }
-
-            var md5hash = "";
             lasterror = "";
             var filecontents = File.ReadAllText(filepath, Encoding.UTF8);
-            {
-                var bytes = filecontents.Select(a => (byte) a).ToArray();
-                var md5 = new MD5Digest();
-                md5.BlockUpdate(bytes, 0, bytes.Length);
-                var result = new byte[md5.GetDigestSize()];
-                md5.DoFinal(result, 0);
-                md5hash = BitConverter.ToString(result).Replace("-", "").ToLower();
 
-                if (File.Exists(Path.Combine(CachePath, md5hash + ".dll")) && File.Exists(Path.Combine(CachePath, md5hash + ".pdb")))
-                {
-                    // load the cached version
-                    return Assembly.Load(File.ReadAllBytes(Path.Combine(CachePath, md5hash + ".dll")),
-                        File.ReadAllBytes(Path.Combine(CachePath, md5hash + ".pdb")));
-                }
-            }
             var syntaxTree =
                 CSharpSyntaxTree.ParseText(filecontents, path: filepath,
                     encoding: Encoding.UTF8);
-            var assemblyName = Path.GetFileNameWithoutExtension(filepath); //Guid.NewGuid().ToString();
+            var assemblyName = Path.GetFileNameWithoutExtension(filepath);
 
             var refs = AppDomain.CurrentDomain.GetAssemblies();
             var refFiles = refs.Where(a =>
@@ -86,25 +60,12 @@ namespace MissionPlanner
                 var emitResult = compilation.Emit(dllStream, pdbStream);
                 if (!emitResult.Success)
                 {
-                    // emitResult.Diagnostics
                     emitResult.Diagnostics.ForEach(a => Console.WriteLine("CodeGenRoslyn " + Path.GetFileName(filepath) + ": {0}", a.ToString()));
                     lasterror = emitResult.Diagnostics.Aggregate("", (a, b) => a + b.ToString()+"\n");
-                }
-                else
-                {
-                    try
-                    {
-                        File.WriteAllBytes(Path.Combine(CachePath, md5hash + ".dll"), dllStream.ToArray());
-                        File.WriteAllBytes(Path.Combine(CachePath, md5hash + ".pdb"), pdbStream.ToArray());
-                    }
-                    catch
-                    {
-                    }
-
-                    return Assembly.Load(dllStream.ToArray(), pdbStream.ToArray());
+                    return null;
                 }
 
-                return null;
+                return Assembly.Load(dllStream.ToArray(), pdbStream.ToArray());
             }
         }
     }

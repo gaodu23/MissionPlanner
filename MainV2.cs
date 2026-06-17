@@ -1978,7 +1978,7 @@ namespace MissionPlanner
                     string user4G = Settings.Instance["4G_user"] ?? "";
                     string pass4G = Settings.Instance["4G_pass"] ?? "";
                     string host4G = Settings.Instance["4G_host"] ?? "mapuav.top";
-                    string port4G = Settings.Instance["4G_port"] ?? "5761";
+                    string port4G = Settings.Instance["4G_port"] ?? "5861";
 
                     // Build login form
                     using (var frm = new Form { Text = "4G Server Login", Width = 320, Height = 220,
@@ -1995,7 +1995,7 @@ namespace MissionPlanner
                         cmbHost.Text = host4G;
                         var lblPort = new Label { Text = "Port:", Location = new Point(15, 105), AutoSize = true };
                         var cmbPort = new ComboBox { Location = new Point(100, 102), Width = 80 };
-                        cmbPort.Items.AddRange(new[] { "5761" });
+                        cmbPort.Items.AddRange(new[] { "5861" });
                         cmbPort.Text = port4G;
                         var btnOK = new Button { Text = "Connect", Location = new Point(100, 140), Width = 80 };
                         var btnCancel = new Button { Text = "Cancel", Location = new Point(190, 140), Width = 80 };
@@ -2033,76 +2033,69 @@ namespace MissionPlanner
                     var host = host4G;
                     var port = int.Parse(port4G);
 
-                    TcpClient client = null;
-                    Stream stream;
+                    UdpClient udpClient = null;
                     try
                     {
-
-                    // Step 1: TCP connect with timeout
-                    client = new TcpClient();
-                    var connectTask = client.ConnectAsync(host, port);
-                    if (!connectTask.Wait(3000))
-                        throw new Exception("Connection timed out. Check host and port.");
-                    client.NoDelay = true;
-
-                    // Step 2: Try TLS — if it fails, reconnect and go plain
-                    try
-                    {
-                        var rawStream = client.GetStream();
-                        var ssl = new System.Net.Security.SslStream(rawStream, true, (s, c, ch, e) => true);
-                        ssl.AuthenticateAsClient(host);
-                        stream = ssl;
-                    }
-                    catch
-                    {
-                        // TLS failed (server in NO_TLS mode): reconnect fresh and use plain
-                        try { client.Close(); } catch { }
-                        client = new TcpClient();
-                        var rcTask = client.ConnectAsync(host, port);
-                        if (!rcTask.Wait(3000))
-                            throw new Exception("Reconnect timed out. Check host and port.");
-                        client.NoDelay = true;
-                        stream = client.GetStream();
-                    }
-
-                    var authCmd = $"AUTH {user} {pass}\n";
-                    var authBytes = System.Text.Encoding.UTF8.GetBytes(authCmd);
-                    stream.Write(authBytes, 0, authBytes.Length);
-                    stream.Flush();
-
-                    var readBuf = new byte[256];
-                    int total = 0;
-                    var dl = DateTime.Now.AddSeconds(10);
-                    while (total < 256 && DateTime.Now < dl)
-                    {
-                        if (client.Available > 0 || total > 0)
+                        // Step 1: Create UDP client and resolve remote endpoint
+                        udpClient = new UdpClient();
+                        IPAddress addr;
+                        IPEndPoint remoteEP;
+                        if (IPAddress.TryParse(host, out addr))
                         {
-                            int n = stream.Read(readBuf, total, 1);
-                            if (n == 0) break;
-                            total += n;
-                            if (readBuf[total - 1] == (byte)'\n') break;
+                            remoteEP = new IPEndPoint(addr, port);
                         }
-                        else Thread.Sleep(100);
-                    }
-                    var response = System.Text.Encoding.UTF8.GetString(readBuf, 0, total).Trim();
-                    if (!response.StartsWith("OK"))
-                    {
-                        stream.Close(); client.Close();
-                        var msg = response.Contains("INVALID_CREDENTIALS")
-                            ? "Invalid username or password."
-                            : "4G auth failed: " + response;
-                        CustomMessageBox.Show(msg, Strings.ERROR);
-                        return;
-                    }
-                    log.Info($"4G connected: {host}:{port}, user={user}");
+                        else
+                        {
+                            remoteEP = new IPEndPoint(Dns.GetHostEntry(host).AddressList.First(), port);
+                        }
+                        udpClient.Connect(remoteEP);
 
-                    comPort.BaseStream = new StreamSerial(client, stream, host + ":" + port);
-                    _connectionControl.IsConnected(true);
-                    skipconnectcheck = true;
+                        // Step 2: Send AUTH command via UDP
+                        var authCmd = $"AUTH {user} {pass}\n";
+                        var authBytes = System.Text.Encoding.UTF8.GetBytes(authCmd);
+                        udpClient.Send(authBytes, authBytes.Length);
+
+                        // Step 3: Receive AUTH response with timeout
+                        var readBuf = new byte[256];
+                        int total = 0;
+                        var dl = DateTime.Now.AddSeconds(10);
+                        while (total < 256 && DateTime.Now < dl)
+                        {
+                            if (udpClient.Available > 0)
+                            {
+                                var remoteEp = new IPEndPoint(IPAddress.Any, 0);
+                                var data = udpClient.Receive(ref remoteEp);
+                                Array.Copy(data, 0, readBuf, total, Math.Min(data.Length, readBuf.Length - total));
+                                total += data.Length;
+                                if (total > 0 && readBuf[total - 1] == (byte)'\n') break;
+                            }
+                            else Thread.Sleep(100);
+                        }
+                        var response = System.Text.Encoding.UTF8.GetString(readBuf, 0, total).Trim();
+                        if (!response.StartsWith("OK"))
+                        {
+                            udpClient.Close();
+                            var msg = response.Contains("INVALID_CREDENTIALS")
+                                ? "Invalid username or password."
+                                : "4G auth failed: " + response;
+                            CustomMessageBox.Show(msg, Strings.ERROR);
+                            return;
+                        }
+                        log.Info($"4G connected (UDP): {host}:{port}, user={user}");
+
+                        // Step 4: Create UdpSerialConnect using the same UdpClient
+                        var udpSerial = new UdpSerialConnect();
+                        udpSerial.client = udpClient;
+                        udpSerial.hostEndPoint = remoteEP;
+                        udpSerial.Port = port.ToString();
+                        udpSerial.IsOpen = true;
+                        comPort.BaseStream = udpSerial;
+                        _connectionControl.IsConnected(true);
+                        skipconnectcheck = true;
                     }
                     catch (Exception ex)
                     {
-                        if (client != null) { try { client.Close(); } catch { } }
+                        if (udpClient != null) { try { udpClient.Close(); } catch { } }
                         CustomMessageBox.Show("4G connection failed: " + ex.Message, Strings.ERROR);
                         return;
                     }
@@ -2473,7 +2466,7 @@ namespace MissionPlanner
 
         private void btnSERVER_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://mapuav.top:8080");
+            System.Diagnostics.Process.Start("http://mapuav.top:9000");
         }
 
         private void Connect()
@@ -2856,7 +2849,14 @@ namespace MissionPlanner
                 if (_connectionControl != null)
                     Settings.Instance.BaudRate = _connectionControl.CMB_baudrate.Text;
 
-                Settings.Instance.APMFirmware = MainV2.comPort.MAV.cs.firmware.ToString();
+                try
+                {
+                    Settings.Instance.APMFirmware = MainV2.comPort.MAV.cs.firmware.ToString();
+                }
+                catch
+                {
+                    // firmware may not be known yet right after connection (e.g. 4G auth flow)
+                }
 
                 Settings.Instance.Save();
             }
@@ -4274,25 +4274,6 @@ namespace MissionPlanner
                 System.Configuration.ConfigurationManager.AppSettings["UpdateLocationMD5"] =
                     "https://firmware.ardupilot.org/MissionPlanner/xp/checksums.txt";
                 System.Configuration.ConfigurationManager.AppSettings["BetaUpdateLocationVersion"] = "";
-            }
-
-            try
-            {
-                // single update check per day - in a seperate thread
-                if (Settings.Instance["update_check"] != DateTime.Now.ToShortDateString())
-                {
-                    System.Threading.ThreadPool.QueueUserWorkItem(checkupdate);
-                    Settings.Instance["update_check"] = DateTime.Now.ToShortDateString();
-                }
-                else if (Settings.Instance.GetBoolean("beta_updates") == true)
-                {
-                    MissionPlanner.Utilities.Update.dobeta = true;
-                    System.Threading.ThreadPool.QueueUserWorkItem(checkupdate);
-                }
-            }
-            catch (Exception ex)
-            {
-                log.Error("Update check failed", ex);
             }
 
             // play a tlog that was passed to the program/ load a bin log passed

@@ -431,8 +431,6 @@
 
    <Compile Include="plugins\example2-menu.cs" />
 
-   <Compile Include="plugins\example2.cs" />
-
    <Compile Include="plugins\example20-multiplepositions.cs" />
 
    <Compile Include="plugins\example21-persistentsimple.cs" />
@@ -441,27 +439,15 @@
 
    <Compile Include="plugins\example3-fencedist.cs" />
 
-   <Compile Include="plugins\example3.cs" />
-
    <Compile Include="plugins\example4-herelink.cs" />
-
-   <Compile Include="plugins\example4.cs" />
 
    <Compile Include="plugins\example5-latencytracker.cs" />
 
-   <Compile Include="plugins\example5.cs" />
-
    <Compile Include="plugins\example6-mapicondesc.cs" />
-
-   <Compile Include="plugins\example6.cs" />
 
    <Compile Include="plugins\example7-canrtcm.cs" />
 
-   <Compile Include="plugins\example7.cs" />
-
    <Compile Include="plugins\example8-modechange.cs" />
-
-   <Compile Include="plugins\example8.cs" />
 
    <Compile Include="plugins\example9-hudonoff.cs" /> -->
 

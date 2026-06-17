@@ -1871,7 +1871,7 @@ Mission Planner waits for 2 valid heartbeat packets before connecting
                         };
                         return ftp.GetFile(
                             // always try to get defualts, AP will send orginal format if not avalable
-                            "@PARAM/param.pck?withdefaults=1", cancel, true, 110);
+                            "@PARAM/param.pck?withdefaults=1", cancel, true);
                     });
                     while (!paramfileTask.IsCompleted)
                     {
