@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace MissionPlanner.Utilities
 {
-    public class POI
+    public class POI 
     {
         /// <summary>
         /// Store points of interest
