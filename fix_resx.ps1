@@ -1,19 +1,31 @@
-param([string]$FilePath)
-$lines = [System.Collections.ArrayList](Get-Content $FilePath)
-$dups = @{}
+$file = "d:\LHC\MissionPlanner1\GCSViews\SITL.resx"
+$lines = Get-Content $file -Encoding UTF8
+
+$seen = @{}
+$toRemove = @{}  # line index -> true
+
 for ($i = 0; $i -lt $lines.Count; $i++) {
-    if ($lines[$i] -match 'name="(&gt;&gt;[^"]+)"') {
-        $name = $matches[1]
-        if (-not $dups.ContainsKey($name)) { $dups[$name] = @() }
-        $dups[$name] += $i
+    $m = [regex]::Match($lines[$i], '"&gt;&gt;([^"]+)"')
+    if ($m.Success) {
+        $key = $m.Groups[1].Value
+        if ($seen.ContainsKey($key)) {
+            # mark this and next 2 lines for removal (complete <data> block)
+            $toRemove[$i] = $true
+            $toRemove[$i+1] = $true
+            $toRemove[$i+2] = $true
+        } else {
+            $seen[$key] = $true
+        }
     }
 }
-$toRemove = @()
-$dups.GetEnumerator() | Where-Object { $_.Value.Count -gt 1 } | ForEach-Object {
-    $line = $_.Value[0]
-    $toRemove += $line; $toRemove += $line + 1; $toRemove += $line + 2
+
+$newLines = @()
+for ($i = 0; $i -lt $lines.Count; $i++) {
+    if (-not $toRemove.ContainsKey($i)) {
+        $newLines += $lines[$i]
+    }
 }
-$toRemove = $toRemove | Sort-Object -Descending -Unique
-foreach ($lineNum in $toRemove) { $lines.RemoveAt($lineNum) }
-$lines | Set-Content $FilePath
-Write-Host "Removed $($toRemove.Count) lines from $FilePath"
+
+Set-Content $file $newLines -Encoding UTF8
+Write-Host "Removed $($lines.Count - $newLines.Count) lines"
+Write-Host "Original lines: $($lines.Count), New lines: $($newLines.Count)"

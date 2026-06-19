@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Config>
+  <_BAUD>115200</_BAUD>
+  <APMFirmware>ArduPlane</APMFirmware>
+  <AutoConnect>[
+  {
+    "Label": "Mavlink default port",
+    "Enabled": true,
+    "Port": 14550,
+    "Protocol": "Udp",
+    "Format": "MAVLink",
+    "Direction": "Inbound",
+    "ConfigString": ""
+  },
+  {
+    "Label": "Mavlink alt port",
+    "Enabled": true,
+    "Port": 14551,
+    "Protocol": "Udp",
+    "Format": "MAVLink",
+    "Direction": "Inbound",
+    "ConfigString": ""
+  },
+  {
+    "Label": "Mavlink sitl port",
+    "Enabled": false,
+    "Port": 5760,
+    "Protocol": "Tcp",
+    "Format": "MAVLink",
+    "Direction": "Outbound",
+    "ConfigString": "127.0.0.1"
+  },
+  {
+    "Label": "Video udp 5000 h264",
+    "Enabled": true,
+    "Port": 5000,
+    "Protocol": "Udp",
+    "Format": "Video",
+    "Direction": "Inbound",
+    "ConfigString": "udpsrc port=5000 buffer-size=90000 ! application/x-rtp,media=(string)video,clock-rate=(int)90000,encoding-name=(string)H264 ! decodebin3 ! queue max-size-buffers=1 leaky=2 ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink sync=false"
+  },
+  {
+    "Label": "Video udp 5100 h264",
+    "Enabled": true,
+    "Port": 5100,
+    "Protocol": "Udp",
+    "Format": "Video",
+    "Direction": "Inbound",
+    "ConfigString": "udpsrc port=5100 buffer-size=90000 ! application/x-rtp,media=(string)video,clock-rate=(int)90000,encoding-name=(string)H264 ! decodebin3 ! queue max-size-buffers=1 leaky=2 ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink sync=false"
+  },
+  {
+    "Label": "Video udp 5600 h264",
+    "Enabled": true,
+    "Port": 5600,
+    "Protocol": "Udp",
+    "Format": "Video",
+    "Direction": "Inbound",
+    "ConfigString": "udpsrc port=5600 buffer-size=90000 ! application/x-rtp,media=(string)video,clock-rate=(int)90000,encoding-name=(string)H264 ! decodebin3 ! queue max-size-buffers=1 leaky=2 ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink sync=false"
+  },
+  {
+    "Label": "Video udp 5601 h265",
+    "Enabled": true,
+    "Port": 5601,
+    "Protocol": "Udp",
+    "Format": "Video",
+    "Direction": "Inbound",
+    "ConfigString": "udpsrc port=5601 buffer-size=90000 ! application/x-rtp,media=(string)video,clock-rate=(int)90000,encoding-name=(string)H265 ! decodebin3 ! queue max-size-buffers=1 leaky=2 ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink sync=false"
+  },
+  {
+    "Label": "SkyViper",
+    "Enabled": false,
+    "Port": 554,
+    "Protocol": "Tcp",
+    "Format": "Video",
+    "Direction": "Outbound",
+    "ConfigString": "rtspsrc location=rtsp://192.168.99.1/media/stream2 debug=false buffer-mode=1 latency=100 ntp-time-source=3 ! application/x-rtp ! decodebin3 ! queue max-size-buffers=1 leaky=2 ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink sync=false"
+  },
+  {
+    "Label": "HereLink Wifi",
+    "Enabled": false,
+    "Port": 8554,
+    "Protocol": "Tcp",
+    "Format": "Video",
+    "Direction": "Outbound",
+    "ConfigString": "rtspsrc location=rtsp://192.168.43.1:8554/fpv_stream latency=41 udp-reconnect=1 timeout=0 do-retransmission=false ! application/x-rtp ! decodebin3 ! queue max-size-buffers=1 leaky=2 ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink sync=false"
+  },
+  {
+    "Label": "HereLink GCS",
+    "Enabled": false,
+    "Port": 8554,
+    "Protocol": "Tcp",
+    "Format": "Video",
+    "Direction": "Outbound",
+    "ConfigString": "rtspsrc location=rtsp://192.168.0.10:8554/H264Video latency=41 udp-reconnect=1 timeout=0 do-retransmission=false ! application/x-rtp ! decodebin3 ! queue max-size-buffers=1 leaky=2 ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink sync=false"
+  },
+  {
+    "Label": "Serial",
+    "Enabled": false,
+    "Port": 57600,
+    "Protocol": "Serial",
+    "Format": "MAVLink",
+    "Direction": "Outbound",
+    "ConfigString": ""
+  }
+]</AutoConnect>
+  <camera_fovh>54.3026885986328</camera_fovh>
+  <camera_fovv>37.8492889404297</camera_fovv>
+  <CMB_altmode>Relative</CMB_altmode>
+  <comport />
+  <DisabledPlugins>example-watchbutton.cs;example10-canlogfile.cs;example11-trace.cs;example14-mass.cs;example15-leds.cs;example16-donate.cs;example18-externalapi.cs;example19-multiforward.cs;example2-menu.cs;example20-multiplepositions.cs;example23-switch.cs;example3-fencedist.cs;example4-herelink.cs;example6-mapicondesc.cs;example7-canrtcm.cs;example9-hudonoff.cs</DisabledPlugins>
+  <FlightSplitter>1575</FlightSplitter>
+  <FPaltmode>3</FPaltmode>
+  <fpcoordmouse>GEO</fpcoordmouse>
+  <fpminaltwarning>0</fpminaltwarning>
+  <fw_check>2026/6/19</fw_check>
+  <GMapMarkerBase_InactiveDisplayStyle>Normal</GMapMarkerBase_InactiveDisplayStyle>
+  <grid_advanced>True</grid_advanced>
+  <grid_alt>200</grid_alt>
+  <grid_angle>92.8313119850123</grid_angle>
+  <grid_autotakeoff>True</grid_autotakeoff>
+  <grid_autotakeoff_RTL>True</grid_autotakeoff_RTL>
+  <grid_breakstopstart>True</grid_breakstopstart>
+  <grid_camdir>True</grid_camdir>
+  <grid_camera>A7R2-35</grid_camera>
+  <grid_clockwise_laps>0</grid_clockwise_laps>
+  <grid_copter_delay>0</grid_copter_delay>
+  <grid_copter_headinghold_chk>False</grid_copter_headinghold_chk>
+  <grid_copter_spline>False</grid_copter_spline>
+  <grid_crossgrid>False</grid_crossgrid>
+  <grid_digicam>False</grid_digicam>
+  <grid_dist>102.571428571429</grid_dist>
+  <grid_footprints>False</grid_footprints>
+  <grid_internals>False</grid_internals>
+  <grid_laps>200</grid_laps>
+  <grid_leadin1>0</grid_leadin1>
+  <grid_leadin2>0</grid_leadin2>
+  <grid_match_spiral_perimeter>False</grid_match_spiral_perimeter>
+  <grid_min_lane_separation>0</grid_min_lane_separation>
+  <grid_overlap>60.0</grid_overlap>
+  <grid_overshoot1>0</grid_overshoot1>
+  <grid_overshoot2>0</grid_overshoot2>
+  <grid_repeatservo>False</grid_repeatservo>
+  <grid_sidelap>50.0</grid_sidelap>
+  <grid_spacing>54.8571395874024</grid_spacing>
+  <grid_speed>20</grid_speed>
+  <grid_spiral>False</grid_spiral>
+  <grid_startfrom>Home</grid_startfrom>
+  <grid_trigdist>True</grid_trigdist>
+  <grid_usespeed>True</grid_usespeed>
+  <groundColorToolStripMenuItem>True</groundColorToolStripMenuItem>
+  <guid>7ae39ba4-70b9-4d31-8696-7a814a776973</guid>
+  <hknfzshow>False</hknfzshow>
+  <hknfzshowask>True</hknfzshowask>
+  <HudSwap>true</HudSwap>
+  <kindex>2</kindex>
+  <kindexdate>2026/6/19</kindexdate>
+  <MainHeight>1056</MainHeight>
+  <MainLocX>-8</MainLocX>
+  <MainLocY>-8</MainLocY>
+  <MainMaximised>Maximized</MainMaximised>
+  <MainWidth>1936</MainWidth>
+  <maplast_lat>-35.3633516</maplast_lat>
+  <maplast_lng>149.1652412</maplast_lng>
+  <maplast_zoom>17</maplast_zoom>
+  <MapType>必应卫星地图</MapType>
+  <menu_autohide>false</menu_autohide>
+  <sitl_download_version>3</sitl_download_version>
+  <tabcontrolactions>tabQuick;tabActions;tabPagemessages;tabTLogs;tablogbrowse;</tabcontrolactions>
+  <TCP_BAUD>115200</TCP_BAUD>
+  <terminaltheming>True</terminaltheming>
+  <theme>BurntKermit.mpsystheme</theme>
+  <Tuning_Graph_Selected>roll|pitch|nav_roll|nav_pitch|</Tuning_Graph_Selected>
+  <TXT_DefaultAlt>100</TXT_DefaultAlt>
+  <TXT_homealt>587.16</TXT_homealt>
+  <TXT_homelat>-35.3633517</TXT_homelat>
+  <TXT_homelng>149.1652413</TXT_homelng>
+  <TXT_loiterrad>80</TXT_loiterrad>
+  <TXT_WPRad>50.00</TXT_WPRad>
+  <UseMissionMAVFTP>True</UseMissionMAVFTP>
+</Config>

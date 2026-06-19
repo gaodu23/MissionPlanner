@@ -74,7 +74,7 @@
             this.MinimumSize = new System.Drawing.Size(600, 375);
             this.Name = "Splash";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Mission Planner";
+            this.Text = "JWUAV";
             this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();

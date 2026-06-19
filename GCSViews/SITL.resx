@@ -282,18 +282,6 @@
   <data name="label6.Text" xml:space="preserve">
     <value>Plane</value>
   </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
-  </data>
-  <data name="&gt;&gt;label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -311,18 +299,6 @@
   </data>
   <data name="label5.Text" xml:space="preserve">
     <value>Rover</value>
-  </data>
-  <data name="&gt;&gt;label5.Name" xml:space="preserve">
-    <value>label5</value>
-  </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -342,18 +318,6 @@
   <data name="label4.Text" xml:space="preserve">
     <value>Multirotor</value>
   </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
-  </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -371,18 +335,6 @@
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>Helicopter</value>
-  </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
-  </data>
-  <data name="&gt;&gt;label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="pictureBoxheli.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -818,18 +770,6 @@
   </data>
   <data name="pictureBoxheli.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxheli.Name" xml:space="preserve">
-    <value>pictureBoxheli</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxheli.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.PictureBoxMouseOver, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxheli.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxheli.ZOrder" xml:space="preserve">
-    <value>4</value>
   </data>
   <data name="pictureBoxquad.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1348,18 +1288,6 @@
   <data name="pictureBoxquad.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
-  <data name="&gt;&gt;pictureBoxquad.Name" xml:space="preserve">
-    <value>pictureBoxquad</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxquad.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.PictureBoxMouseOver, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxquad.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxquad.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <data name="pictureBoxrover.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAJ8AAACECAYAAACOCvm4AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
@@ -1761,18 +1689,6 @@
   <data name="pictureBoxrover.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
-  <data name="&gt;&gt;pictureBoxrover.Name" xml:space="preserve">
-    <value>pictureBoxrover</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxrover.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.PictureBoxMouseOver, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxrover.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxrover.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
   <data name="pictureBoxplane.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIsAAACECAYAAACgT9gqAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
@@ -2075,18 +1991,6 @@
   </data>
   <data name="pictureBoxplane.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxplane.Name" xml:space="preserve">
-    <value>pictureBoxplane</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxplane.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.PictureBoxMouseOver, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxplane.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxplane.ZOrder" xml:space="preserve">
-    <value>7</value>
   </data>
   <data name="groupBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -2412,18 +2316,6 @@
   <data name="but_swarmrover.Text" xml:space="preserve">
     <value>Rover Swarm - Multilink</value>
   </data>
-  <data name="&gt;&gt;but_swarmrover.Name" xml:space="preserve">
-    <value>but_swarmrover</value>
-  </data>
-  <data name="&gt;&gt;but_swarmrover.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;but_swarmrover.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;but_swarmrover.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="but_swarmplane.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -2438,18 +2330,6 @@
   </data>
   <data name="but_swarmplane.Text" xml:space="preserve">
     <value>Plane Swarm - Multilink</value>
-  </data>
-  <data name="&gt;&gt;but_swarmplane.Name" xml:space="preserve">
-    <value>but_swarmplane</value>
-  </data>
-  <data name="&gt;&gt;but_swarmplane.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;but_swarmplane.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;but_swarmplane.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="but_swarmseq.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -2466,18 +2346,6 @@
   <data name="but_swarmseq.Text" xml:space="preserve">
     <value>Copter Swarm - Single link</value>
   </data>
-  <data name="&gt;&gt;but_swarmseq.Name" xml:space="preserve">
-    <value>but_swarmseq</value>
-  </data>
-  <data name="&gt;&gt;but_swarmseq.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;but_swarmseq.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;but_swarmseq.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="but_swarmlink.Location" type="System.Drawing.Point, System.Drawing">
     <value>104, 44</value>
   </data>
@@ -2489,18 +2357,6 @@
   </data>
   <data name="but_swarmlink.Text" xml:space="preserve">
     <value>Copter Swarm - Multilink</value>
-  </data>
-  <data name="&gt;&gt;but_swarmlink.Name" xml:space="preserve">
-    <value>but_swarmlink</value>
-  </data>
-  <data name="&gt;&gt;but_swarmlink.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;but_swarmlink.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;but_swarmlink.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="chk_wipe.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2517,18 +2373,6 @@
   <data name="chk_wipe.Text" xml:space="preserve">
     <value>Wipe</value>
   </data>
-  <data name="&gt;&gt;chk_wipe.Name" xml:space="preserve">
-    <value>chk_wipe</value>
-  </data>
-  <data name="&gt;&gt;chk_wipe.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chk_wipe.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;chk_wipe.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="label8.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -2544,18 +2388,6 @@
   <data name="label8.Text" xml:space="preserve">
     <value>Extra command line</value>
   </data>
-  <data name="&gt;&gt;label8.Name" xml:space="preserve">
-    <value>label8</value>
-  </data>
-  <data name="&gt;&gt;label8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <data name="txt_cmdline.Location" type="System.Drawing.Point, System.Drawing">
     <value>401, 17</value>
   </data>
@@ -2564,18 +2396,6 @@
   </data>
   <data name="txt_cmdline.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
-  </data>
-  <data name="&gt;&gt;txt_cmdline.Name" xml:space="preserve">
-    <value>txt_cmdline</value>
-  </data>
-  <data name="&gt;&gt;txt_cmdline.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txt_cmdline.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;txt_cmdline.ZOrder" xml:space="preserve">
-    <value>6</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2591,18 +2411,6 @@
   </data>
   <data name="label7.Text" xml:space="preserve">
     <value>Model</value>
-  </data>
-  <data name="&gt;&gt;label7.Name" xml:space="preserve">
-    <value>label7</value>
-  </data>
-  <data name="&gt;&gt;label7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>7</value>
   </data>
   <data name="cmb_model.Items" xml:space="preserve">
     <value />
@@ -2715,18 +2523,6 @@
   <data name="cmb_model.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="&gt;&gt;cmb_model.Name" xml:space="preserve">
-    <value>cmb_model</value>
-  </data>
-  <data name="&gt;&gt;cmb_model.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmb_model.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;cmb_model.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -2742,18 +2538,6 @@
   <data name="label2.Text" xml:space="preserve">
     <value>Sim Speed</value>
   </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
   <data name="num_simspeed.Location" type="System.Drawing.Point, System.Drawing">
     <value>70, 18</value>
   </data>
@@ -2762,18 +2546,6 @@
   </data>
   <data name="num_simspeed.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
-  </data>
-  <data name="&gt;&gt;num_simspeed.Name" xml:space="preserve">
-    <value>num_simspeed</value>
-  </data>
-  <data name="&gt;&gt;num_simspeed.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;num_simspeed.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;num_simspeed.ZOrder" xml:space="preserve">
-    <value>10</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

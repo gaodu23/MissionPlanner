@@ -201,7 +201,7 @@ namespace MissionPlanner
                 return;
             }
 
-            name = "Mission Planner";
+            name = "JWUAV";
 
             try
             {
@@ -274,10 +274,7 @@ namespace MissionPlanner
             if (IconFile != null)
                 Splash.Icon = Icon.FromHandle(((Bitmap) IconFile).GetHicon());
 
-            string strVersion = File.Exists("version.txt")
-                ? File.ReadAllText("version.txt")
-                : System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            Splash.Text = name + " " + Application.ProductVersion + " build " + strVersion;
+            Splash.Text = name + " 1.3.83 build " + DateTime.Now.ToString("yyMMdd");
             Console.WriteLine("Splash.Show()");
             Splash.Show();
 
