@@ -287,6 +287,9 @@
   <data name="comboBoxMapType.ToolTip" xml:space="preserve">
     <value>改变当前地图类型</value>
   </data>
+  <data name="BUT_KMLArea.Text" xml:space="preserve">
+    <value>KML测区</value>
+  </data>
   <data name="BUT_clearPolygonPoint.Text" xml:space="preserve">
     <value>清除多边形</value>
   </data>

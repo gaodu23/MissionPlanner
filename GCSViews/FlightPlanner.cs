@@ -4034,7 +4034,7 @@ namespace MissionPlanner.GCSViews
             using (OpenFileDialog fd = new OpenFileDialog())
             {
                 fd.Filter =
-                    "All Supported|*.kml;*.kmz;*.dxf;*.gpkg|Google Earth KML|*.kml;*.kmz|AutoCad DXF|*.dxf|GeoPackage|*.gpkg";
+                    "All Supported|*.kml;*.kmz;*.ovkml;*.dxf;*.gpkg|Google Earth KML|*.kml;*.kmz;*.ovkml|AutoCad DXF|*.dxf|GeoPackage|*.gpkg";
                 DialogResult result = fd.ShowDialog();
                 string file = fd.FileName;
                 if (file != "")
@@ -4421,6 +4421,149 @@ namespace MissionPlanner.GCSViews
                     catch (Exception ex)
                     {
                         CustomMessageBox.Show(Strings.Bad_KML_File + ex);
+                    }
+                }
+            }
+        }
+
+        public void BUT_KMLArea_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog fd = new OpenFileDialog())
+            {
+                fd.Filter =
+                    "All Supported|*.kml;*.kmz;*.ovkml|Google Earth KML|*.kml;*.kmz;*.ovkml";
+                DialogResult result = fd.ShowDialog();
+                string file = fd.FileName;
+                if (file == "")
+                    return;
+
+                string tempdir = "";
+
+                try
+                {
+                    string kml = "";
+
+                    // Handle KMZ (zip containing KML)
+                    if (file.ToLower().EndsWith("kmz"))
+                    {
+                        ZipFile input = new ZipFile(file);
+                        tempdir = Path.GetTempPath() + Path.DirectorySeparatorChar + Path.GetRandomFileName();
+                        input.ExtractAll(tempdir, ExtractExistingFileAction.OverwriteSilently);
+
+                        string[] kmls = Directory.GetFiles(tempdir, "*.kml");
+                        if (kmls.Length == 0)
+                        {
+                            input.Dispose();
+                            return;
+                        }
+                        file = kmls[0];
+                        input.Dispose();
+                    }
+
+                    var sr = new StreamReader(File.OpenRead(file));
+                    kml = sr.ReadToEnd();
+                    sr.Close();
+
+                    if (tempdir != "")
+                        Directory.Delete(tempdir, true);
+
+                    kml = kml.Replace("<Snippet/>", "");
+
+                    var parser = new Parser();
+                    parser.ParseString(kml, false);
+
+                    Kml rootnode = parser.Root as Kml;
+                    if (rootnode?.Feature == null)
+                        return;
+
+                    // Collect all polygon coordinates from KML
+                    var allPolygons = new List<List<PointLatLng>>();
+                    Color kmlLineColor = Color.Red;
+                    ExtractKMLPolygons(rootnode.Feature, allPolygons, ref kmlLineColor);
+
+                    if (allPolygons.Count == 0)
+                    {
+                        CustomMessageBox.Show("No polygon data found in KML file.");
+                        return;
+                    }
+
+                    // Clear existing drawn polygons
+                    drawnpolygonsoverlay.Markers.Clear();
+                    drawnpolygonsoverlay.Polygons.Clear();
+                    drawnpolygon.Points.Clear();
+
+                    // Apply KML style: use inline style color if found, force width=2
+                    drawnpolygon.Stroke = new Pen(kmlLineColor, 2);
+
+                    // Merge all KML polygons into a single drawnpolygon (keep loop-close)
+                    int markerIdx = 0;
+                    foreach (var polygonPoints in allPolygons)
+                    {
+                        if (polygonPoints.Count < 3)
+                            continue;
+
+                        foreach (var pt in polygonPoints)
+                        {
+                            markerIdx++;
+                            drawnpolygon.Points.Add(pt);
+                            addpolygonmarkergrid(markerIdx.ToString(), pt.Lng, pt.Lat, 0);
+                        }
+                    }
+
+                    drawnpolygonsoverlay.Polygons.Add(drawnpolygon);
+                    MainMap.UpdatePolygonLocalPosition(drawnpolygon);
+                    MainMap.Invalidate();
+                    MainMap.ZoomAndCenterMarkers(drawnpolygonsoverlay.Id);
+                }
+                catch (Exception ex)
+                {
+                    CustomMessageBox.Show("Error loading KML: " + ex.Message);
+                }
+            }
+        }
+
+        private void ExtractKMLPolygons(Element element, List<List<PointLatLng>> allPolygons, ref Color lineColor)
+        {
+            if (element is Document doc)
+            {
+                foreach (var feat in doc.Features)
+                    ExtractKMLPolygons(feat, allPolygons, ref lineColor);
+            }
+            else if (element is Folder folder)
+            {
+                foreach (var feat in folder.Features)
+                    ExtractKMLPolygons(feat, allPolygons, ref lineColor);
+            }
+            else if (element is Placemark pm)
+            {
+                // Try to read inline style color (e.g., <Style><LineStyle><color>7fff0000</color>...)
+                if (pm.StyleSelector is SharpKml.Dom.Style inlineStyle &&
+                    inlineStyle.Line?.Color != null)
+                {
+                    int color = inlineStyle.Line.Color.Value.Abgr;
+                    // convert ABGR to ARGB
+                    color = (int)((uint)(color & 0xFF00FF00) | ((uint)(color & 0x00FF0000) >> 16) | ((uint)(color & 0x000000FF) << 16));
+                    lineColor = Color.FromArgb(color);
+                }
+
+                if (pm.Geometry is Polygon polygon)
+                {
+                    var points = new List<PointLatLng>();
+                    if (polygon.OuterBoundary?.LinearRing?.Coordinates != null)
+                    {
+                        foreach (var coord in polygon.OuterBoundary.LinearRing.Coordinates)
+                        {
+                            points.Add(new PointLatLng(coord.Latitude, coord.Longitude));
+                        }
+                    }
+                    if (points.Count > 0)
+                        allPolygons.Add(points);
+                }
+                else if (pm.Geometry is MultipleGeometry multiGeo)
+                {
+                    foreach (var geo in multiGeo.Geometry)
+                    {
+                        ExtractKMLPolygons(new Placemark() { Geometry = geo, StyleSelector = pm.StyleSelector }, allPolygons, ref lineColor);
                     }
                 }
             }
@@ -5016,6 +5159,30 @@ namespace MissionPlanner.GCSViews
             {
                 var styleurl = ((Placemark)Element).StyleUrl;
 
+                // Resolve style color and width - support both referenced styles (styleUrl) and inline styles
+                Color kmlColor = Color.White;
+                int kmlWidth = 2;
+
+                if (styleurl != null)
+                {
+                    var colorwidth = GetKMLLineColor(styleurl.OriginalString.TrimStart('#'), root);
+                    kmlColor = colorwidth.Item1;
+                    kmlWidth = colorwidth.Item2;
+                }
+                else if ((((Placemark)Element).StyleSelector as SharpKml.Dom.Style)?.Line != null)
+                {
+                    var lineStyle = (((Placemark)Element).StyleSelector as SharpKml.Dom.Style).Line;
+                    if (lineStyle.Color != null)
+                    {
+                        int color = lineStyle.Color.Value.Abgr;
+                        // convert color from ABGR to ARGB
+                        color = (int)((uint)(color & 0xFF00FF00) | ((uint)(color & 0x00FF0000) >> 16) | ((uint)(color & 0x000000FF) << 16));
+                        kmlColor = Color.FromArgb(color);
+                    }
+                    if (lineStyle.Width != null)
+                        kmlWidth = (int)lineStyle.Width.Value;
+                }
+
                 if (((Placemark)Element).Geometry != null)
                 {
                     var Element2 = ((Placemark)Element).Geometry;
@@ -5023,8 +5190,7 @@ namespace MissionPlanner.GCSViews
                     {
                         GMapPolygon kmlpolygon = new GMapPolygon(new List<PointLatLng>(), "kmlpolygon");
 
-                        var colorwidth = GetKMLLineColor(styleurl.OriginalString.TrimStart('#'), root);
-                        kmlpolygon.Stroke = new Pen(colorwidth.Item1, colorwidth.Item2);
+                        kmlpolygon.Stroke = new Pen(kmlColor, kmlWidth);
                         kmlpolygon.Fill = Brushes.Transparent;
 
                         foreach (var loc in ((Polygon)Element2).OuterBoundary.LinearRing.Coordinates)
@@ -5038,8 +5204,7 @@ namespace MissionPlanner.GCSViews
                     {
                         GMapRoute kmlroute = new GMapRoute(new List<PointLatLng>(), "kmlroute");
 
-                        var colorwidth = GetKMLLineColor(styleurl.OriginalString.TrimStart('#'), root);
-                        kmlroute.Stroke = new Pen(colorwidth.Item1, colorwidth.Item2);
+                        kmlroute.Stroke = new Pen(kmlColor, kmlWidth);
 
                         foreach (var loc in ((LineString)Element2).Coordinates)
                         {
@@ -5072,13 +5237,18 @@ namespace MissionPlanner.GCSViews
 
         private (Color,int) GetKMLLineColor(string styleurl, Document root)
         {
-            var style2 = root.Styles.Where(a => a.Id == styleurl.TrimStart('#')).First();
+            if (root == null || root.Styles == null)
+                return (Color.White, 2);
+
+            var style2 = root.Styles.Where(a => a.Id == styleurl.TrimStart('#')).FirstOrDefault();
 
             if (style2 is StyleMapCollection)
             {
                 var styleurl2 = ((StyleMapCollection)(style2)).First().StyleUrl;
+                if (styleurl2 == null)
+                    return (Color.White, 2);
 
-                var style = root.Styles.Where(a => a.Id == styleurl2.OriginalString.TrimStart('#')).First();
+                var style = root.Styles.Where(a => a.Id == styleurl2.OriginalString.TrimStart('#')).FirstOrDefault();
                 if (style != null)
                 {
                     if (((Style)style).Line != null)
