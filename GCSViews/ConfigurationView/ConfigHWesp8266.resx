@@ -702,18 +702,6 @@
   <data name="label7.Text" xml:space="preserve">
     <value>IP</value>
   </data>
-  <data name="&gt;&gt;label7.Name" xml:space="preserve">
-    <value>label7</value>
-  </data>
-  <data name="&gt;&gt;label7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
-    <value>groupBoxsta</value>
-  </data>
-  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="txt_ip.Location" type="System.Drawing.Point, System.Drawing">
     <value>83, 18</value>
   </data>
@@ -725,18 +713,6 @@
   </data>
   <data name="txt_ip.Text" xml:space="preserve">
     <value>1234</value>
-  </data>
-  <data name="&gt;&gt;txt_ip.Name" xml:space="preserve">
-    <value>txt_ip</value>
-  </data>
-  <data name="&gt;&gt;txt_ip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txt_ip.Parent" xml:space="preserve">
-    <value>groupBoxsta</value>
-  </data>
-  <data name="&gt;&gt;txt_ip.ZOrder" xml:space="preserve">
-    <value>5</value>
   </data>
   <data name="label8.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -756,18 +732,6 @@
   <data name="label8.Text" xml:space="preserve">
     <value>Subnet</value>
   </data>
-  <data name="&gt;&gt;label8.Name" xml:space="preserve">
-    <value>label8</value>
-  </data>
-  <data name="&gt;&gt;label8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
-    <value>groupBoxsta</value>
-  </data>
-  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="txt_subnet.Location" type="System.Drawing.Point, System.Drawing">
     <value>83, 70</value>
   </data>
@@ -779,18 +743,6 @@
   </data>
   <data name="txt_subnet.Text" xml:space="preserve">
     <value>1234</value>
-  </data>
-  <data name="&gt;&gt;txt_subnet.Name" xml:space="preserve">
-    <value>txt_subnet</value>
-  </data>
-  <data name="&gt;&gt;txt_subnet.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txt_subnet.Parent" xml:space="preserve">
-    <value>groupBoxsta</value>
-  </data>
-  <data name="&gt;&gt;txt_subnet.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="label9.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -810,18 +762,6 @@
   <data name="label9.Text" xml:space="preserve">
     <value>Gateway</value>
   </data>
-  <data name="&gt;&gt;label9.Name" xml:space="preserve">
-    <value>label9</value>
-  </data>
-  <data name="&gt;&gt;label9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
-    <value>groupBoxsta</value>
-  </data>
-  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="txt_gateway.Location" type="System.Drawing.Point, System.Drawing">
     <value>83, 44</value>
   </data>
@@ -833,18 +773,6 @@
   </data>
   <data name="txt_gateway.Text" xml:space="preserve">
     <value>1234</value>
-  </data>
-  <data name="&gt;&gt;txt_gateway.Name" xml:space="preserve">
-    <value>txt_gateway</value>
-  </data>
-  <data name="&gt;&gt;txt_gateway.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txt_gateway.Parent" xml:space="preserve">
-    <value>groupBoxsta</value>
-  </data>
-  <data name="&gt;&gt;txt_gateway.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
