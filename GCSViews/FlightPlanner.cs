@@ -68,7 +68,7 @@ namespace MissionPlanner.GCSViews
         {
             if (panelWaypoints.Height <= 30)
             {
-                panelWaypoints.Height = 166;
+                panelWaypoints.Height = 200;
                 but_mincommands.Text = @"˅";
             }
             else
